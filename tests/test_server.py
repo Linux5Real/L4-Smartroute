@@ -29,6 +29,7 @@ class TestBuildAnalyzeResult:
                 "primary": {"model": "claude-sonnet-4-6", "effort_level": "high", "reason": "test"},
                 "budget_alternative": None,
                 "estimated_cost": {"primary": "$0.10", "alternative": "$0.10"},
+                "routing": {"task_type": "bugfix", "scored_candidates": []},
             },
             available_models=[{"id": "claude-sonnet-4-6", "tier": "medium", "effort_levels": ["low", "medium", "high"]}],
         )

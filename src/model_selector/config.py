@@ -3,16 +3,20 @@ from pathlib import Path
 
 import yaml
 
+from model_selector.recommender import _infer_capabilities
+
 DEFAULTS = {
     "graphify_path": "./graphify-out/graph.json",
     "preferences": {
         "optimize_for": "balanced",
+        "router_mode": "hybrid",
         "max_budget_per_task": None,
         "bfs_max_depth": 3,
     },
 }
 
 VALID_MODES = {"quality", "balanced", "performance", "token-saver"}
+VALID_ROUTER_MODES = {"deterministic", "hybrid", "ai-review"}
 
 
 def load_model_library(path: Path) -> list[dict]:
@@ -26,8 +30,43 @@ def load_model_library(path: Path) -> list[dict]:
         m.setdefault("name", m["id"])
         m.setdefault("quality_score", 50)
         m.setdefault("speed", "medium")
+        m.setdefault("status", "active")
+        m.setdefault("confidence", "curated")
+        m.setdefault("source", "models.json")
         validated.append(m)
+    for m in validated:
+        m.setdefault("capabilities", _infer_capabilities(m))
+        m.setdefault("best_for", _best_for(m))
+        m.setdefault("avoid_for", _avoid_for(m))
     return validated
+
+
+def _best_for(model: dict) -> list[str]:
+    strengths = set(model.get("strengths") or [])
+    best = []
+    if {"multi-file-refactoring", "cross-cutting-changes", "architecture-decisions"} & strengths:
+        best.append("multi_file_refactor")
+    if {"debugging", "bug-fixes"} & strengths:
+        best.append("debugging")
+    if "long-context" in strengths or int(model.get("context_window", 0)) >= 1_000_000:
+        best.append("long_context_analysis")
+    if {"documentation", "simple-fixes", "typo-corrections"} & strengths:
+        best.append("simple_edit")
+    if {"agentic-tasks", "ultra-coding"} & strengths:
+        best.append("agentic_implementation")
+    if not best:
+        best.append("agentic_implementation")
+    return best
+
+
+def _avoid_for(model: dict) -> list[str]:
+    tier = model.get("tier", "medium")
+    avoid = []
+    if tier == "low":
+        avoid.extend(["architecture", "multi_file_refactor"])
+    if model.get("status") in {"deprecated", "retired"}:
+        avoid.append("new_work")
+    return avoid
 
 
 def load_config(path: Path) -> dict:
@@ -49,6 +88,10 @@ def load_config(path: Path) -> dict:
         defaults_prefs["optimize_for"] = "token-saver"
     elif mode not in VALID_MODES:
         defaults_prefs["optimize_for"] = "balanced"
+
+    router_mode = defaults_prefs.get("router_mode", "hybrid")
+    if router_mode not in VALID_ROUTER_MODES:
+        defaults_prefs["router_mode"] = "hybrid"
 
     cfg["preferences"] = defaults_prefs
     return cfg

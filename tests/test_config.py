@@ -59,8 +59,18 @@ class TestLoadConfig:
         }))
         cfg = load_config(cfg_file)
         assert cfg["preferences"]["optimize_for"] == "balanced"
+        assert cfg["preferences"]["router_mode"] == "hybrid"
         assert cfg["preferences"]["bfs_max_depth"] == 3
         assert cfg["graphify_path"] == "./graphify-out/graph.json"
+
+    def test_invalid_router_mode_falls_back_to_hybrid(self, tmp_path):
+        cfg_file = tmp_path / "config.yaml"
+        cfg_file.write_text(yaml.dump({
+            "available_models": ["claude-haiku-4-5"],
+            "preferences": {"router_mode": "magic"},
+        }))
+        cfg = load_config(cfg_file)
+        assert cfg["preferences"]["router_mode"] == "hybrid"
 
 
 class TestGetAvailableModels:

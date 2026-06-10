@@ -1,6 +1,7 @@
 import pytest
 
 from model_selector.recommender import recommend
+from model_selector.task_classifier import classify_task
 
 MODELS = [
     {
@@ -221,3 +222,211 @@ class TestMultiProviderSelection:
         # medium tier, fastest → gemini flash or sonnet (both fast, but gemini is cheaper)
         result = rec["primary"]["model"]
         assert result in ("gemini-2.5-flash", "claude-sonnet-4-6")
+
+
+class TestTaskClassification:
+    def test_refactor_prompt_routes_to_multi_file_refactor(self):
+        task = classify_task(
+            "Refactor auth and billing across multiple files",
+            complexity="high",
+            files_affected=12,
+            communities_crossed=4,
+        )
+        assert task == "multi_file_refactor"
+
+    def test_debug_prompt_routes_to_debugging(self):
+        task = classify_task("Diagnose this traceback and find the root cause", complexity="medium")
+        assert task == "debugging"
+
+    def test_empty_diff_analysis_routes_to_review(self):
+        task = classify_task("", files_affected=3)
+        assert task == "review"
+
+    def test_frontend_prompt_routes_to_frontend_ui(self):
+        task = classify_task("Build a responsive React component with CSS polish")
+        assert task == "frontend_ui"
+
+    def test_backend_prompt_routes_to_backend_systems(self):
+        task = classify_task("Fix the backend API middleware and Postgres auth flow")
+        assert task == "backend_systems"
+
+    def test_physics_prompt_routes_to_math_science(self):
+        task = classify_task("Solve a physics optimization problem with probability math")
+        assert task == "math_science"
+
+
+class TestCapabilityRouting:
+    MODELS = [
+        {
+            "id": "cheap-docs",
+            "provider": "test",
+            "tier": "low",
+            "cost": {"input_per_1m": 0.05, "output_per_1m": 0.10},
+            "context_window": 128000,
+            "quality_score": 62,
+            "speed": "fast",
+            "strengths": ["documentation", "simple-fixes"],
+            "capabilities": {
+                "coding": 50,
+                "debugging": 45,
+                "refactoring": 35,
+                "architecture": 30,
+                "agentic_work": 35,
+                "long_context": 55,
+                "instruction_following": 70,
+                "structured_output": 60,
+            },
+            "effort_levels": None,
+        },
+        {
+            "id": "long-context-fast",
+            "provider": "test",
+            "tier": "medium",
+            "cost": {"input_per_1m": 0.20, "output_per_1m": 0.80},
+            "context_window": 1048576,
+            "quality_score": 78,
+            "speed": "fast",
+            "strengths": ["long-context", "code-generation"],
+            "capabilities": {
+                "coding": 74,
+                "debugging": 68,
+                "refactoring": 66,
+                "architecture": 62,
+                "agentic_work": 64,
+                "long_context": 96,
+                "instruction_following": 76,
+                "structured_output": 72,
+            },
+            "effort_levels": ["low", "medium", "high"],
+        },
+        {
+            "id": "refactor-pro",
+            "provider": "test",
+            "tier": "high",
+            "cost": {"input_per_1m": 3.0, "output_per_1m": 12.0},
+            "context_window": 200000,
+            "quality_score": 90,
+            "speed": "medium",
+            "strengths": ["multi-file-refactoring", "debugging", "architecture-decisions"],
+            "capabilities": {
+                "coding": 90,
+                "debugging": 92,
+                "refactoring": 95,
+                "architecture": 90,
+                "agentic_work": 88,
+                "long_context": 72,
+                "instruction_following": 88,
+                "structured_output": 86,
+            },
+            "effort_levels": ["low", "medium", "high", "max"],
+        },
+    ]
+
+    def test_long_context_task_prefers_long_context_model(self):
+        rec = recommend(
+            "medium",
+            self.MODELS,
+            "balanced",
+            task_type="long_context_analysis",
+            prompt="Summarize the whole codebase",
+        )
+        assert rec["primary"]["model"] == "long-context-fast"
+        assert rec["routing"]["task_type"] == "long_context_analysis"
+
+    def test_refactor_task_prefers_refactor_capability(self):
+        rec = recommend(
+            "high",
+            self.MODELS,
+            "balanced",
+            task_type="multi_file_refactor",
+            prompt="Refactor auth across modules",
+        )
+        assert rec["primary"]["model"] == "refactor-pro"
+
+    def test_token_saver_docs_prefers_cheapest_good_enough_model(self):
+        rec = recommend(
+            "low",
+            self.MODELS,
+            "token-saver",
+            task_type="docs",
+            prompt="Update README docs",
+        )
+        assert rec["primary"]["model"] == "cheap-docs"
+
+    def test_returns_scored_candidates_without_full_model_payloads(self):
+        rec = recommend("high", self.MODELS, "balanced", task_type="debugging")
+        candidates = rec["routing"]["scored_candidates"]
+        assert 1 <= len(candidates) <= 5
+        assert {"model", "score", "fit", "cost_per_1m"} <= set(candidates[0])
+        assert "capabilities" not in candidates[0]
+
+    def test_hybrid_adds_ai_review_for_high_risk_refactor(self):
+        rec = recommend(
+            "high",
+            self.MODELS,
+            "balanced",
+            task_type="multi_file_refactor",
+            prompt="Refactor auth across modules",
+            blast_radius={"files_affected": 12, "communities_crossed": 3},
+            router_mode="hybrid",
+        )
+        review = rec["routing"]["ai_review"]
+        assert review["required"] is True
+        assert len(review["candidates"]) == 3
+        assert review["candidates"][0]["model"] == rec["primary"]["model"]
+        assert "capabilities" in review["candidates"][0]
+
+    def test_deterministic_router_skips_ai_review(self):
+        rec = recommend(
+            "critical",
+            self.MODELS,
+            "quality",
+            task_type="architecture",
+            prompt="Design a migration",
+            blast_radius={"files_affected": 20, "communities_crossed": 5},
+            router_mode="deterministic",
+        )
+        assert rec["routing"]["ai_review"]["required"] is False
+
+    def test_ai_review_router_always_requests_ai_review(self):
+        rec = recommend(
+            "low",
+            self.MODELS,
+            "balanced",
+            task_type="docs",
+            prompt="Update README",
+            router_mode="ai-review",
+        )
+        assert rec["routing"]["ai_review"]["required"] is True
+
+    def test_frontend_task_can_prefer_frontend_capability(self):
+        frontend = {
+            **self.MODELS[1],
+            "id": "frontend-specialist",
+            "cost": {"input_per_1m": 1.0, "output_per_1m": 3.0},
+            "capabilities": {**self.MODELS[1]["capabilities"], "frontend": 98, "backend": 65},
+        }
+        backend = {
+            **self.MODELS[1],
+            "id": "backend-specialist",
+            "cost": {"input_per_1m": 1.0, "output_per_1m": 3.0},
+            "capabilities": {**self.MODELS[1]["capabilities"], "frontend": 60, "backend": 98},
+        }
+        rec = recommend("medium", [backend, frontend], "balanced", task_type="frontend_ui", prompt="Build UI")
+        assert rec["primary"]["model"] == "frontend-specialist"
+
+    def test_backend_task_can_prefer_backend_capability(self):
+        frontend = {
+            **self.MODELS[1],
+            "id": "frontend-specialist",
+            "cost": {"input_per_1m": 1.0, "output_per_1m": 3.0},
+            "capabilities": {**self.MODELS[1]["capabilities"], "frontend": 98, "backend": 65},
+        }
+        backend = {
+            **self.MODELS[1],
+            "id": "backend-specialist",
+            "cost": {"input_per_1m": 1.0, "output_per_1m": 3.0},
+            "capabilities": {**self.MODELS[1]["capabilities"], "frontend": 60, "backend": 98},
+        }
+        rec = recommend("medium", [frontend, backend], "balanced", task_type="backend_systems", prompt="Build API")
+        assert rec["primary"]["model"] == "backend-specialist"

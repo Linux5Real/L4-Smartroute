@@ -26,6 +26,7 @@ def _load_cfg():
             "graphify_path": "./graphify-out/graph.json",
             "preferences": {
                 "optimize_for": "balanced",
+                "router_mode": "hybrid",
                 "max_budget_per_task": None,
                 "bfs_max_depth": 3,
             },
@@ -104,8 +105,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,san
 
 .settings-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .form-group label{display:block;font-size:13px;font-weight:500;margin-bottom:6px;color:var(--muted)}
-.form-group input{width:100%;padding:8px 12px;background:var(--bg);border:1px solid var(--border);border-radius:6px;color:var(--text);font-size:13px}
-.form-group input:focus{outline:none;border-color:var(--accent)}
+.form-group input,.form-group select{width:100%;padding:8px 12px;background:var(--bg);border:1px solid var(--border);border-radius:6px;color:var(--text);font-size:13px}
+.form-group input:focus,.form-group select:focus{outline:none;border-color:var(--accent)}
 
 .filter-bar{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap}
 .filter-chip{padding:4px 12px;border:1px solid var(--border);border-radius:16px;font-size:12px;cursor:pointer;background:transparent;color:var(--muted);transition:all .15s}
@@ -168,6 +169,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,san
         <input type="number" id="bfsDepth" min="1" max="10" value="3">
       </div>
       <div class="form-group">
+        <label for="routerMode">Router Mode</label>
+        <select id="routerMode">
+          <option value="hybrid">Hybrid</option>
+          <option value="deterministic">Deterministic</option>
+          <option value="ai-review">AI Review</option>
+        </select>
+      </div>
+      <div class="form-group">
         <label for="maxBudget">Max Budget per Task ($, optional)</label>
         <input type="number" id="maxBudget" step="0.01" min="0" placeholder="No limit">
       </div>
@@ -227,6 +236,7 @@ async function fetchState() {
 function populateForm() {
   document.getElementById('graphifyPath').value = config.graphify_path || './graphify-out/graph.json';
   document.getElementById('bfsDepth').value = config.preferences?.bfs_max_depth || 3;
+  document.getElementById('routerMode').value = config.preferences?.router_mode || 'hybrid';
   if (config.preferences?.max_budget_per_task) {
     document.getElementById('maxBudget').value = config.preferences.max_budget_per_task;
   }
@@ -366,7 +376,18 @@ function renderModels() {
     es.textContent = 'Effort: ' + (m.effort_levels ? m.effort_levels.join(', ') : 'none');
     efforts.appendChild(es);
 
-    info.append(nameRow, prov, meta, efforts);
+    const routing = document.createElement('div');
+    routing.className = 'model-meta';
+    const bestFor = document.createElement('span');
+    bestFor.textContent = 'Best: ' + (m.best_for ? m.best_for.slice(0, 2).join(', ') : 'general');
+    routing.appendChild(bestFor);
+    if (m.status && m.status !== 'active') {
+      const status = document.createElement('span');
+      status.textContent = 'Status: ' + m.status;
+      routing.appendChild(status);
+    }
+
+    info.append(nameRow, prov, meta, efforts, routing);
     card.append(cb, info);
     grid.appendChild(card);
   });
@@ -395,6 +416,7 @@ async function saveConfig() {
     graphify_path: document.getElementById('graphifyPath').value,
     preferences: {
       optimize_for: config.preferences?.optimize_for || 'balanced',
+      router_mode: document.getElementById('routerMode').value || 'hybrid',
       max_budget_per_task: parseFloat(document.getElementById('maxBudget').value) || null,
       bfs_max_depth: parseInt(document.getElementById('bfsDepth').value) || 3,
     }
@@ -420,6 +442,7 @@ function resetDefaults() {
   setMode('balanced');
   document.getElementById('graphifyPath').value = './graphify-out/graph.json';
   document.getElementById('bfsDepth').value = 3;
+  document.getElementById('routerMode').value = 'hybrid';
   document.getElementById('maxBudget').value = '';
   checkRestartNeeded();
   renderModels();

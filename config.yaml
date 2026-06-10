@@ -7,5 +7,6 @@ graphify_path: ./graphify-out/graph.json
 
 preferences:
   optimize_for: balanced
+  router_mode: hybrid
   max_budget_per_task: null
   bfs_max_depth: 3

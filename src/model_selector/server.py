@@ -107,7 +107,13 @@ def create_server(
             analyzer_cache[key] = GraphAnalyzer(gpath)
         return analyzer_cache[key]
 
-    def _analyze(mode: str, start_nodes: list[dict], keywords: list[str], analyzer: GraphAnalyzer) -> str:
+    def _analyze(
+        mode: str,
+        start_nodes: list[dict],
+        keywords: list[str],
+        analyzer: GraphAnalyzer,
+        prompt: str = "",
+    ) -> str:
         cfg, available = loader.get()
         br = calculate_blast_radius(analyzer, start_nodes, cfg["preferences"]["bfs_max_depth"])
         score = compute_blast_score(
@@ -117,7 +123,14 @@ def create_server(
             br["max_edge_depth"],
         )
         complexity = score_to_complexity(score)
-        rec = recommend(complexity, available, cfg["preferences"]["optimize_for"])
+        rec = recommend(
+            complexity,
+            available,
+            cfg["preferences"]["optimize_for"],
+            prompt=prompt,
+            blast_radius=br,
+            router_mode=cfg["preferences"].get("router_mode", "hybrid"),
+        )
         result = build_analyze_result(
             mode=mode,
             matched_keywords=keywords,
@@ -139,7 +152,7 @@ def create_server(
         analyzer = _get_analyzer(graphify_path)
         matched = match_prompt(analyzer, prompt)
         keywords = extract_keywords(prompt)
-        return _analyze("prompt", matched, keywords, analyzer)
+        return _analyze("prompt", matched, keywords, analyzer, prompt=prompt)
 
     @mcp.tool()
     def analyze_diff(diff_target: str | None = None, graphify_path: str | None = None) -> str:
@@ -150,7 +163,7 @@ def create_server(
         analyzer = _get_analyzer(graphify_path)
         changed_files = get_changed_files(diff_target)
         matched = match_diff(analyzer, changed_files)
-        return _analyze("diff", matched, changed_files, analyzer)
+        return _analyze("diff", matched, changed_files, analyzer, prompt=" ".join(changed_files))
 
     @mcp.tool()
     def list_models() -> str:
