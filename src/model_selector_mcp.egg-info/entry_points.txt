@@ -1,2 +1,0 @@
-[console_scripts]
-model-selector-mcp = model_selector.server:main
