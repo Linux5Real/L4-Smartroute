@@ -490,9 +490,16 @@ def run_setup(port: int = 6639):
     handler = partial(SetupHandler, models)
     server = HTTPServer(("127.0.0.1", port), handler)
     url = f"http://127.0.0.1:{port}"
+    open_browser = os.environ.get("MODEL_SELECTOR_OPEN_BROWSER", "1").lower() not in {
+        "0",
+        "false",
+        "no",
+        "off",
+    }
     print(f"Model Selector Settings: {url}")
     print("Press Ctrl+C to stop.")
-    threading.Timer(0.5, lambda: webbrowser.open(url)).start()
+    if open_browser:
+        threading.Timer(0.5, lambda: webbrowser.open(url)).start()
     try:
         server.serve_forever()
     except KeyboardInterrupt:
