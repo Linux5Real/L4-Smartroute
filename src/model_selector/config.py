@@ -12,25 +12,45 @@ DEFAULTS = {
     },
 }
 
+VALID_MODES = {"quality", "balanced", "performance", "token-saver"}
+
 
 def load_model_library(path: Path) -> list[dict]:
     with open(path) as f:
         data = json.load(f)
-    return data["models"]
+    models = data.get("models", [])
+    validated = []
+    for m in models:
+        if not m.get("id") or not m.get("cost"):
+            continue
+        m.setdefault("name", m["id"])
+        m.setdefault("quality_score", 50)
+        m.setdefault("speed", "medium")
+        validated.append(m)
+    return validated
 
 
 def load_config(path: Path) -> dict:
     with open(path) as f:
-        cfg = yaml.safe_load(f)
+        cfg = yaml.safe_load(f) or {}
 
     if "graphify_path" not in cfg:
         cfg["graphify_path"] = DEFAULTS["graphify_path"]
 
+    if "available_models" not in cfg:
+        cfg["available_models"] = []
+
     defaults_prefs = DEFAULTS["preferences"].copy()
     user_prefs = cfg.get("preferences") or {}
     defaults_prefs.update({k: v for k, v in user_prefs.items() if v is not None})
-    cfg["preferences"] = defaults_prefs
 
+    mode = defaults_prefs["optimize_for"]
+    if mode == "cost":
+        defaults_prefs["optimize_for"] = "token-saver"
+    elif mode not in VALID_MODES:
+        defaults_prefs["optimize_for"] = "balanced"
+
+    cfg["preferences"] = defaults_prefs
     return cfg
 
 

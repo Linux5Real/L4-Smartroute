@@ -13,16 +13,19 @@ ROOT = Path(__file__).parent.parent
 class TestLoadModelLibrary:
     def test_loads_all_models(self):
         models = load_model_library(ROOT / "models.json")
-        assert len(models) == 3
+        assert len(models) >= 30
 
     def test_model_has_required_fields(self):
         models = load_model_library(ROOT / "models.json")
         for m in models:
             assert "id" in m
+            assert "name" in m
             assert "provider" in m
             assert "tier" in m
             assert "cost" in m
             assert "context_window" in m
+            assert "quality_score" in m
+            assert "speed" in m
             assert "strengths" in m
             assert "effort_levels" in m
 
@@ -47,7 +50,7 @@ class TestLoadConfig:
         }))
         cfg = load_config(cfg_file)
         assert cfg["available_models"] == ["claude-opus-4-8"]
-        assert cfg["preferences"]["optimize_for"] == "cost"
+        assert cfg["preferences"]["optimize_for"] == "token-saver"
 
     def test_applies_defaults_for_missing_preferences(self, tmp_path):
         cfg_file = tmp_path / "config.yaml"

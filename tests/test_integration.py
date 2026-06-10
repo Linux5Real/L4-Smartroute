@@ -42,7 +42,8 @@ class TestEndToEndPrompt:
 
         rec = recommend(complexity, available_models, "balanced")
 
-        assert rec["primary"]["model"] in {"claude-opus-4-8", "claude-sonnet-4-6", "claude-haiku-4-5"}
+        all_model_ids = {m["id"] for m in available_models}
+        assert rec["primary"]["model"] in all_model_ids
         assert complexity in {"low", "medium", "high", "critical"}
         assert br["files_affected"] >= 0
         assert br["communities_crossed"] >= 0

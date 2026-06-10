@@ -20,6 +20,7 @@ dev = [
 
 [project.scripts]
 model-selector-mcp = "model_selector.server:main"
+model-selector-setup = "model_selector.web_ui:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]

@@ -73,6 +73,11 @@ def create_server(
 
     def _get_analyzer(graphify_path: str | None) -> GraphAnalyzer:
         gpath = Path(graphify_path) if graphify_path else Path(cfg["graphify_path"])
+        if not gpath.exists():
+            raise FileNotFoundError(
+                f"Graphify graph not found at {gpath}. "
+                "Run 'graphify ./your-project' first, or set graphify_path in config.yaml."
+            )
         key = str(gpath.resolve())
         if key not in analyzer_cache:
             analyzer_cache[key] = GraphAnalyzer(gpath)
