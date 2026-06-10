@@ -1,4 +1,5 @@
 import json
+import os
 from pathlib import Path
 
 from mcp.server.fastmcp import FastMCP
@@ -11,7 +12,6 @@ from model_selector.prompt_matcher import extract_keywords, match_prompt
 from model_selector.recommender import recommend
 
 SERVER_DIR = Path(__file__).parent.parent.parent
-
 
 MAX_FILES = 20
 MAX_COMMUNITIES = 10
@@ -54,6 +54,33 @@ def build_analyze_result(
     }
 
 
+class _ConfigLoader:
+    """Reloads config.yaml only when the file changes on disk."""
+
+    def __init__(self, config_path: Path, models_path: Path):
+        self._config_path = config_path
+        self._models_path = models_path
+        self._mtime: float = 0.0
+        self._cfg: dict = {}
+        self._all_models: list[dict] = load_model_library(models_path)
+        self._available: list[dict] = []
+        self._reload()
+
+    def _reload(self):
+        self._cfg = load_config(self._config_path)
+        self._available = get_available_models(self._all_models, self._cfg["available_models"])
+        self._mtime = self._config_path.stat().st_mtime
+
+    def get(self) -> tuple[dict, list[dict]]:
+        try:
+            mtime = self._config_path.stat().st_mtime
+            if mtime != self._mtime:
+                self._reload()
+        except OSError:
+            pass
+        return self._cfg, self._available
+
+
 def create_server(
     config_path: Path | None = None,
     models_path: Path | None = None,
@@ -63,15 +90,12 @@ def create_server(
     if models_path is None:
         models_path = SERVER_DIR / "models.json"
 
-    cfg = load_config(config_path)
-    all_models = load_model_library(models_path)
-    available = get_available_models(all_models, cfg["available_models"])
-
+    loader = _ConfigLoader(config_path, models_path)
     mcp = FastMCP("model-selector")
-
     analyzer_cache: dict[str, GraphAnalyzer] = {}
 
     def _get_analyzer(graphify_path: str | None) -> GraphAnalyzer:
+        cfg, _ = loader.get()
         gpath = Path(graphify_path) if graphify_path else Path(cfg["graphify_path"])
         if not gpath.exists():
             raise FileNotFoundError(
@@ -84,9 +108,8 @@ def create_server(
         return analyzer_cache[key]
 
     def _analyze(mode: str, start_nodes: list[dict], keywords: list[str], analyzer: GraphAnalyzer) -> str:
-        max_depth = cfg["preferences"]["bfs_max_depth"]
-        br = calculate_blast_radius(analyzer, start_nodes, max_depth)
-
+        cfg, available = loader.get()
+        br = calculate_blast_radius(analyzer, start_nodes, cfg["preferences"]["bfs_max_depth"])
         score = compute_blast_score(
             br["files_affected"],
             br["communities_crossed"],
@@ -95,7 +118,6 @@ def create_server(
         )
         complexity = score_to_complexity(score)
         rec = recommend(complexity, available, cfg["preferences"]["optimize_for"])
-
         result = build_analyze_result(
             mode=mode,
             matched_keywords=keywords,
@@ -133,6 +155,7 @@ def create_server(
     @mcp.tool()
     def list_models() -> str:
         """List all available AI models with their metadata, costs, and effort levels."""
+        _, available = loader.get()
         return json.dumps(available, indent=2)
 
     return mcp
