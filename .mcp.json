@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "model-selector": {
+      "command": "python3",
+      "args": ["-m", "model_selector.server"],
+      "cwd": "/home/mcp-project"
+    }
+  }
+}
