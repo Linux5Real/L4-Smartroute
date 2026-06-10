@@ -13,6 +13,10 @@ from model_selector.recommender import recommend
 SERVER_DIR = Path(__file__).parent.parent.parent
 
 
+MAX_FILES = 20
+MAX_COMMUNITIES = 10
+
+
 def build_analyze_result(
     mode: str,
     matched_keywords: list[str],
@@ -22,20 +26,29 @@ def build_analyze_result(
     recommendation: dict,
     available_models: list[dict],
 ) -> dict:
-    br = blast_radius.copy()
-    br["total_score"] = total_score
+    all_files = blast_radius["affected_files"]
+    all_communities = blast_radius["affected_communities"]
+
     return {
         "analysis": {
             "mode": mode,
             "matched_keywords": matched_keywords,
-            "blast_radius": br,
             "complexity": complexity,
-            "affected_files": blast_radius["affected_files"],
-            "affected_communities": blast_radius["affected_communities"],
+            "blast_radius": {
+                "total_score": total_score,
+                "files_affected": blast_radius["files_affected"],
+                "communities_crossed": blast_radius["communities_crossed"],
+                "avg_centrality": blast_radius["avg_centrality"],
+                "max_edge_depth": blast_radius["max_edge_depth"],
+            },
+            "top_affected_files": all_files[:MAX_FILES],
+            "files_truncated": len(all_files) > MAX_FILES,
+            "top_affected_communities": all_communities[:MAX_COMMUNITIES],
+            "communities_truncated": len(all_communities) > MAX_COMMUNITIES,
         },
         "recommendation": recommendation,
         "available_models": [
-            {"id": m["id"], "tier": m["tier"], "effort_levels": m.get("effort_levels")}
+            {"id": m["id"], "tier": m["tier"]}
             for m in available_models
         ],
     }
