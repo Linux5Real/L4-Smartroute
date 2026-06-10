@@ -138,6 +138,18 @@ Lists all available models with metadata, costs, and supported effort levels.
 | **medium** | claude-sonnet-4-6 | $3.00 | $15.00 | Code generation, moderate refactoring, bug fixes |
 | **low** | claude-haiku-4-5 | $0.25 | $1.25 | Simple fixes, typos, boilerplate, documentation |
 
+## Cost per `analyze_task` Call
+
+Token usage per call: ~3,150 input tokens, ~250 output tokens.
+
+| Model | First Call | With Cache |
+|-------|------------|------------|
+| Haiku | $0.0012 | $0.0007 |
+| Sonnet | $0.015 | $0.008 |
+| Opus | $0.074 | $0.039 |
+
+Even with Opus, a single recommendation costs less than 8 cents. Most calls will hit cache and cost half that.
+
 ## Complexity Scoring
 
 The blast radius score is computed as:
