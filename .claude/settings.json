@@ -1,9 +1,22 @@
 {
-    "mcpServers": {
-      "model-selector": {
-        "command": "python",
-        "args": ["-m", "model_selector.server"],
-        "cwd": "/home/mcp-project"
+  "hooks": {
+    "UserPromptExpansion": [
+      {
+        "matcher": "model-settings",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$CLAUDE_PROJECT_DIR\"/scripts/model-settings-hook.sh"
+          }
+        ]
       }
+    ]
+  },
+  "mcpServers": {
+    "model-selector": {
+      "command": "python",
+      "args": ["-m", "model_selector.server"],
+      "cwd": "/home/mcp-project"
     }
   }
+}

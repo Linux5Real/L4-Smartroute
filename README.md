@@ -24,6 +24,11 @@ Model Selector MCP ist ein Python-Projekt und laeuft dort, wo Python 3.11+ verfu
 
 Die Setup-UI laeuft lokal auf `http://localhost:6639`.
 
+## Claude Code Shortcut
+
+Wenn du Claude Code im Repository nutzt, starte die UI mit `/model-settings`.
+Der Slash-Command wird per Hook abgefangen, startet `./scripts/model-settings.sh` direkt und kostet keinen extra Claude-Turn.
+
 ## Requirements
 
 - Python `3.11` oder neuer

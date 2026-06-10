@@ -1,13 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-HOST="127.0.0.1"
 PORT="6639"
 LOG_FILE="${TMPDIR:-/tmp}/model-selector-setup.log"
-
-port_open() {
-  (exec 3<>"/dev/tcp/${HOST}/${PORT}") >/dev/null 2>&1
-}
 
 print_ready_message() {
   cat <<'EOF'
@@ -28,26 +23,40 @@ To stop the settings server, run: `pkill -f model-selector-setup`
 EOF
 }
 
-if port_open; then
-  print_ready_message
-  exit 0
-fi
+stop_existing_server() {
+  python3 - <<'PY'
+import os
+import signal
+
+patterns = ("model-selector-setup", "model_selector.web_ui")
+
+if not os.path.isdir("/proc"):
+    raise SystemExit(0)
+
+for pid_str in os.listdir("/proc"):
+    if not pid_str.isdigit():
+        continue
+    cmdline_path = f"/proc/{pid_str}/cmdline"
+    try:
+        with open(cmdline_path, "rb") as f:
+            cmdline = f.read().replace(b"\0", b" ").decode("utf-8", "replace")
+    except OSError:
+        continue
+    if any(pattern in cmdline for pattern in patterns):
+        try:
+            os.kill(int(pid_str), signal.SIGTERM)
+        except ProcessLookupError:
+            pass
+PY
+}
 
 if ! command -v model-selector-setup >/dev/null 2>&1; then
   echo "model-selector-setup is not available on PATH." >&2
   exit 1
 fi
 
-MODEL_SELECTOR_OPEN_BROWSER=0 nohup model-selector-setup >"${LOG_FILE}" 2>&1 &
+stop_existing_server
+sleep 0.2
 
-for _ in {1..20}; do
-  if port_open; then
-    print_ready_message
-    exit 0
-  fi
-  sleep 0.25
-done
-
-echo "Model Selector Settings did not start on http://localhost:${PORT}." >&2
-echo "Check ${LOG_FILE} for details." >&2
-exit 1
+setsid -f sh -c 'MODEL_SELECTOR_OPEN_BROWSER=0 exec model-selector-setup' >"${LOG_FILE}" 2>&1 </dev/null
+print_ready_message
