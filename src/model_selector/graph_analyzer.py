@@ -70,7 +70,12 @@ class GraphAnalyzer:
 
     def betweenness_centrality(self) -> dict[str, float]:
         if self._centrality_cache is None:
-            self._centrality_cache = nx.betweenness_centrality(self._graph)
+            n = self._graph.number_of_nodes()
+            if n > 500:
+                k = min(200, n)
+                self._centrality_cache = nx.betweenness_centrality(self._graph, k=k)
+            else:
+                self._centrality_cache = nx.betweenness_centrality(self._graph)
         return self._centrality_cache
 
     def neighbors(self, node_id: str) -> list[str]:

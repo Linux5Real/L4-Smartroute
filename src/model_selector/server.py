@@ -69,21 +69,18 @@ def create_server(
 
     mcp = FastMCP("model-selector")
 
-    @mcp.tool()
-    def analyze_task(prompt: str, graphify_path: str | None = None) -> str:
-        """Analyze a task prompt and recommend the best AI model + effort level.
+    analyzer_cache: dict[str, GraphAnalyzer] = {}
 
-        Uses the project's Graphify knowledge graph to calculate blast radius,
-        affected files/communities, and complexity score.
-        """
+    def _get_analyzer(graphify_path: str | None) -> GraphAnalyzer:
         gpath = Path(graphify_path) if graphify_path else Path(cfg["graphify_path"])
-        analyzer = GraphAnalyzer(gpath)
+        key = str(gpath.resolve())
+        if key not in analyzer_cache:
+            analyzer_cache[key] = GraphAnalyzer(gpath)
+        return analyzer_cache[key]
 
-        matched = match_prompt(analyzer, prompt)
-        keywords = extract_keywords(prompt)
-
+    def _analyze(mode: str, start_nodes: list[dict], keywords: list[str], analyzer: GraphAnalyzer) -> str:
         max_depth = cfg["preferences"]["bfs_max_depth"]
-        br = calculate_blast_radius(analyzer, matched, max_depth)
+        br = calculate_blast_radius(analyzer, start_nodes, max_depth)
 
         score = compute_blast_score(
             br["files_affected"],
@@ -92,11 +89,10 @@ def create_server(
             br["max_edge_depth"],
         )
         complexity = score_to_complexity(score)
-
         rec = recommend(complexity, available, cfg["preferences"]["optimize_for"])
 
         result = build_analyze_result(
-            mode="prompt",
+            mode=mode,
             matched_keywords=keywords,
             blast_radius=br,
             complexity=complexity,
@@ -107,40 +103,27 @@ def create_server(
         return json.dumps(result, indent=2)
 
     @mcp.tool()
+    def analyze_task(prompt: str, graphify_path: str | None = None) -> str:
+        """Analyze a task prompt and recommend the best AI model + effort level.
+
+        Uses the project's Graphify knowledge graph to calculate blast radius,
+        affected files/communities, and complexity score.
+        """
+        analyzer = _get_analyzer(graphify_path)
+        matched = match_prompt(analyzer, prompt)
+        keywords = extract_keywords(prompt)
+        return _analyze("prompt", matched, keywords, analyzer)
+
+    @mcp.tool()
     def analyze_diff(diff_target: str | None = None, graphify_path: str | None = None) -> str:
         """Analyze git diff and recommend the best AI model + effort level for review.
 
         Maps changed files to the Graphify knowledge graph to calculate blast radius.
         """
-        gpath = Path(graphify_path) if graphify_path else Path(cfg["graphify_path"])
-        analyzer = GraphAnalyzer(gpath)
-
+        analyzer = _get_analyzer(graphify_path)
         changed_files = get_changed_files(diff_target)
         matched = match_diff(analyzer, changed_files)
-
-        max_depth = cfg["preferences"]["bfs_max_depth"]
-        br = calculate_blast_radius(analyzer, matched, max_depth)
-
-        score = compute_blast_score(
-            br["files_affected"],
-            br["communities_crossed"],
-            br["avg_centrality"],
-            br["max_edge_depth"],
-        )
-        complexity = score_to_complexity(score)
-
-        rec = recommend(complexity, available, cfg["preferences"]["optimize_for"])
-
-        result = build_analyze_result(
-            mode="diff",
-            matched_keywords=changed_files,
-            blast_radius=br,
-            complexity=complexity,
-            total_score=round(score, 2),
-            recommendation=rec,
-            available_models=available,
-        )
-        return json.dumps(result, indent=2)
+        return _analyze("diff", matched, changed_files, analyzer)
 
     @mcp.tool()
     def list_models() -> str:
