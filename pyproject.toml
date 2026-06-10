@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "model-selector-mcp"
+version = "0.1.0"
+description = "MCP server that recommends AI models based on Graphify knowledge graph analysis"
+requires-python = ">=3.11"
+dependencies = [
+    "mcp>=1.0.0",
+    "networkx>=3.0",
+    "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+]
+
+[project.scripts]
+model-selector-mcp = "model_selector.server:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

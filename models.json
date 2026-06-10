@@ -1,0 +1,56 @@
+{
+  "models": [
+    {
+      "id": "claude-opus-4-8",
+      "provider": "anthropic",
+      "tier": "high",
+      "cost": {
+        "input_per_1m": 15.0,
+        "output_per_1m": 75.0
+      },
+      "context_window": 200000,
+      "strengths": [
+        "complex-reasoning",
+        "multi-file-refactoring",
+        "architecture-decisions",
+        "cross-cutting-changes"
+      ],
+      "effort_levels": ["low", "medium", "high", "xhigh", "max", "ultra"]
+    },
+    {
+      "id": "claude-sonnet-4-6",
+      "provider": "anthropic",
+      "tier": "medium",
+      "cost": {
+        "input_per_1m": 3.0,
+        "output_per_1m": 15.0
+      },
+      "context_window": 200000,
+      "strengths": [
+        "code-generation",
+        "moderate-refactoring",
+        "bug-fixes",
+        "single-module-changes"
+      ],
+      "effort_levels": ["low", "medium", "high"]
+    },
+    {
+      "id": "claude-haiku-4-5",
+      "provider": "anthropic",
+      "tier": "low",
+      "cost": {
+        "input_per_1m": 0.25,
+        "output_per_1m": 1.25
+      },
+      "context_window": 200000,
+      "strengths": [
+        "simple-fixes",
+        "typo-corrections",
+        "single-file-edits",
+        "boilerplate",
+        "documentation"
+      ],
+      "effort_levels": null
+    }
+  ]
+}

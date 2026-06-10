@@ -1,0 +1,57 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {"label": "auth_middleware.py", "file_type": "code", "source_file": "src/auth/middleware.py", "source_location": "L1", "id": "auth_middleware_py", "community": 0, "norm_label": "auth_middleware.py"},
+    {"label": "JWTHandler", "file_type": "code", "source_file": "src/auth/jwt.py", "source_location": "L5", "id": "jwt_handler", "community": 0, "norm_label": "jwthandler"},
+    {"label": "validate_token()", "file_type": "code", "source_file": "src/auth/jwt.py", "source_location": "L20", "id": "validate_token", "community": 0, "norm_label": "validate_token()"},
+    {"label": "UserSession", "file_type": "code", "source_file": "src/auth/session.py", "source_location": "L1", "id": "user_session", "community": 0, "norm_label": "usersession"},
+    {"label": "hash_password()", "file_type": "code", "source_file": "src/auth/utils.py", "source_location": "L10", "id": "hash_password", "community": 0, "norm_label": "hash_password()"},
+
+    {"label": "routes.py", "file_type": "code", "source_file": "src/api/routes.py", "source_location": "L1", "id": "routes_py", "community": 1, "norm_label": "routes.py"},
+    {"label": "UserController", "file_type": "code", "source_file": "src/api/controllers/user.py", "source_location": "L1", "id": "user_controller", "community": 1, "norm_label": "usercontroller"},
+    {"label": "handle_request()", "file_type": "code", "source_file": "src/api/handlers.py", "source_location": "L15", "id": "handle_request", "community": 1, "norm_label": "handle_request()"},
+    {"label": "RateLimiter", "file_type": "code", "source_file": "src/api/rate_limiter.py", "source_location": "L1", "id": "rate_limiter", "community": 1, "norm_label": "ratelimiter"},
+    {"label": "serialize_response()", "file_type": "code", "source_file": "src/api/serializers.py", "source_location": "L8", "id": "serialize_response", "community": 1, "norm_label": "serialize_response()"},
+
+    {"label": "DatabasePool", "file_type": "code", "source_file": "src/db/pool.py", "source_location": "L1", "id": "db_pool", "community": 2, "norm_label": "databasepool"},
+    {"label": "UserModel", "file_type": "code", "source_file": "src/db/models/user.py", "source_location": "L1", "id": "user_model", "community": 2, "norm_label": "usermodel"},
+    {"label": "migrate()", "file_type": "code", "source_file": "src/db/migrations.py", "source_location": "L30", "id": "migrate", "community": 2, "norm_label": "migrate()"},
+    {"label": "QueryBuilder", "file_type": "code", "source_file": "src/db/query.py", "source_location": "L1", "id": "query_builder", "community": 2, "norm_label": "querybuilder"},
+    {"label": "ConnectionConfig", "file_type": "code", "source_file": "src/db/config.py", "source_location": "L1", "id": "conn_config", "community": 2, "norm_label": "connectionconfig"},
+
+    {"label": "README.md", "file_type": "document", "source_file": "README.md", "source_location": "L1", "id": "readme_md", "community": 3, "norm_label": "readme.md"},
+    {"label": "Architecture Decision", "file_type": "rationale", "source_file": "docs/adr-001.md", "source_location": "L1", "id": "adr_001", "community": 3, "norm_label": "architecture decision"},
+
+    {"label": "config.py", "file_type": "code", "source_file": "src/config.py", "source_location": "L1", "id": "app_config", "community": 1, "norm_label": "config.py"},
+    {"label": "logger.py", "file_type": "code", "source_file": "src/utils/logger.py", "source_location": "L1", "id": "logger", "community": 1, "norm_label": "logger.py"}
+  ],
+  "links": [
+    {"relation": "contains", "confidence": "EXTRACTED", "source_file": "src/auth/jwt.py", "source_location": "L5", "weight": 1.0, "confidence_score": 1.0, "source": "auth_middleware_py", "target": "jwt_handler"},
+    {"relation": "calls", "confidence": "EXTRACTED", "source_file": "src/auth/middleware.py", "source_location": "L25", "weight": 1.0, "confidence_score": 1.0, "source": "auth_middleware_py", "target": "validate_token"},
+    {"relation": "uses", "confidence": "EXTRACTED", "source_file": "src/auth/middleware.py", "source_location": "L30", "weight": 1.0, "confidence_score": 1.0, "source": "auth_middleware_py", "target": "user_session"},
+    {"relation": "calls", "confidence": "EXTRACTED", "source_file": "src/auth/session.py", "source_location": "L15", "weight": 1.0, "confidence_score": 0.9, "source": "user_session", "target": "hash_password"},
+
+    {"relation": "imports", "confidence": "EXTRACTED", "source_file": "src/api/routes.py", "source_location": "L3", "weight": 1.0, "confidence_score": 1.0, "source": "routes_py", "target": "auth_middleware_py"},
+    {"relation": "calls", "confidence": "EXTRACTED", "source_file": "src/api/routes.py", "source_location": "L20", "weight": 1.0, "confidence_score": 1.0, "source": "routes_py", "target": "handle_request"},
+    {"relation": "uses", "confidence": "EXTRACTED", "source_file": "src/api/routes.py", "source_location": "L8", "weight": 1.0, "confidence_score": 0.9, "source": "routes_py", "target": "rate_limiter"},
+    {"relation": "calls", "confidence": "EXTRACTED", "source_file": "src/api/handlers.py", "source_location": "L30", "weight": 1.0, "confidence_score": 1.0, "source": "handle_request", "target": "serialize_response"},
+    {"relation": "uses", "confidence": "INFERRED", "source_file": "src/api/controllers/user.py", "source_location": "L10", "weight": 0.8, "confidence_score": 0.7, "source": "user_controller", "target": "user_model"},
+    {"relation": "imports", "confidence": "EXTRACTED", "source_file": "src/api/controllers/user.py", "source_location": "L2", "weight": 1.0, "confidence_score": 1.0, "source": "user_controller", "target": "user_session"},
+
+    {"relation": "uses", "confidence": "EXTRACTED", "source_file": "src/db/models/user.py", "source_location": "L5", "weight": 1.0, "confidence_score": 1.0, "source": "user_model", "target": "db_pool"},
+    {"relation": "uses", "confidence": "EXTRACTED", "source_file": "src/db/models/user.py", "source_location": "L8", "weight": 1.0, "confidence_score": 1.0, "source": "user_model", "target": "query_builder"},
+    {"relation": "calls", "confidence": "EXTRACTED", "source_file": "src/db/migrations.py", "source_location": "L35", "weight": 1.0, "confidence_score": 0.9, "source": "migrate", "target": "db_pool"},
+    {"relation": "uses", "confidence": "EXTRACTED", "source_file": "src/db/pool.py", "source_location": "L10", "weight": 1.0, "confidence_score": 1.0, "source": "db_pool", "target": "conn_config"},
+
+    {"relation": "imports", "confidence": "EXTRACTED", "source_file": "src/api/handlers.py", "source_location": "L2", "weight": 1.0, "confidence_score": 1.0, "source": "handle_request", "target": "user_model"},
+    {"relation": "uses", "confidence": "INFERRED", "source_file": "src/api/routes.py", "source_location": "L5", "weight": 0.8, "confidence_score": 0.7, "source": "routes_py", "target": "app_config"},
+    {"relation": "uses", "confidence": "INFERRED", "source_file": "src/auth/middleware.py", "source_location": "L8", "weight": 0.8, "confidence_score": 0.7, "source": "auth_middleware_py", "target": "logger"},
+
+    {"relation": "describes", "confidence": "EXTRACTED", "source_file": "README.md", "source_location": "L1", "weight": 1.0, "confidence_score": 1.0, "source": "readme_md", "target": "routes_py"},
+    {"relation": "rationale_for", "confidence": "EXTRACTED", "source_file": "docs/adr-001.md", "source_location": "L1", "weight": 1.0, "confidence_score": 1.0, "source": "adr_001", "target": "auth_middleware_py"}
+  ],
+  "hyperedges": [],
+  "built_at_commit": "abc1234"
+}

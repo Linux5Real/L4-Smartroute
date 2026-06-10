@@ -1,0 +1,11 @@
+available_models:
+  - claude-opus-4-8
+  - claude-sonnet-4-6
+  - claude-haiku-4-5
+
+graphify_path: ./graphify-out/graph.json
+
+preferences:
+  optimize_for: balanced
+  max_budget_per_task: null
+  bfs_max_depth: 3

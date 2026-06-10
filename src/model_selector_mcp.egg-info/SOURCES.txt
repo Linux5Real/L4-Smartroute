@@ -1,0 +1,8 @@
+pyproject.toml
+src/model_selector/__init__.py
+src/model_selector_mcp.egg-info/PKG-INFO
+src/model_selector_mcp.egg-info/SOURCES.txt
+src/model_selector_mcp.egg-info/dependency_links.txt
+src/model_selector_mcp.egg-info/entry_points.txt
+src/model_selector_mcp.egg-info/requires.txt
+src/model_selector_mcp.egg-info/top_level.txt
