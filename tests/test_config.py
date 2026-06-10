@@ -29,15 +29,20 @@ class TestLoadModelLibrary:
             assert "strengths" in m
             assert "effort_levels" in m
 
-    def test_opus_has_six_effort_levels(self):
+    def test_opus_48_has_xhigh_effort_level(self):
         models = load_model_library(ROOT / "models.json")
         opus = next(m for m in models if m["id"] == "claude-opus-4-8")
-        assert opus["effort_levels"] == ["low", "medium", "high", "xhigh", "max", "ultra"]
+        assert opus["effort_levels"] == ["high", "xhigh", "max"]
 
-    def test_haiku_has_no_effort_levels(self):
+    def test_opus_46_does_not_have_xhigh_effort_level(self):
         models = load_model_library(ROOT / "models.json")
-        haiku = next(m for m in models if m["id"] == "claude-haiku-4-5")
-        assert haiku["effort_levels"] is None
+        opus = next(m for m in models if m["id"] == "claude-opus-4-6")
+        assert opus["effort_levels"] == ["high", "max"]
+
+    def test_o_series_models_are_removed(self):
+        models = load_model_library(ROOT / "models.json")
+        ids = {m["id"] for m in models}
+        assert {"o3", "o4", "o4-mini"}.isdisjoint(ids)
 
 
 class TestLoadConfig:

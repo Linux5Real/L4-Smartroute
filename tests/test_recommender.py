@@ -399,6 +399,18 @@ class TestCapabilityRouting:
         )
         assert rec["routing"]["ai_review"]["required"] is True
 
+    def test_hybrid_skips_ai_review_for_low_risk_docs(self):
+        rec = recommend(
+            "low",
+            self.MODELS,
+            "token-saver",
+            task_type="docs",
+            prompt="Update README copy",
+            blast_radius={"files_affected": 1, "communities_crossed": 0},
+            router_mode="hybrid",
+        )
+        assert rec["routing"]["ai_review"]["required"] is False
+
     def test_frontend_task_can_prefer_frontend_capability(self):
         frontend = {
             **self.MODELS[1],

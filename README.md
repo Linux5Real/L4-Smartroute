@@ -1,16 +1,132 @@
 # Model Selector MCP
 
-**Stop overpaying for AI.** This MCP server analyzes your task and recommends the right model at the right price — automatically.
+Model Selector MCP waehlt fuer eine Aufgabe das passende Modell aus, statt pauschal das teuerste zu nehmen.
+Es kombiniert Graphify-Blast-Radius, Task-Typ, Router-Modus, Modellkosten, Context Window und Modellfaehigkeiten zu einer Empfehlung, die fuer Coding-Agents praktisch nutzbar ist.
 
-A typo fix doesn't need GPT-5.5. A cross-cutting refactor shouldn't run on Haiku. Model Selector uses your project's [Graphify](https://github.com/graphify) knowledge graph to measure the **blast radius** of each task and picks the optimal model + effort level.
+## What It Does
 
-## Install
+- Analysiert Prompts und Git-Diffs
+- Nutzt Graphify, um Risiko und betroffene Bereiche im Projekt zu erkennen
+- Bewertet aktive Modelle aus vielen Providern gegeneinander
+- Unterstuetzt `deterministic`, `hybrid` und `ai-review` Routing
+- Liefert Modell + Effort-Level + Budget-Alternative
+
+Aktuell sind `74` aktive Modelle aus `14` Providern im Katalog, dazu weitere als `deprecated` markierte Vergleichsmodelle.
+
+## Supported Platforms
+
+Model Selector MCP ist ein Python-Projekt und laeuft dort, wo Python 3.11+ verfuegbar ist:
+
+- Linux: empfohlen
+- macOS: unterstuetzt
+- Windows: unterstuetzt
+- WSL2: sehr gute Wahl fuer Windows-Nutzer
+
+Die Setup-UI laeuft lokal auf `http://localhost:6639`.
+
+## Requirements
+
+- Python `3.11` oder neuer
+- `pip`
+- Ein Graphify-Graph fuer dein Projekt, z. B. `graphify ./your-project`
+
+Optional, aber praktisch:
+
+- `git`
+- Ein MCP-Client wie Claude Code oder Claude Desktop
+
+## Quick Start
+
+### Linux / macOS
+
+```bash
+git clone <YOUR-REPO-URL>
+cd model-selector-mcp
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -U pip
+pip install -e .
+model-selector-setup
+```
+
+### Windows PowerShell
+
+```powershell
+git clone <YOUR-REPO-URL>
+cd model-selector-mcp
+py -3.11 -m venv .venv
+.venv\Scripts\Activate.ps1
+python -m pip install -U pip
+pip install -e .
+model-selector-setup
+```
+
+### Windows CMD
+
+```cmd
+git clone <YOUR-REPO-URL>
+cd model-selector-mcp
+py -3.11 -m venv .venv
+.venv\Scripts\activate.bat
+python -m pip install -U pip
+pip install -e .
+model-selector-setup
+```
+
+Danach oeffnet sich die lokale Setup-Oberflaeche auf:
+
+```text
+http://localhost:6639
+```
+
+## Installation Details
+
+### 1. Install package
 
 ```bash
 pip install -e .
 ```
 
-Then add to your MCP config (`.mcp.json`, Claude Desktop, etc.):
+Das installiert diese Commands:
+
+- `model-selector-mcp`
+- `model-selector-setup`
+
+### 2. Configure your models
+
+Starte die lokale UI:
+
+```bash
+model-selector-setup
+```
+
+Dort kannst du:
+
+- aktive Modelle auswaehlen
+- `quality`, `balanced`, `performance` oder `token-saver` setzen
+- `deterministic`, `hybrid` oder `ai-review` als Router-Modus waehlen
+- `graphify_path` setzen
+- `bfs_max_depth` und optionales Budget konfigurieren
+
+Die Einstellungen werden in [config.yaml](/home/mcp-project/config.yaml) gespeichert.
+
+### 3. Add the MCP server to your client
+
+Beispiel fuer `.mcp.json`:
+
+```json
+{
+  "mcpServers": {
+    "model-selector": {
+      "command": "python3",
+      "args": ["-m", "model_selector.server"],
+      "cwd": "/absolute/path/to/model-selector-mcp"
+    }
+  }
+}
+```
+
+Wenn `model-selector-mcp` auf deinem `PATH` liegt, geht auch:
 
 ```json
 {
@@ -22,83 +138,169 @@ Then add to your MCP config (`.mcp.json`, Claude Desktop, etc.):
 }
 ```
 
-## Setup
+## Router Modes
 
-Run the setup wizard to configure models and preferences via a local web UI:
+### `deterministic`
 
-```bash
-model-selector-setup
-```
+Nur lokales Routing.
+Schnell, billig, stabil.
+Gut fuer einfache oder hochvolumige Tasks.
 
-This opens a browser at `http://localhost:6639` where you can:
-- **Pick your models** — 32+ models from 12 providers (Anthropic, OpenAI, Google, DeepSeek, Meta, Mistral, xAI, and more)
-- **Choose your mode** — Quality, Balanced, Performance, or Token Saver
-- **Set your budget** — optional per-task spending limit
-- **Configure Graphify** — point to your project's knowledge graph
+### `hybrid`
 
-Settings are saved to `config.yaml`.
+Empfohlener Standard.
+Der Router sortiert lokal Top-Kandidaten vor und fordert nur bei schwierigen, knappen oder risikoreichen Aufgaben ein kompaktes AI-Review an.
 
-## How It Works
+### `ai-review`
 
-```
-Task / Diff → Graph Analysis → Blast Radius Score → Model Recommendation
-```
-
-1. You send a task prompt or git diff
-2. The server maps affected code to your Graphify knowledge graph
-3. BFS traversal calculates blast radius (files, communities, centrality, depth)
-4. A complexity score determines the right model tier and effort level
+Erzwingt immer einen AI-Rerank ueber die Top-Kandidaten.
+Gut fuer Kalibrierung, Evaluation und kritische Entscheidungen.
 
 ## Optimization Modes
 
-| Mode | Strategy | Best For |
-|------|----------|----------|
-| **Quality** | Best model, highest effort | Critical features, architecture decisions |
-| **Balanced** | Smart cost/quality trade-off | Daily development (default) |
-| **Performance** | Cheaper model + boosted effort (DLSS-style) | Fast iteration, prototyping |
-| **Token Saver** | Cheapest viable model, minimum effort | Bulk tasks, simple fixes, documentation |
+| Mode | Meaning | Good For |
+|------|---------|----------|
+| `quality` | bestes Modell fuer die Aufgabe | Architektur, High-Risk-Refactors |
+| `balanced` | Fit pro Kosten | Standard fuer Alltag |
+| `performance` | schnellere Modelle mit guter Task-Fit-Balance | Iteration, Tempo |
+| `token-saver` | billigstes noch sinnvolles Modell | Docs, kleine Fixes, hohe Menge |
 
-**Performance mode** works like NVIDIA DLSS: it drops one model tier but compensates with higher effort levels — giving you near-quality results at a fraction of the cost and latency.
+## Supported Model Families
 
-## Supported Models
+Der Katalog enthaelt aktuell unter anderem:
 
-| Provider | Models | Price Range (per 1M tokens) |
-|----------|--------|-----------------------------|
-| Anthropic | Fable 5, Opus 4.8, Sonnet 4.6, Haiku 4.5 | $1.50 - $120.00 |
-| OpenAI | GPT-5.5, GPT-5.4, GPT-4.1, 4.1-mini, 4.1-nano, o3, o4-mini | $0.50 - $90.00 |
-| Google | Gemini 2.5 Pro, Flash, Flash Lite | $0.38 - $11.25 |
-| DeepSeek | V4 Pro, V4 Flash, V3 | $1.37 - $10.00 |
-| Moonshot | Kimi K2.6 | $12.50 |
-| xAI | Grok 3, Grok 3 Mini | $0.80 - $18.00 |
-| Meta | Llama 4 Maverick, Scout | $0.75 - $2.50 |
-| Mistral | Large, Small, Codestral | $0.40 - $8.00 |
-| Alibaba | Qwen 3, Qwen 3 Coder | $4.00 |
-| Zhipu | GLM 5.1 | $5.00 |
-| MiniMax | M3 | $7.50 |
-| Xiaomi | Mimo 2.5 Pro, Mimo 2.5 | $1.50 - $6.00 |
-| Cohere | Command A | $12.50 |
+- Anthropic: Claude Fable 5, Opus 4.8, 4.7, 4.6, 4.5, Sonnet 4.6, Haiku 4.5
+- OpenAI: GPT-5.5, GPT-5.4 mini/nano, GPT-5.3 Codex, GPT-5.2 Varianten
+- Google: Gemini 3.1 Pro Preview, 3.5 Flash, 3.1 Flash-Lite, 3 Flash, 2.5 Flash, 2.5 Pro
+- xAI: Grok 4.3 low/medium/high/non-reasoning, Grok 4.1 Fast, Grok Build 0.1
+- Alibaba: Qwen3.7 Max/Plus, Qwen3.6, Qwen3 Next, Qwen3 Coder, relevante Qwen Open-Weight-Modelle
+- Z AI: GLM-5.1, GLM-5 Turbo, GLM-5, GLM-4.7 Varianten
+- Moonshot: Kimi K2.6, K2.5, K2 Thinking
+- MiniMax: M3, M2.7, M2.5, M2.1, M2
+- Xiaomi: MiMo V2.5 Pro, V2.5, V2 Omni, V2 Flash, V2 Pro
+- DeepSeek, Mistral, Meta, NVIDIA, Cohere
+
+Veraltete Modelle koennen weiter im Katalog stehen, werden aber mit `status: deprecated` markiert und im Router abgewertet.
+
+## How Recommendation Works
+
+```text
+Prompt / Diff
+-> Graphify blast radius
+-> Task classification
+-> Candidate scoring
+-> Optional AI review
+-> Final model + effort level
+```
+
+Der Router beruecksichtigt unter anderem:
+
+- Task-Typen wie `backend_systems`, `frontend_ui`, `math_science`, `docs`, `debugging`, `multi_file_refactor`
+- Blast Radius ueber Dateien, Communities, Tiefe und Zentralitaet
+- Modellkosten
+- Context Window
+- Speed
+- Capability-Scores
+- Modellstatus wie `active`, `deprecated`, `preview`
 
 ## MCP Tools
 
 ### `analyze_task`
-Send a task description, get a model recommendation:
+
+Analysiert einen Prompt und empfiehlt ein Modell:
+
 ```json
-{"prompt": "refactor the auth module to support OAuth2"}
+{
+  "prompt": "refactor auth middleware and update tests"
+}
 ```
 
 ### `analyze_diff`
-Analyze a git diff for code review:
+
+Analysiert einen Git-Diff fuer Review oder Modellwahl:
+
 ```json
-{"diff_target": "main"}
+{
+  "diff_target": "main"
+}
 ```
 
 ### `list_models`
-List all configured models with metadata and pricing.
 
-## Requirements
+Listet die aktuell aktivierbaren Modelle mit Metadaten.
 
-- Python 3.11+
-- A Graphify knowledge graph for your project (`graphify ./your-project`)
+## Project Files
+
+- [models.json](/home/mcp-project/models.json): Modellkatalog
+- [config.yaml](/home/mcp-project/config.yaml): lokale Auswahl und Routing-Praeferenzen
+- [.mcp.json](/home/mcp-project/.mcp.json): Beispiel fuer lokale MCP-Konfiguration
+- [src/model_selector/server.py](/home/mcp-project/src/model_selector/server.py): MCP-Server
+- [src/model_selector/recommender.py](/home/mcp-project/src/model_selector/recommender.py): Modell-Routing
+- [src/model_selector/web_ui.py](/home/mcp-project/src/model_selector/web_ui.py): lokale Setup-UI
+
+## Development
+
+Tests ausfuehren:
+
+```bash
+pytest -q
+```
+
+Editable Install fuer lokale Entwicklung:
+
+```bash
+pip install -e .[dev]
+```
+
+## Troubleshooting
+
+### `model-selector-setup` wird nicht gefunden
+
+Stelle sicher, dass deine virtuelle Umgebung aktiv ist:
+
+```bash
+source .venv/bin/activate
+```
+
+Oder auf Windows:
+
+```powershell
+.venv\Scripts\Activate.ps1
+```
+
+### Graphify-Datei fehlt
+
+Lege einen Graphify-Graph an und setze den Pfad in der UI oder in [config.yaml](/home/mcp-project/config.yaml):
+
+```bash
+graphify ./your-project
+```
+
+### Port `6639` ist schon belegt
+
+Beende die lokale Setup-UI:
+
+```bash
+pkill -f model-selector-setup
+```
+
+Unter Windows den Prozess im Task Manager beenden oder die Shell neu starten.
+
+### MCP client finds the server but gets no useful recommendations
+
+Pruefe:
+
+- ob Modelle in der UI ausgewaehlt sind
+- ob `graphify_path` stimmt
+- ob dein MCP-Client das richtige Arbeitsverzeichnis nutzt
+- ob `router_mode` zu deinem Use-Case passt
+
+## Data Sources
+
+Die Modellmetadaten stammen primaer aus:
+
+- Artificial Analysis: Preis, Speed, Context Window, Intelligence, Modellstatus
+- offizielle Anbieter-Dokumentation, wenn noetig fuer einzelne Modelle oder Sonderfaelle
 
 ## License
 

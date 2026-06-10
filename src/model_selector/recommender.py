@@ -121,11 +121,10 @@ TASK_WEIGHTS: dict[str, dict[str, float]] = {
         "instruction_following": 0.10,
     },
     "frontend_ui": {
-        "frontend": 0.35,
-        "coding": 0.20,
+        "frontend": 0.50,
+        "coding": 0.15,
         "instruction_following": 0.20,
         "structured_output": 0.10,
-        "speed": 0.10,
         "cost_efficiency": 0.05,
     },
     "backend_systems": {
@@ -283,8 +282,13 @@ def _infer_capabilities(model: dict) -> dict[str, float]:
             caps[key] = caps.get(key, base) + boost
 
     if "claude" in model_id:
-        caps["frontend"] += 8
+        caps["frontend"] += 12
         caps["instruction_following"] += 4
+    if "gemini" in model_id:
+        caps["frontend"] += 8
+        caps["long_context"] += 2
+    if provider == "openai":
+        caps["frontend"] += 4
     if any(token in model_id for token in ("coder", "codestral")):
         caps["coding"] += 10
         caps["backend"] += 8
@@ -297,6 +301,7 @@ def _infer_capabilities(model: dict) -> dict[str, float]:
     if any(token in model_id for token in ("deepseek", "qwen", "kimi")):
         caps["backend"] += 6
         caps["coding"] += 5
+        caps["frontend"] -= 8
 
     for key, value in model.get("capabilities", {}).items():
         caps[key] = float(value)
@@ -464,6 +469,8 @@ def _review_reason(
     if router_mode == "ai-review":
         return "router_mode=ai-review"
     if router_mode != "hybrid":
+        return None
+    if complexity == "low" and task_type in {"docs", "simple_edit"}:
         return None
     if len(scored) < 2:
         return None
@@ -654,7 +661,7 @@ def recommend(
         router_mode=router_mode,
         complexity=complexity,
         task_type=resolved_task_type,
-        scored=display_candidates,
+        scored=scored,
         blast_radius=blast_radius,
     )
 
