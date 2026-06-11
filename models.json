@@ -55,7 +55,7 @@
     },
     {
       "id": "claude-opus-4-8",
-      "name": "Claude Opus 4.8 (max)",
+      "name": "Claude Opus 4.8",
       "provider": "anthropic",
       "tier": "ultra",
       "status": "active",
@@ -108,7 +108,7 @@
     },
     {
       "id": "claude-opus-4-7",
-      "name": "Claude Opus 4.7 (max)",
+      "name": "Claude Opus 4.7",
       "provider": "anthropic",
       "tier": "high",
       "status": "active",
@@ -160,93 +160,38 @@
       "confidence": "verified"
     },
     {
-      "id": "claude-opus-4-7-non-reasoning",
-      "name": "Claude Opus 4.7 (Non-reasoning, high)",
+      "id": "claude-sonnet-4-6",
+      "name": "Claude Sonnet 4.6",
       "provider": "anthropic",
-      "tier": "high",
-      "status": "active",
-      "cost": {
-        "input_per_1m": 5.0,
-        "output_per_1m": 25.0
-      },
-      "context_window": 1000000,
-      "quality_score": 91,
-      "speed": "slow",
-      "strengths": [
-        "complex-reasoning",
-        "architecture-decisions",
-        "code-generation",
-        "debugging",
-        "long-context",
-        "multi-file-refactoring",
-        "cross-cutting-changes",
-        "frontend-ui",
-        "instruction-following"
-      ],
-      "capabilities": {
-        "coding": 91,
-        "debugging": 88,
-        "refactoring": 93,
-        "architecture": 92,
-        "agentic_work": 87,
-        "long_context": 96,
-        "instruction_following": 96,
-        "structured_output": 89,
-        "speed": 48,
-        "frontend": 100,
-        "backend": 91,
-        "math_science": 86
-      },
-      "effort_levels": [
-        "low",
-        "medium",
-        "high",
-        "xhigh",
-        "max",
-        "ultra"
-      ],
-      "source": "artificialanalysis.ai",
-      "source_url": "https://artificialanalysis.ai/models/claude-opus-4-7-non-reasoning",
-      "last_checked": "2026-06-11",
-      "confidence": "verified"
-    },
-    {
-      "id": "claude-sonnet-4-6-adaptive",
-      "name": "Claude Sonnet 4.6 (max)",
-      "provider": "anthropic",
-      "tier": "high",
+      "tier": "medium",
       "status": "active",
       "cost": {
         "input_per_1m": 3.0,
         "output_per_1m": 15.0
       },
       "context_window": 1000000,
-      "quality_score": 91,
-      "speed": "medium",
+      "quality_score": 82,
+      "speed": "slow",
       "strengths": [
-        "complex-reasoning",
-        "architecture-decisions",
         "code-generation",
         "debugging",
         "long-context",
-        "reasoning",
-        "agentic-tasks",
         "frontend-ui",
         "instruction-following"
       ],
       "capabilities": {
-        "coding": 91,
-        "debugging": 88,
-        "refactoring": 93,
-        "architecture": 92,
-        "agentic_work": 87,
+        "coding": 82,
+        "debugging": 79,
+        "refactoring": 78,
+        "architecture": 77,
+        "agentic_work": 78,
         "long_context": 96,
-        "instruction_following": 96,
-        "structured_output": 89,
-        "speed": 72,
-        "frontend": 100,
-        "backend": 91,
-        "math_science": 86
+        "instruction_following": 87,
+        "structured_output": 80,
+        "speed": 48,
+        "frontend": 92,
+        "backend": 82,
+        "math_science": 77
       },
       "effort_levels": [
         "low",
@@ -255,87 +200,7 @@
         "max"
       ],
       "source": "artificialanalysis.ai",
-      "source_url": "https://artificialanalysis.ai/models/claude-sonnet-4-6-adaptive",
-      "last_checked": "2026-06-11",
-      "confidence": "verified"
-    },
-    {
-      "id": "claude-sonnet-4-6",
-      "name": "Claude Sonnet 4.6 (Non-reasoning)",
-      "provider": "anthropic",
-      "tier": "medium",
-      "status": "active",
-      "cost": {
-        "input_per_1m": 3.0,
-        "output_per_1m": 15.0
-      },
-      "context_window": 1000000,
-      "quality_score": 82,
-      "speed": "slow",
-      "strengths": [
-        "code-generation",
-        "debugging",
-        "long-context",
-        "frontend-ui",
-        "instruction-following"
-      ],
-      "capabilities": {
-        "coding": 82,
-        "debugging": 79,
-        "refactoring": 78,
-        "architecture": 77,
-        "agentic_work": 78,
-        "long_context": 96,
-        "instruction_following": 87,
-        "structured_output": 80,
-        "speed": 48,
-        "frontend": 92,
-        "backend": 82,
-        "math_science": 77
-      },
-      "effort_levels": null,
-      "source": "artificialanalysis.ai",
       "source_url": "https://artificialanalysis.ai/models/claude-sonnet-4-6",
-      "last_checked": "2026-06-11",
-      "confidence": "verified"
-    },
-    {
-      "id": "claude-sonnet-4-6-non-reasoning-low-effort",
-      "name": "Claude Sonnet 4.6 (Non-reasoning, Low Effort)",
-      "provider": "anthropic",
-      "tier": "medium",
-      "status": "active",
-      "cost": {
-        "input_per_1m": 3.0,
-        "output_per_1m": 15.0
-      },
-      "context_window": 1000000,
-      "quality_score": 82,
-      "speed": "slow",
-      "strengths": [
-        "code-generation",
-        "debugging",
-        "long-context",
-        "frontend-ui",
-        "instruction-following"
-      ],
-      "capabilities": {
-        "coding": 82,
-        "debugging": 79,
-        "refactoring": 78,
-        "architecture": 77,
-        "agentic_work": 78,
-        "long_context": 96,
-        "instruction_following": 87,
-        "structured_output": 80,
-        "speed": 48,
-        "frontend": 92,
-        "backend": 82,
-        "math_science": 77
-      },
-      "effort_levels": null,
-      "source": "artificialanalysis.ai",
-      "source_url": "https://artificialanalysis.ai/models/claude-sonnet-4-6-non-reasoning-low-effort",
       "last_checked": "2026-06-11",
       "confidence": "verified"
     },
@@ -388,146 +253,8 @@
       ]
     },
     {
-      "id": "claude-4-5-haiku",
-      "name": "Claude 4.5 Haiku",
-      "provider": "anthropic",
-      "tier": "low",
-      "status": "active",
-      "cost": {
-        "input_per_1m": 1.0,
-        "output_per_1m": 5.0
-      },
-      "context_window": 200000,
-      "quality_score": 71,
-      "speed": "medium",
-      "strengths": [
-        "fast-iteration",
-        "simple-fixes",
-        "frontend-ui",
-        "instruction-following"
-      ],
-      "capabilities": {
-        "coding": 71,
-        "debugging": 68,
-        "refactoring": 67,
-        "architecture": 66,
-        "agentic_work": 67,
-        "long_context": 72,
-        "instruction_following": 76,
-        "structured_output": 69,
-        "speed": 78,
-        "frontend": 81,
-        "backend": 71,
-        "math_science": 66
-      },
-      "effort_levels": null,
-      "source": "artificialanalysis.ai",
-      "source_url": "https://artificialanalysis.ai/models/claude-4-5-haiku",
-      "last_checked": "2026-06-11",
-      "confidence": "verified"
-    },
-    {
-      "id": "claude-opus-4-6-adaptive",
-      "name": "Claude Opus 4.6 (max)",
-      "provider": "anthropic",
-      "tier": "high",
-      "status": "deprecated",
-      "cost": {
-        "input_per_1m": 5.0,
-        "output_per_1m": 25.0
-      },
-      "context_window": 1000000,
-      "quality_score": 92,
-      "speed": "slow",
-      "strengths": [
-        "complex-reasoning",
-        "architecture-decisions",
-        "code-generation",
-        "debugging",
-        "long-context",
-        "reasoning",
-        "agentic-tasks",
-        "multi-file-refactoring",
-        "cross-cutting-changes",
-        "frontend-ui",
-        "instruction-following"
-      ],
-      "capabilities": {
-        "coding": 92,
-        "debugging": 89,
-        "refactoring": 94,
-        "architecture": 93,
-        "agentic_work": 88,
-        "long_context": 96,
-        "instruction_following": 97,
-        "structured_output": 90,
-        "speed": 48,
-        "frontend": 100,
-        "backend": 92,
-        "math_science": 87
-      },
-      "effort_levels": [
-        "high",
-        "max"
-      ],
-      "source": "artificialanalysis.ai",
-      "source_url": "https://artificialanalysis.ai/models/claude-opus-4-6-adaptive",
-      "last_checked": "2026-06-11",
-      "confidence": "verified"
-    },
-    {
-      "id": "claude-opus-4-5-thinking",
-      "name": "Claude Opus 4.5",
-      "provider": "anthropic",
-      "tier": "high",
-      "status": "deprecated",
-      "cost": {
-        "input_per_1m": 5.0,
-        "output_per_1m": 25.0
-      },
-      "context_window": 200000,
-      "quality_score": 90,
-      "speed": "medium",
-      "strengths": [
-        "complex-reasoning",
-        "architecture-decisions",
-        "code-generation",
-        "debugging",
-        "reasoning",
-        "agentic-tasks",
-        "multi-file-refactoring",
-        "cross-cutting-changes",
-        "frontend-ui",
-        "instruction-following"
-      ],
-      "capabilities": {
-        "coding": 90,
-        "debugging": 87,
-        "refactoring": 92,
-        "architecture": 91,
-        "agentic_work": 86,
-        "long_context": 72,
-        "instruction_following": 95,
-        "structured_output": 88,
-        "speed": 72,
-        "frontend": 100,
-        "backend": 90,
-        "math_science": 85
-      },
-      "effort_levels": [
-        "low",
-        "medium",
-        "high",
-        "max"
-      ],
-      "source": "artificialanalysis.ai",
-      "source_url": "https://artificialanalysis.ai/models/claude-opus-4-5-thinking",
-      "last_checked": "2026-06-11",
-      "confidence": "verified"
-    },
-    {
       "id": "claude-opus-4-6",
-      "name": "Claude Opus 4.6 (high)",
+      "name": "Claude Opus 4.6",
       "provider": "anthropic",
       "tier": "medium",
       "status": "deprecated",
@@ -562,8 +289,6 @@
         "math_science": 81
       },
       "effort_levels": [
-        "low",
-        "medium",
         "high",
         "max"
       ],
@@ -620,7 +345,7 @@
     },
     {
       "id": "gpt-5-5",
-      "name": "GPT-5.5 (xhigh)",
+      "name": "GPT-5.5",
       "provider": "openai",
       "tier": "ultra",
       "status": "active",
@@ -667,56 +392,8 @@
       "confidence": "verified"
     },
     {
-      "id": "gpt-5-5-high",
-      "name": "GPT-5.5 (high)",
-      "provider": "openai",
-      "tier": "high",
-      "status": "active",
-      "cost": {
-        "input_per_1m": 5.0,
-        "output_per_1m": 30.0
-      },
-      "context_window": 920000,
-      "quality_score": 95,
-      "speed": "medium",
-      "strengths": [
-        "complex-reasoning",
-        "architecture-decisions",
-        "code-generation",
-        "debugging",
-        "reasoning",
-        "agentic-tasks",
-        "math",
-        "structured-output"
-      ],
-      "capabilities": {
-        "coding": 95,
-        "debugging": 92,
-        "refactoring": 91,
-        "architecture": 90,
-        "agentic_work": 91,
-        "long_context": 88,
-        "instruction_following": 95,
-        "structured_output": 97,
-        "speed": 72,
-        "frontend": 97,
-        "backend": 95,
-        "math_science": 98
-      },
-      "effort_levels": [
-        "low",
-        "medium",
-        "high",
-        "xhigh"
-      ],
-      "source": "artificialanalysis.ai",
-      "source_url": "https://artificialanalysis.ai/models/gpt-5-5-high",
-      "last_checked": "2026-06-11",
-      "confidence": "verified"
-    },
-    {
       "id": "gpt-5-3-codex",
-      "name": "GPT-5.3 Codex (xhigh)",
+      "name": "GPT-5.3 Codex",
       "provider": "openai",
       "tier": "high",
       "status": "active",
@@ -763,56 +440,8 @@
       "confidence": "verified"
     },
     {
-      "id": "gpt-5-5-medium",
-      "name": "GPT-5.5 (medium)",
-      "provider": "openai",
-      "tier": "high",
-      "status": "active",
-      "cost": {
-        "input_per_1m": 5.0,
-        "output_per_1m": 30.0
-      },
-      "context_window": 920000,
-      "quality_score": 93,
-      "speed": "medium",
-      "strengths": [
-        "complex-reasoning",
-        "architecture-decisions",
-        "code-generation",
-        "debugging",
-        "reasoning",
-        "agentic-tasks",
-        "math",
-        "structured-output"
-      ],
-      "capabilities": {
-        "coding": 93,
-        "debugging": 90,
-        "refactoring": 89,
-        "architecture": 88,
-        "agentic_work": 89,
-        "long_context": 88,
-        "instruction_following": 93,
-        "structured_output": 95,
-        "speed": 72,
-        "frontend": 95,
-        "backend": 93,
-        "math_science": 96
-      },
-      "effort_levels": [
-        "low",
-        "medium",
-        "high",
-        "xhigh"
-      ],
-      "source": "artificialanalysis.ai",
-      "source_url": "https://artificialanalysis.ai/models/gpt-5-5-medium",
-      "last_checked": "2026-06-11",
-      "confidence": "verified"
-    },
-    {
       "id": "gpt-5-4-mini",
-      "name": "GPT-5.4 mini (xhigh)",
+      "name": "GPT-5.4 mini",
       "provider": "openai",
       "tier": "high",
       "status": "active",
@@ -848,9 +477,7 @@
         "math_science": 92
       },
       "effort_levels": [
-        "low",
         "medium",
-        "high",
         "xhigh"
       ],
       "source": "artificialanalysis.ai",
@@ -859,98 +486,8 @@
       "confidence": "verified"
     },
     {
-      "id": "gpt-5-5-low",
-      "name": "GPT-5.5 (low)",
-      "provider": "openai",
-      "tier": "high",
-      "status": "active",
-      "cost": {
-        "input_per_1m": 5.0,
-        "output_per_1m": 30.0
-      },
-      "context_window": 920000,
-      "quality_score": 88,
-      "speed": "medium",
-      "strengths": [
-        "complex-reasoning",
-        "architecture-decisions",
-        "code-generation",
-        "debugging",
-        "reasoning",
-        "agentic-tasks",
-        "math",
-        "structured-output"
-      ],
-      "capabilities": {
-        "coding": 88,
-        "debugging": 85,
-        "refactoring": 84,
-        "architecture": 83,
-        "agentic_work": 84,
-        "long_context": 88,
-        "instruction_following": 88,
-        "structured_output": 90,
-        "speed": 72,
-        "frontend": 90,
-        "backend": 88,
-        "math_science": 91
-      },
-      "effort_levels": [
-        "low",
-        "medium",
-        "high",
-        "xhigh"
-      ],
-      "source": "artificialanalysis.ai",
-      "source_url": "https://artificialanalysis.ai/models/gpt-5-5-low",
-      "last_checked": "2026-06-11",
-      "confidence": "verified"
-    },
-    {
-      "id": "gpt-5-5-non-reasoning",
-      "name": "GPT-5.5 (Non-reasoning)",
-      "provider": "openai",
-      "tier": "medium",
-      "status": "active",
-      "cost": {
-        "input_per_1m": 5.0,
-        "output_per_1m": 30.0
-      },
-      "context_window": 920000,
-      "quality_score": 80,
-      "speed": "medium",
-      "strengths": [
-        "math",
-        "structured-output"
-      ],
-      "capabilities": {
-        "coding": 80,
-        "debugging": 77,
-        "refactoring": 76,
-        "architecture": 75,
-        "agentic_work": 76,
-        "long_context": 88,
-        "instruction_following": 80,
-        "structured_output": 82,
-        "speed": 72,
-        "frontend": 82,
-        "backend": 80,
-        "math_science": 83
-      },
-      "effort_levels": [
-        "low",
-        "medium",
-        "high",
-        "xhigh"
-      ],
-      "source": "artificialanalysis.ai",
-      "source_url": "https://artificialanalysis.ai/models/gpt-5-5-non-reasoning",
-      "last_checked": "2026-06-11",
-      "confidence": "verified"
-    },
-    {
       "id": "gpt-5-5-pro",
-      "name": "GPT-5.5 Pro (xhigh)",
+      "name": "GPT-5.5 Pro",
       "provider": "openai",
       "tier": "medium",
       "status": "active",
@@ -996,7 +533,7 @@
     },
     {
       "id": "gpt-5-4-nano",
-      "name": "GPT-5.4 nano (xhigh)",
+      "name": "GPT-5.4 nano",
       "provider": "openai",
       "tier": "low",
       "status": "active",
@@ -1030,9 +567,7 @@
         "math_science": 81
       },
       "effort_levels": [
-        "low",
         "medium",
-        "high",
         "xhigh"
       ],
       "source": "artificialanalysis.ai",
@@ -1041,98 +576,8 @@
       "confidence": "verified"
     },
     {
-      "id": "gpt-5-4-mini-medium",
-      "name": "GPT-5.4 mini (medium)",
-      "provider": "openai",
-      "tier": "medium",
-      "status": "active",
-      "cost": {
-        "input_per_1m": 0.75,
-        "output_per_1m": 4.5
-      },
-      "context_window": 400000,
-      "quality_score": 77,
-      "speed": "fast",
-      "strengths": [
-        "reasoning",
-        "agentic-tasks",
-        "math",
-        "structured-output"
-      ],
-      "capabilities": {
-        "coding": 77,
-        "debugging": 74,
-        "refactoring": 73,
-        "architecture": 72,
-        "agentic_work": 73,
-        "long_context": 88,
-        "instruction_following": 77,
-        "structured_output": 79,
-        "speed": 92,
-        "frontend": 79,
-        "backend": 77,
-        "math_science": 80
-      },
-      "effort_levels": [
-        "low",
-        "medium",
-        "high",
-        "xhigh"
-      ],
-      "source": "artificialanalysis.ai",
-      "source_url": "https://artificialanalysis.ai/models/gpt-5-4-mini-medium",
-      "last_checked": "2026-06-11",
-      "confidence": "verified"
-    },
-    {
-      "id": "gpt-5-4-nano-medium",
-      "name": "GPT-5.4 nano",
-      "provider": "openai",
-      "tier": "low",
-      "status": "active",
-      "cost": {
-        "input_per_1m": 0.2,
-        "output_per_1m": 1.25
-      },
-      "context_window": 400000,
-      "quality_score": 71,
-      "speed": "fast",
-      "strengths": [
-        "reasoning",
-        "agentic-tasks",
-        "fast-iteration",
-        "simple-fixes",
-        "math",
-        "structured-output"
-      ],
-      "capabilities": {
-        "coding": 71,
-        "debugging": 68,
-        "refactoring": 67,
-        "architecture": 66,
-        "agentic_work": 67,
-        "long_context": 88,
-        "instruction_following": 71,
-        "structured_output": 73,
-        "speed": 92,
-        "frontend": 73,
-        "backend": 71,
-        "math_science": 74
-      },
-      "effort_levels": [
-        "low",
-        "medium",
-        "high",
-        "xhigh"
-      ],
-      "source": "artificialanalysis.ai",
-      "source_url": "https://artificialanalysis.ai/models/gpt-5-4-nano-medium",
-      "last_checked": "2026-06-11",
-      "confidence": "verified"
-    },
-    {
       "id": "gpt-oss-120b",
-      "name": "gpt-oss-120b (high)",
+      "name": "gpt-oss-120b",
       "provider": "openai",
       "tier": "low",
       "status": "active",
@@ -1175,7 +620,7 @@
     },
     {
       "id": "gpt-oss-20b",
-      "name": "gpt-oss-20B (high)",
+      "name": "gpt-oss-20B",
       "provider": "openai",
       "tier": "low",
       "status": "active",
@@ -1218,7 +663,7 @@
     },
     {
       "id": "gpt-5-2",
-      "name": "GPT-5.2 (xhigh)",
+      "name": "GPT-5.2",
       "provider": "openai",
       "tier": "high",
       "status": "deprecated",
@@ -1254,9 +699,7 @@
         "math_science": 93
       },
       "effort_levels": [
-        "low",
         "medium",
-        "high",
         "xhigh"
       ],
       "source": "artificialanalysis.ai",
@@ -1266,7 +709,7 @@
     },
     {
       "id": "gpt-5-2-codex",
-      "name": "GPT-5.2 Codex (xhigh)",
+      "name": "GPT-5.2 Codex",
       "provider": "openai",
       "tier": "high",
       "status": "deprecated",
@@ -1309,94 +752,6 @@
       ],
       "source": "artificialanalysis.ai",
       "source_url": "https://artificialanalysis.ai/models/gpt-5-2-codex",
-      "last_checked": "2026-06-11",
-      "confidence": "verified"
-    },
-    {
-      "id": "gpt-5-2-medium",
-      "name": "GPT-5.2 (medium)",
-      "provider": "openai",
-      "tier": "medium",
-      "status": "deprecated",
-      "cost": {
-        "input_per_1m": 1.75,
-        "output_per_1m": 14.0
-      },
-      "context_window": 400000,
-      "quality_score": 85,
-      "speed": "medium",
-      "strengths": [
-        "code-generation",
-        "debugging",
-        "reasoning",
-        "agentic-tasks",
-        "math",
-        "structured-output"
-      ],
-      "capabilities": {
-        "coding": 85,
-        "debugging": 82,
-        "refactoring": 81,
-        "architecture": 80,
-        "agentic_work": 81,
-        "long_context": 88,
-        "instruction_following": 85,
-        "structured_output": 87,
-        "speed": 72,
-        "frontend": 87,
-        "backend": 85,
-        "math_science": 88
-      },
-      "effort_levels": [
-        "low",
-        "medium",
-        "high",
-        "xhigh"
-      ],
-      "source": "artificialanalysis.ai",
-      "source_url": "https://artificialanalysis.ai/models/gpt-5-2-medium",
-      "last_checked": "2026-06-11",
-      "confidence": "verified"
-    },
-    {
-      "id": "gpt-5-2-non-reasoning",
-      "name": "GPT-5.2",
-      "provider": "openai",
-      "tier": "low",
-      "status": "deprecated",
-      "cost": {
-        "input_per_1m": 1.75,
-        "output_per_1m": 14.0
-      },
-      "context_window": 400000,
-      "quality_score": 74,
-      "speed": "medium",
-      "strengths": [
-        "math",
-        "structured-output"
-      ],
-      "capabilities": {
-        "coding": 74,
-        "debugging": 71,
-        "refactoring": 70,
-        "architecture": 69,
-        "agentic_work": 70,
-        "long_context": 88,
-        "instruction_following": 74,
-        "structured_output": 76,
-        "speed": 72,
-        "frontend": 76,
-        "backend": 74,
-        "math_science": 77
-      },
-      "effort_levels": [
-        "low",
-        "medium",
-        "high",
-        "xhigh"
-      ],
-      "source": "artificialanalysis.ai",
-      "source_url": "https://artificialanalysis.ai/models/gpt-5-2-non-reasoning",
       "last_checked": "2026-06-11",
       "confidence": "verified"
     },
@@ -1497,56 +852,6 @@
       ],
       "source": "artificialanalysis.ai",
       "source_url": "https://artificialanalysis.ai/models/gemini-3-5-flash",
-      "last_checked": "2026-06-11",
-      "confidence": "verified"
-    },
-    {
-      "id": "gemini-3-5-flash-medium",
-      "name": "Gemini 3.5 Flash (medium)",
-      "provider": "google",
-      "tier": "high",
-      "status": "active",
-      "cost": {
-        "input_per_1m": 1.5,
-        "output_per_1m": 9.0
-      },
-      "context_window": 1000000,
-      "quality_score": 92,
-      "speed": "fast",
-      "strengths": [
-        "complex-reasoning",
-        "architecture-decisions",
-        "code-generation",
-        "debugging",
-        "long-context",
-        "reasoning",
-        "agentic-tasks",
-        "fast-iteration",
-        "simple-fixes",
-        "math",
-        "structured-output"
-      ],
-      "capabilities": {
-        "coding": 92,
-        "debugging": 89,
-        "refactoring": 88,
-        "architecture": 87,
-        "agentic_work": 88,
-        "long_context": 96,
-        "instruction_following": 92,
-        "structured_output": 94,
-        "speed": 98,
-        "frontend": 98,
-        "backend": 92,
-        "math_science": 95
-      },
-      "effort_levels": [
-        "low",
-        "medium",
-        "high"
-      ],
-      "source": "artificialanalysis.ai",
-      "source_url": "https://artificialanalysis.ai/models/gemini-3-5-flash-medium",
       "last_checked": "2026-06-11",
       "confidence": "verified"
     },
@@ -1729,54 +1034,6 @@
       "confidence": "verified"
     },
     {
-      "id": "gemini-3-flash-reasoning",
-      "name": "Gemini 3 Flash",
-      "provider": "google",
-      "tier": "medium",
-      "status": "deprecated",
-      "cost": {
-        "input_per_1m": 0.5,
-        "output_per_1m": 3.0
-      },
-      "context_window": 1000000,
-      "quality_score": 84,
-      "speed": "fast",
-      "strengths": [
-        "code-generation",
-        "debugging",
-        "long-context",
-        "reasoning",
-        "agentic-tasks",
-        "fast-iteration",
-        "simple-fixes",
-        "math",
-        "structured-output"
-      ],
-      "capabilities": {
-        "coding": 84,
-        "debugging": 81,
-        "refactoring": 80,
-        "architecture": 79,
-        "agentic_work": 80,
-        "long_context": 96,
-        "instruction_following": 84,
-        "structured_output": 86,
-        "speed": 98,
-        "frontend": 90,
-        "backend": 84,
-        "math_science": 87
-      },
-      "effort_levels": [
-        "low",
-        "medium",
-        "high"
-      ],
-      "source": "artificialanalysis.ai",
-      "source_url": "https://artificialanalysis.ai/models/gemini-3-flash-reasoning",
-      "last_checked": "2026-06-11",
-      "confidence": "verified"
-    },
-    {
       "id": "gemini-3-flash",
       "name": "Gemini 3 Flash",
       "provider": "google",
@@ -1813,52 +1070,6 @@
       "effort_levels": null,
       "source": "artificialanalysis.ai",
       "source_url": "https://artificialanalysis.ai/models/gemini-3-flash",
-      "last_checked": "2026-06-11",
-      "confidence": "verified"
-    },
-    {
-      "id": "gemini-2-5-flash-reasoning",
-      "name": "Gemini 2.5 Flash",
-      "provider": "google",
-      "tier": "low",
-      "status": "deprecated",
-      "cost": {
-        "input_per_1m": 0.3,
-        "output_per_1m": 2.5
-      },
-      "context_window": 1000000,
-      "quality_score": 68,
-      "speed": "fast",
-      "strengths": [
-        "long-context",
-        "reasoning",
-        "agentic-tasks",
-        "fast-iteration",
-        "simple-fixes",
-        "math",
-        "structured-output"
-      ],
-      "capabilities": {
-        "coding": 68,
-        "debugging": 65,
-        "refactoring": 64,
-        "architecture": 63,
-        "agentic_work": 64,
-        "long_context": 96,
-        "instruction_following": 68,
-        "structured_output": 70,
-        "speed": 98,
-        "frontend": 74,
-        "backend": 68,
-        "math_science": 71
-      },
-      "effort_levels": [
-        "low",
-        "medium",
-        "high"
-      ],
-      "source": "artificialanalysis.ai",
-      "source_url": "https://artificialanalysis.ai/models/gemini-2-5-flash-reasoning",
       "last_checked": "2026-06-11",
       "confidence": "verified"
     },
@@ -1904,7 +1115,7 @@
     },
     {
       "id": "grok-4-3",
-      "name": "Grok 4.3 (high)",
+      "name": "Grok 4.3",
       "provider": "xai",
       "tier": "high",
       "status": "active",
@@ -1992,182 +1203,6 @@
       ],
       "source": "docs.x.ai",
       "source_url": "https://docs.x.ai/developers/models/grok-build-0.1",
-      "last_checked": "2026-06-11",
-      "confidence": "verified"
-    },
-    {
-      "id": "grok-4-3-medium",
-      "name": "Grok 4.3 (medium)",
-      "provider": "xai",
-      "tier": "medium",
-      "status": "active",
-      "cost": {
-        "input_per_1m": 1.25,
-        "output_per_1m": 2.5
-      },
-      "context_window": 1000000,
-      "quality_score": 87,
-      "speed": "fast",
-      "strengths": [
-        "code-generation",
-        "debugging",
-        "long-context",
-        "reasoning",
-        "agentic-tasks",
-        "math",
-        "structured-output"
-      ],
-      "capabilities": {
-        "coding": 87,
-        "debugging": 84,
-        "refactoring": 83,
-        "architecture": 82,
-        "agentic_work": 83,
-        "long_context": 96,
-        "instruction_following": 87,
-        "structured_output": 89,
-        "speed": 92,
-        "frontend": 85,
-        "backend": 87,
-        "math_science": 90
-      },
-      "effort_levels": [
-        "low",
-        "medium",
-        "high"
-      ],
-      "source": "artificialanalysis.ai",
-      "source_url": "https://artificialanalysis.ai/models/grok-4-3-medium",
-      "last_checked": "2026-06-11",
-      "confidence": "verified"
-    },
-    {
-      "id": "grok-4-3-low",
-      "name": "Grok 4.3 (low)",
-      "provider": "xai",
-      "tier": "medium",
-      "status": "active",
-      "cost": {
-        "input_per_1m": 1.25,
-        "output_per_1m": 2.5
-      },
-      "context_window": 1000000,
-      "quality_score": 82,
-      "speed": "fast",
-      "strengths": [
-        "code-generation",
-        "debugging",
-        "long-context",
-        "reasoning",
-        "agentic-tasks",
-        "math",
-        "structured-output"
-      ],
-      "capabilities": {
-        "coding": 82,
-        "debugging": 79,
-        "refactoring": 78,
-        "architecture": 77,
-        "agentic_work": 78,
-        "long_context": 96,
-        "instruction_following": 82,
-        "structured_output": 84,
-        "speed": 92,
-        "frontend": 80,
-        "backend": 82,
-        "math_science": 85
-      },
-      "effort_levels": [
-        "low",
-        "medium",
-        "high"
-      ],
-      "source": "artificialanalysis.ai",
-      "source_url": "https://artificialanalysis.ai/models/grok-4-3-low",
-      "last_checked": "2026-06-11",
-      "confidence": "verified"
-    },
-    {
-      "id": "grok-4-3-non-reasoning",
-      "name": "Grok 4.3 (Non-reasoning)",
-      "provider": "xai",
-      "tier": "low",
-      "status": "active",
-      "cost": {
-        "input_per_1m": 1.25,
-        "output_per_1m": 2.5
-      },
-      "context_window": 1000000,
-      "quality_score": 71,
-      "speed": "fast",
-      "strengths": [
-        "long-context",
-        "math",
-        "structured-output"
-      ],
-      "capabilities": {
-        "coding": 71,
-        "debugging": 68,
-        "refactoring": 67,
-        "architecture": 66,
-        "agentic_work": 67,
-        "long_context": 96,
-        "instruction_following": 71,
-        "structured_output": 73,
-        "speed": 92,
-        "frontend": 69,
-        "backend": 71,
-        "math_science": 74
-      },
-      "effort_levels": null,
-      "source": "artificialanalysis.ai",
-      "source_url": "https://artificialanalysis.ai/models/grok-4-3-non-reasoning",
-      "last_checked": "2026-06-11",
-      "confidence": "verified"
-    },
-    {
-      "id": "grok-4-1-fast-reasoning",
-      "name": "Grok 4.1 Fast",
-      "provider": "xai",
-      "tier": "medium",
-      "status": "deprecated",
-      "cost": {
-        "input_per_1m": 0.0,
-        "output_per_1m": 0.0
-      },
-      "context_window": 2000000,
-      "quality_score": 78,
-      "speed": "medium",
-      "strengths": [
-        "long-context",
-        "reasoning",
-        "agentic-tasks",
-        "fast-iteration",
-        "simple-fixes",
-        "math",
-        "structured-output"
-      ],
-      "capabilities": {
-        "coding": 78,
-        "debugging": 75,
-        "refactoring": 74,
-        "architecture": 73,
-        "agentic_work": 74,
-        "long_context": 96,
-        "instruction_following": 78,
-        "structured_output": 80,
-        "speed": 78,
-        "frontend": 76,
-        "backend": 78,
-        "math_science": 81
-      },
-      "effort_levels": [
-        "low",
-        "medium",
-        "high"
-      ],
-      "source": "artificialanalysis.ai",
-      "source_url": "https://artificialanalysis.ai/models/grok-4-1-fast-reasoning",
       "last_checked": "2026-06-11",
       "confidence": "verified"
     },
@@ -2305,43 +1340,6 @@
       "confidence": "verified"
     },
     {
-      "id": "kimi-k2-6-non-reasoning",
-      "name": "Kimi K2.6",
-      "provider": "moonshot",
-      "tier": "medium",
-      "status": "active",
-      "cost": {
-        "input_per_1m": 0.95,
-        "output_per_1m": 4.0
-      },
-      "context_window": 260000,
-      "quality_score": 82,
-      "speed": "slow",
-      "strengths": [
-        "code-generation",
-        "debugging"
-      ],
-      "capabilities": {
-        "coding": 82,
-        "debugging": 79,
-        "refactoring": 78,
-        "architecture": 77,
-        "agentic_work": 78,
-        "long_context": 72,
-        "instruction_following": 82,
-        "structured_output": 80,
-        "speed": 48,
-        "frontend": 80,
-        "backend": 82,
-        "math_science": 77
-      },
-      "effort_levels": null,
-      "source": "artificialanalysis.ai",
-      "source_url": "https://artificialanalysis.ai/models/kimi-k2-6-non-reasoning",
-      "last_checked": "2026-06-11",
-      "confidence": "verified"
-    },
-    {
       "id": "kimi-linear-48b-a3b-instruct",
       "name": "Kimi Linear 48B A3B Instruct",
       "provider": "moonshot",
@@ -2458,40 +1456,6 @@
       ],
       "source": "artificialanalysis.ai",
       "source_url": "https://artificialanalysis.ai/models/kimi-k2-thinking",
-      "last_checked": "2026-06-11",
-      "confidence": "verified"
-    },
-    {
-      "id": "kimi-k2-5-non-reasoning",
-      "name": "Kimi K2.5",
-      "provider": "moonshot",
-      "tier": "medium",
-      "status": "deprecated",
-      "cost": {
-        "input_per_1m": 0.6,
-        "output_per_1m": 3.0
-      },
-      "context_window": 260000,
-      "quality_score": 76,
-      "speed": "medium",
-      "strengths": [],
-      "capabilities": {
-        "coding": 76,
-        "debugging": 73,
-        "refactoring": 72,
-        "architecture": 71,
-        "agentic_work": 72,
-        "long_context": 72,
-        "instruction_following": 76,
-        "structured_output": 74,
-        "speed": 72,
-        "frontend": 74,
-        "backend": 76,
-        "math_science": 71
-      },
-      "effort_levels": null,
-      "source": "artificialanalysis.ai",
-      "source_url": "https://artificialanalysis.ai/models/kimi-k2-5-non-reasoning",
       "last_checked": "2026-06-11",
       "confidence": "verified"
     },
@@ -2775,117 +1739,6 @@
       "confidence": "verified"
     },
     {
-      "id": "qwen3-5-397b-a17b-non-reasoning",
-      "name": "Qwen3.5 397B A17B",
-      "provider": "alibaba",
-      "tier": "medium",
-      "status": "active",
-      "cost": {
-        "input_per_1m": 0.6,
-        "output_per_1m": 3.6
-      },
-      "context_window": 260000,
-      "quality_score": 79,
-      "speed": "medium",
-      "strengths": [
-        "backend-systems",
-        "open-source-coding"
-      ],
-      "capabilities": {
-        "coding": 84,
-        "debugging": 76,
-        "refactoring": 75,
-        "architecture": 74,
-        "agentic_work": 75,
-        "long_context": 72,
-        "instruction_following": 79,
-        "structured_output": 77,
-        "speed": 72,
-        "frontend": 69,
-        "backend": 87,
-        "math_science": 74
-      },
-      "effort_levels": null,
-      "source": "artificialanalysis.ai",
-      "source_url": "https://artificialanalysis.ai/models/qwen3-5-397b-a17b-non-reasoning",
-      "last_checked": "2026-06-11",
-      "confidence": "verified"
-    },
-    {
-      "id": "qwen3-6-27b-non-reasoning",
-      "name": "Qwen3.6 27B",
-      "provider": "alibaba",
-      "tier": "medium",
-      "status": "active",
-      "cost": {
-        "input_per_1m": 0.6,
-        "output_per_1m": 3.6
-      },
-      "context_window": 260000,
-      "quality_score": 76,
-      "speed": "medium",
-      "strengths": [
-        "backend-systems",
-        "open-source-coding"
-      ],
-      "capabilities": {
-        "coding": 81,
-        "debugging": 73,
-        "refactoring": 72,
-        "architecture": 71,
-        "agentic_work": 72,
-        "long_context": 72,
-        "instruction_following": 76,
-        "structured_output": 74,
-        "speed": 72,
-        "frontend": 66,
-        "backend": 84,
-        "math_science": 71
-      },
-      "effort_levels": null,
-      "source": "artificialanalysis.ai",
-      "source_url": "https://artificialanalysis.ai/models/qwen3-6-27b-non-reasoning",
-      "last_checked": "2026-06-11",
-      "confidence": "verified"
-    },
-    {
-      "id": "qwen3-6-35b-a3b-non-reasoning",
-      "name": "Qwen3.6 35B A3B",
-      "provider": "alibaba",
-      "tier": "low",
-      "status": "active",
-      "cost": {
-        "input_per_1m": 0.38,
-        "output_per_1m": 2.25
-      },
-      "context_window": 260000,
-      "quality_score": 72,
-      "speed": "fast",
-      "strengths": [
-        "backend-systems",
-        "open-source-coding"
-      ],
-      "capabilities": {
-        "coding": 77,
-        "debugging": 69,
-        "refactoring": 68,
-        "architecture": 67,
-        "agentic_work": 68,
-        "long_context": 72,
-        "instruction_following": 72,
-        "structured_output": 70,
-        "speed": 92,
-        "frontend": 62,
-        "backend": 80,
-        "math_science": 67
-      },
-      "effort_levels": null,
-      "source": "artificialanalysis.ai",
-      "source_url": "https://artificialanalysis.ai/models/qwen3-6-35b-a3b-non-reasoning",
-      "last_checked": "2026-06-11",
-      "confidence": "verified"
-    },
-    {
       "id": "qwen3-coder-next",
       "name": "Qwen3 Coder Next",
       "provider": "alibaba",
@@ -2926,49 +1779,6 @@
       "confidence": "verified"
     },
     {
-      "id": "qwen3-next-80b-a3b-reasoning",
-      "name": "Qwen3 Next 80B A3B",
-      "provider": "alibaba",
-      "tier": "low",
-      "status": "active",
-      "cost": {
-        "input_per_1m": 0.5,
-        "output_per_1m": 6.0
-      },
-      "context_window": 260000,
-      "quality_score": 68,
-      "speed": "fast",
-      "strengths": [
-        "reasoning",
-        "agentic-tasks",
-        "backend-systems",
-        "open-source-coding"
-      ],
-      "capabilities": {
-        "coding": 73,
-        "debugging": 65,
-        "refactoring": 64,
-        "architecture": 63,
-        "agentic_work": 64,
-        "long_context": 72,
-        "instruction_following": 68,
-        "structured_output": 66,
-        "speed": 92,
-        "frontend": 58,
-        "backend": 76,
-        "math_science": 63
-      },
-      "effort_levels": [
-        "low",
-        "medium",
-        "high"
-      ],
-      "source": "artificialanalysis.ai",
-      "source_url": "https://artificialanalysis.ai/models/qwen3-next-80b-a3b-reasoning",
-      "last_checked": "2026-06-11",
-      "confidence": "verified"
-    },
-    {
       "id": "qwen3-next-80b-a3b-instruct",
       "name": "Qwen3 Next 80B A3B",
       "provider": "alibaba",
@@ -3002,49 +1812,6 @@
       "effort_levels": null,
       "source": "artificialanalysis.ai",
       "source_url": "https://artificialanalysis.ai/models/qwen3-next-80b-a3b-instruct",
-      "last_checked": "2026-06-11",
-      "confidence": "verified"
-    },
-    {
-      "id": "qwen3-235b-a22b-instruct-2507-reasoning",
-      "name": "Qwen3 235B A22B 2507",
-      "provider": "alibaba",
-      "tier": "low",
-      "status": "deprecated",
-      "cost": {
-        "input_per_1m": 0.4,
-        "output_per_1m": 2.15
-      },
-      "context_window": 260000,
-      "quality_score": 70,
-      "speed": "medium",
-      "strengths": [
-        "reasoning",
-        "agentic-tasks",
-        "backend-systems",
-        "open-source-coding"
-      ],
-      "capabilities": {
-        "coding": 75,
-        "debugging": 67,
-        "refactoring": 66,
-        "architecture": 65,
-        "agentic_work": 66,
-        "long_context": 72,
-        "instruction_following": 70,
-        "structured_output": 68,
-        "speed": 72,
-        "frontend": 60,
-        "backend": 78,
-        "math_science": 65
-      },
-      "effort_levels": [
-        "low",
-        "medium",
-        "high"
-      ],
-      "source": "artificialanalysis.ai",
-      "source_url": "https://artificialanalysis.ai/models/qwen3-235b-a22b-instruct-2507-reasoning",
       "last_checked": "2026-06-11",
       "confidence": "verified"
     },
@@ -3126,49 +1893,6 @@
       "confidence": "verified"
     },
     {
-      "id": "qwen3-30b-a3b-2507-reasoning",
-      "name": "Qwen3 30B A3B 2507",
-      "provider": "alibaba",
-      "tier": "low",
-      "status": "deprecated",
-      "cost": {
-        "input_per_1m": 0.28,
-        "output_per_1m": 1.85
-      },
-      "context_window": 260000,
-      "quality_score": 64,
-      "speed": "fast",
-      "strengths": [
-        "reasoning",
-        "agentic-tasks",
-        "backend-systems",
-        "open-source-coding"
-      ],
-      "capabilities": {
-        "coding": 69,
-        "debugging": 61,
-        "refactoring": 60,
-        "architecture": 59,
-        "agentic_work": 60,
-        "long_context": 72,
-        "instruction_following": 64,
-        "structured_output": 62,
-        "speed": 92,
-        "frontend": 54,
-        "backend": 72,
-        "math_science": 59
-      },
-      "effort_levels": [
-        "low",
-        "medium",
-        "high"
-      ],
-      "source": "artificialanalysis.ai",
-      "source_url": "https://artificialanalysis.ai/models/qwen3-30b-a3b-2507-reasoning",
-      "last_checked": "2026-06-11",
-      "confidence": "verified"
-    },
-    {
       "id": "qwq-32b",
       "name": "QwQ-32B",
       "provider": "alibaba",
@@ -3208,49 +1932,6 @@
       ],
       "source": "artificialanalysis.ai",
       "source_url": "https://artificialanalysis.ai/models/qwq-32b",
-      "last_checked": "2026-06-11",
-      "confidence": "verified"
-    },
-    {
-      "id": "qwen3-32b-instruct-reasoning",
-      "name": "Qwen3 32B",
-      "provider": "alibaba",
-      "tier": "low",
-      "status": "deprecated",
-      "cost": {
-        "input_per_1m": 0.2,
-        "output_per_1m": 0.52
-      },
-      "context_window": 33000,
-      "quality_score": 59,
-      "speed": "medium",
-      "strengths": [
-        "reasoning",
-        "agentic-tasks",
-        "backend-systems",
-        "open-source-coding"
-      ],
-      "capabilities": {
-        "coding": 64,
-        "debugging": 56,
-        "refactoring": 55,
-        "architecture": 54,
-        "agentic_work": 55,
-        "long_context": 60,
-        "instruction_following": 59,
-        "structured_output": 57,
-        "speed": 72,
-        "frontend": 49,
-        "backend": 67,
-        "math_science": 54
-      },
-      "effort_levels": [
-        "low",
-        "medium",
-        "high"
-      ],
-      "source": "artificialanalysis.ai",
-      "source_url": "https://artificialanalysis.ai/models/qwen3-32b-instruct-reasoning",
       "last_checked": "2026-06-11",
       "confidence": "verified"
     },
@@ -3328,49 +2009,6 @@
       "effort_levels": null,
       "source": "artificialanalysis.ai",
       "source_url": "https://artificialanalysis.ai/models/qwen2-5-coder-32b-instruct",
-      "last_checked": "2026-06-11",
-      "confidence": "verified"
-    },
-    {
-      "id": "qwen3-14b-instruct-reasoning",
-      "name": "Qwen3 14B",
-      "provider": "alibaba",
-      "tier": "low",
-      "status": "deprecated",
-      "cost": {
-        "input_per_1m": 0.23,
-        "output_per_1m": 2.22
-      },
-      "context_window": 33000,
-      "quality_score": 55,
-      "speed": "medium",
-      "strengths": [
-        "reasoning",
-        "agentic-tasks",
-        "backend-systems",
-        "open-source-coding"
-      ],
-      "capabilities": {
-        "coding": 60,
-        "debugging": 52,
-        "refactoring": 51,
-        "architecture": 50,
-        "agentic_work": 51,
-        "long_context": 60,
-        "instruction_following": 55,
-        "structured_output": 53,
-        "speed": 72,
-        "frontend": 45,
-        "backend": 63,
-        "math_science": 50
-      },
-      "effort_levels": [
-        "low",
-        "medium",
-        "high"
-      ],
-      "source": "artificialanalysis.ai",
-      "source_url": "https://artificialanalysis.ai/models/qwen3-14b-instruct-reasoning",
       "last_checked": "2026-06-11",
       "confidence": "verified"
     },
@@ -3469,45 +2107,6 @@
       "confidence": "verified"
     },
     {
-      "id": "glm-5-1-non-reasoning",
-      "name": "GLM-5.1",
-      "provider": "zai",
-      "tier": "medium",
-      "status": "active",
-      "cost": {
-        "input_per_1m": 1.4,
-        "output_per_1m": 4.4
-      },
-      "context_window": 200000,
-      "quality_score": 82,
-      "speed": "medium",
-      "strengths": [
-        "code-generation",
-        "debugging",
-        "backend-systems",
-        "open-source-coding"
-      ],
-      "capabilities": {
-        "coding": 87,
-        "debugging": 79,
-        "refactoring": 78,
-        "architecture": 77,
-        "agentic_work": 78,
-        "long_context": 72,
-        "instruction_following": 82,
-        "structured_output": 80,
-        "speed": 72,
-        "frontend": 72,
-        "backend": 90,
-        "math_science": 77
-      },
-      "effort_levels": null,
-      "source": "artificialanalysis.ai",
-      "source_url": "https://artificialanalysis.ai/models/glm-5-1-non-reasoning",
-      "last_checked": "2026-06-11",
-      "confidence": "verified"
-    },
-    {
       "id": "glm-5",
       "name": "GLM-5",
       "provider": "zai",
@@ -3598,80 +2197,6 @@
       "confidence": "verified"
     },
     {
-      "id": "glm-5-non-reasoning",
-      "name": "GLM-5",
-      "provider": "zai",
-      "tier": "medium",
-      "status": "deprecated",
-      "cost": {
-        "input_per_1m": 1.0,
-        "output_per_1m": 3.2
-      },
-      "context_window": 200000,
-      "quality_score": 80,
-      "speed": "medium",
-      "strengths": [
-        "backend-systems",
-        "open-source-coding"
-      ],
-      "capabilities": {
-        "coding": 85,
-        "debugging": 77,
-        "refactoring": 76,
-        "architecture": 75,
-        "agentic_work": 76,
-        "long_context": 72,
-        "instruction_following": 80,
-        "structured_output": 78,
-        "speed": 72,
-        "frontend": 70,
-        "backend": 88,
-        "math_science": 75
-      },
-      "effort_levels": null,
-      "source": "artificialanalysis.ai",
-      "source_url": "https://artificialanalysis.ai/models/glm-5-non-reasoning",
-      "last_checked": "2026-06-11",
-      "confidence": "verified"
-    },
-    {
-      "id": "glm-4-7-non-reasoning",
-      "name": "GLM-4.7",
-      "provider": "zai",
-      "tier": "low",
-      "status": "deprecated",
-      "cost": {
-        "input_per_1m": 0.6,
-        "output_per_1m": 2.2
-      },
-      "context_window": 200000,
-      "quality_score": 74,
-      "speed": "medium",
-      "strengths": [
-        "backend-systems",
-        "open-source-coding"
-      ],
-      "capabilities": {
-        "coding": 79,
-        "debugging": 71,
-        "refactoring": 70,
-        "architecture": 69,
-        "agentic_work": 70,
-        "long_context": 72,
-        "instruction_following": 74,
-        "structured_output": 72,
-        "speed": 72,
-        "frontend": 64,
-        "backend": 82,
-        "math_science": 69
-      },
-      "effort_levels": null,
-      "source": "artificialanalysis.ai",
-      "source_url": "https://artificialanalysis.ai/models/glm-4-7-non-reasoning",
-      "last_checked": "2026-06-11",
-      "confidence": "verified"
-    },
-    {
       "id": "glm-4-7-flash",
       "name": "GLM-4.7-Flash",
       "provider": "zai",
@@ -3713,45 +2238,6 @@
       ],
       "source": "artificialanalysis.ai",
       "source_url": "https://artificialanalysis.ai/models/glm-4-7-flash",
-      "last_checked": "2026-06-11",
-      "confidence": "verified"
-    },
-    {
-      "id": "glm-4-7-flash-non-reasoning",
-      "name": "GLM-4.7-Flash",
-      "provider": "zai",
-      "tier": "low",
-      "status": "deprecated",
-      "cost": {
-        "input_per_1m": 0.07,
-        "output_per_1m": 0.4
-      },
-      "context_window": 200000,
-      "quality_score": 64,
-      "speed": "fast",
-      "strengths": [
-        "fast-iteration",
-        "simple-fixes",
-        "backend-systems",
-        "open-source-coding"
-      ],
-      "capabilities": {
-        "coding": 69,
-        "debugging": 61,
-        "refactoring": 60,
-        "architecture": 59,
-        "agentic_work": 60,
-        "long_context": 72,
-        "instruction_following": 64,
-        "structured_output": 62,
-        "speed": 98,
-        "frontend": 54,
-        "backend": 72,
-        "math_science": 59
-      },
-      "effort_levels": null,
-      "source": "artificialanalysis.ai",
-      "source_url": "https://artificialanalysis.ai/models/glm-4-7-flash-non-reasoning",
       "last_checked": "2026-06-11",
       "confidence": "verified"
     },
@@ -4155,44 +2641,6 @@
       "confidence": "verified"
     },
     {
-      "id": "mimo-v2-5-pro-non-reasoning",
-      "name": "MiMo-V2.5-Pro",
-      "provider": "xiaomi",
-      "tier": "medium",
-      "status": "active",
-      "cost": {
-        "input_per_1m": 0.9,
-        "output_per_1m": 2.7
-      },
-      "context_window": 1000000,
-      "quality_score": 78,
-      "speed": "medium",
-      "strengths": [
-        "long-context",
-        "multi-file-refactoring",
-        "cross-cutting-changes"
-      ],
-      "capabilities": {
-        "coding": 78,
-        "debugging": 75,
-        "refactoring": 80,
-        "architecture": 79,
-        "agentic_work": 74,
-        "long_context": 96,
-        "instruction_following": 78,
-        "structured_output": 76,
-        "speed": 72,
-        "frontend": 76,
-        "backend": 78,
-        "math_science": 73
-      },
-      "effort_levels": null,
-      "source": "artificialanalysis.ai",
-      "source_url": "https://artificialanalysis.ai/models/mimo-v2-5-pro-non-reasoning",
-      "last_checked": "2026-06-11",
-      "confidence": "verified"
-    },
-    {
       "id": "mimo-v2-flash",
       "name": "MiMo-V2-Flash",
       "provider": "xiaomi",
@@ -4278,51 +2726,8 @@
       "confidence": "verified"
     },
     {
-      "id": "mimo-v2-flash-reasoning",
-      "name": "MiMo-V2-Flash",
-      "provider": "xiaomi",
-      "tier": "medium",
-      "status": "deprecated",
-      "cost": {
-        "input_per_1m": 0.1,
-        "output_per_1m": 0.3
-      },
-      "context_window": 260000,
-      "quality_score": 78,
-      "speed": "fast",
-      "strengths": [
-        "reasoning",
-        "agentic-tasks",
-        "fast-iteration",
-        "simple-fixes"
-      ],
-      "capabilities": {
-        "coding": 78,
-        "debugging": 75,
-        "refactoring": 74,
-        "architecture": 73,
-        "agentic_work": 74,
-        "long_context": 72,
-        "instruction_following": 78,
-        "structured_output": 76,
-        "speed": 98,
-        "frontend": 76,
-        "backend": 78,
-        "math_science": 73
-      },
-      "effort_levels": [
-        "low",
-        "medium",
-        "high"
-      ],
-      "source": "artificialanalysis.ai",
-      "source_url": "https://artificialanalysis.ai/models/mimo-v2-flash-reasoning",
-      "last_checked": "2026-06-11",
-      "confidence": "verified"
-    },
-    {
       "id": "deepseek-v4-pro",
-      "name": "DeepSeek V4 Pro (Max)",
+      "name": "DeepSeek V4 Pro",
       "provider": "deepseek",
       "tier": "high",
       "status": "active",
@@ -4361,8 +2766,6 @@
         "math_science": 86
       },
       "effort_levels": [
-        "low",
-        "medium",
         "high",
         "max"
       ],
@@ -4372,58 +2775,8 @@
       "confidence": "verified"
     },
     {
-      "id": "deepseek-v4-pro-high",
-      "name": "DeepSeek V4 Pro (High)",
-      "provider": "deepseek",
-      "tier": "high",
-      "status": "active",
-      "cost": {
-        "input_per_1m": 0.43,
-        "output_per_1m": 0.87
-      },
-      "context_window": 1000000,
-      "quality_score": 90,
-      "speed": "medium",
-      "strengths": [
-        "complex-reasoning",
-        "architecture-decisions",
-        "code-generation",
-        "debugging",
-        "long-context",
-        "reasoning",
-        "agentic-tasks",
-        "multi-file-refactoring",
-        "cross-cutting-changes",
-        "backend-systems",
-        "open-source-coding"
-      ],
-      "capabilities": {
-        "coding": 95,
-        "debugging": 87,
-        "refactoring": 92,
-        "architecture": 91,
-        "agentic_work": 86,
-        "long_context": 96,
-        "instruction_following": 90,
-        "structured_output": 88,
-        "speed": 72,
-        "frontend": 80,
-        "backend": 98,
-        "math_science": 85
-      },
-      "effort_levels": [
-        "low",
-        "medium",
-        "high"
-      ],
-      "source": "artificialanalysis.ai",
-      "source_url": "https://artificialanalysis.ai/models/deepseek-v4-pro-high",
-      "last_checked": "2026-06-11",
-      "confidence": "verified"
-    },
-    {
       "id": "deepseek-v4-flash",
-      "name": "DeepSeek V4 Flash (Max)",
+      "name": "DeepSeek V4 Flash",
       "provider": "deepseek",
       "tier": "medium",
       "status": "active",
@@ -4460,141 +2813,11 @@
         "math_science": 82
       },
       "effort_levels": [
-        "low",
-        "medium",
         "high",
         "max"
       ],
       "source": "artificialanalysis.ai",
       "source_url": "https://artificialanalysis.ai/models/deepseek-v4-flash",
-      "last_checked": "2026-06-11",
-      "confidence": "verified"
-    },
-    {
-      "id": "deepseek-v4-flash-high",
-      "name": "DeepSeek V4 Flash (High)",
-      "provider": "deepseek",
-      "tier": "medium",
-      "status": "active",
-      "cost": {
-        "input_per_1m": 0.14,
-        "output_per_1m": 0.28
-      },
-      "context_window": 1000000,
-      "quality_score": 84,
-      "speed": "medium",
-      "strengths": [
-        "code-generation",
-        "debugging",
-        "long-context",
-        "reasoning",
-        "agentic-tasks",
-        "fast-iteration",
-        "simple-fixes",
-        "backend-systems",
-        "open-source-coding"
-      ],
-      "capabilities": {
-        "coding": 89,
-        "debugging": 81,
-        "refactoring": 80,
-        "architecture": 79,
-        "agentic_work": 80,
-        "long_context": 96,
-        "instruction_following": 84,
-        "structured_output": 82,
-        "speed": 78,
-        "frontend": 74,
-        "backend": 92,
-        "math_science": 79
-      },
-      "effort_levels": [
-        "low",
-        "medium",
-        "high"
-      ],
-      "source": "artificialanalysis.ai",
-      "source_url": "https://artificialanalysis.ai/models/deepseek-v4-flash-high",
-      "last_checked": "2026-06-11",
-      "confidence": "verified"
-    },
-    {
-      "id": "deepseek-v4-pro-non-reasoning",
-      "name": "DeepSeek V4 Pro",
-      "provider": "deepseek",
-      "tier": "medium",
-      "status": "active",
-      "cost": {
-        "input_per_1m": 0.43,
-        "output_per_1m": 0.87
-      },
-      "context_window": 1000000,
-      "quality_score": 80,
-      "speed": "medium",
-      "strengths": [
-        "long-context",
-        "multi-file-refactoring",
-        "cross-cutting-changes",
-        "backend-systems",
-        "open-source-coding"
-      ],
-      "capabilities": {
-        "coding": 85,
-        "debugging": 77,
-        "refactoring": 82,
-        "architecture": 81,
-        "agentic_work": 76,
-        "long_context": 96,
-        "instruction_following": 80,
-        "structured_output": 78,
-        "speed": 72,
-        "frontend": 70,
-        "backend": 88,
-        "math_science": 75
-      },
-      "effort_levels": null,
-      "source": "artificialanalysis.ai",
-      "source_url": "https://artificialanalysis.ai/models/deepseek-v4-pro-non-reasoning",
-      "last_checked": "2026-06-11",
-      "confidence": "verified"
-    },
-    {
-      "id": "deepseek-v4-flash-non-reasoning",
-      "name": "DeepSeek V4 Flash",
-      "provider": "deepseek",
-      "tier": "medium",
-      "status": "active",
-      "cost": {
-        "input_per_1m": 0.14,
-        "output_per_1m": 0.28
-      },
-      "context_window": 1000000,
-      "quality_score": 76,
-      "speed": "fast",
-      "strengths": [
-        "long-context",
-        "fast-iteration",
-        "simple-fixes",
-        "backend-systems",
-        "open-source-coding"
-      ],
-      "capabilities": {
-        "coding": 81,
-        "debugging": 73,
-        "refactoring": 72,
-        "architecture": 71,
-        "agentic_work": 72,
-        "long_context": 96,
-        "instruction_following": 76,
-        "structured_output": 74,
-        "speed": 98,
-        "frontend": 66,
-        "backend": 84,
-        "math_science": 71
-      },
-      "effort_levels": null,
-      "source": "artificialanalysis.ai",
-      "source_url": "https://artificialanalysis.ai/models/deepseek-v4-flash-non-reasoning",
       "last_checked": "2026-06-11",
       "confidence": "verified"
     },
@@ -4718,43 +2941,6 @@
       ],
       "source": "artificialanalysis.ai",
       "source_url": "https://artificialanalysis.ai/models/mistral-small-4",
-      "last_checked": "2026-06-11",
-      "confidence": "verified"
-    },
-    {
-      "id": "mistral-small-4-non-reasoning",
-      "name": "Mistral Small 4",
-      "provider": "mistral",
-      "tier": "low",
-      "status": "active",
-      "cost": {
-        "input_per_1m": 0.15,
-        "output_per_1m": 0.6
-      },
-      "context_window": 260000,
-      "quality_score": 55,
-      "speed": "fast",
-      "strengths": [
-        "backend-systems",
-        "open-source-coding"
-      ],
-      "capabilities": {
-        "coding": 60,
-        "debugging": 52,
-        "refactoring": 51,
-        "architecture": 50,
-        "agentic_work": 51,
-        "long_context": 72,
-        "instruction_following": 55,
-        "structured_output": 53,
-        "speed": 92,
-        "frontend": 45,
-        "backend": 63,
-        "math_science": 50
-      },
-      "effort_levels": null,
-      "source": "artificialanalysis.ai",
-      "source_url": "https://artificialanalysis.ai/models/mistral-small-4-non-reasoning",
       "last_checked": "2026-06-11",
       "confidence": "verified"
     },

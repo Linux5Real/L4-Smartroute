@@ -1,10 +1,16 @@
 available_models:
-- claude-opus-4-8
 - claude-sonnet-4-6
 - claude-haiku-4-5
+- claude-fable-5
+- claude-opus-4-5
+- claude-opus-4-6-adaptive
+- claude-opus-4-7-non-reasoning
+- claude-sonnet-4-6-adaptive
+- claude-opus-4-5-thinking
+- deepseek-v4-flash-non-reasoning
 graphify_path: ./graphify-out/graph.json
 preferences:
-  optimize_for: quality
+  optimize_for: balanced
   router_mode: hybrid
   max_budget_per_task: null
   bfs_max_depth: 3
