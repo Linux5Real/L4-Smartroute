@@ -1,6 +1,6 @@
 # L4-Smartroute
 
-Intelligent AI model routing for coding agents. Picks the right model for the right task — so you stop overpaying for simple fixes and underpowering complex refactors.
+Intelligent AI model routing for coding agents. Picks the right model for the right task - so you stop overpaying for simple fixes and underpowering complex refactors.
 
 *made by [linux5real](https://github.com/Linux5real)*
 
@@ -10,7 +10,7 @@ L4-Smartroute is an MCP server that analyzes your task (prompt or git diff), cal
 
 ## Built on Graphify
 
-L4-Smartroute uses [Graphify](https://github.com/safishamsi/graphify) knowledge graphs to calculate blast radius — how many files, communities, and code paths a change affects. This drives complexity scoring and ensures high-risk cross-module work gets a capable model while simple edits stay cheap.
+L4-Smartroute uses [Graphify](https://github.com/safishamsi/graphify) knowledge graphs to calculate blast radius - how many files, communities, and code paths a change affects. This drives complexity scoring and ensures high-risk cross-module work gets a capable model while simple edits stay cheap.
 
 ## Features
 
