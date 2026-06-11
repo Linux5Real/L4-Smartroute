@@ -344,6 +344,51 @@
       "confidence": "verified"
     },
     {
+      "id": "claude-4-5-sonnet",
+      "name": "Claude 4.5 Sonnet",
+      "provider": "anthropic",
+      "tier": "high",
+      "status": "deprecated",
+      "cost": {
+        "input_per_1m": 3.75,
+        "output_per_1m": 15.0
+      },
+      "context_window": 200000,
+      "quality_score": 37,
+      "speed": "fast",
+      "strengths": [
+        "code-generation",
+        "debugging",
+        "long-context",
+        "frontend-ui",
+        "instruction-following"
+      ],
+      "capabilities": {
+        "coding": 45.0,
+        "debugging": 45.0,
+        "refactoring": 32.0,
+        "architecture": 31.0,
+        "agentic_work": 31.0,
+        "long_context": 100,
+        "instruction_following": 41.0,
+        "structured_output": 35.0,
+        "speed": 90,
+        "frontend": 46.0,
+        "backend": 37.0,
+        "math_science": 29.0
+      },
+      "effort_levels": [
+        "low",
+        "medium",
+        "high",
+        "max"
+      ],
+      "source": "artificialanalysis.ai",
+      "source_url": "https://artificialanalysis.ai/models/claude-4-5-sonnet",
+      "last_checked": "2026-06-11",
+      "confidence": "verified"
+    },
+    {
       "id": "gpt-5-5",
       "name": "GPT-5.5",
       "provider": "openai",
@@ -948,46 +993,6 @@
       "confidence": "verified"
     },
     {
-      "id": "gemini-3-5-flash-minimal",
-      "name": "Gemini 3.5 Flash (minimal)",
-      "provider": "google",
-      "tier": "low",
-      "status": "active",
-      "cost": {
-        "input_per_1m": 1.5,
-        "output_per_1m": 9.0
-      },
-      "context_window": 1000000,
-      "quality_score": 76,
-      "speed": "fast",
-      "strengths": [
-        "long-context",
-        "fast-iteration",
-        "simple-fixes",
-        "math",
-        "structured-output"
-      ],
-      "capabilities": {
-        "coding": 76,
-        "debugging": 73,
-        "refactoring": 72,
-        "architecture": 71,
-        "agentic_work": 72,
-        "long_context": 96,
-        "instruction_following": 76,
-        "structured_output": 78,
-        "speed": 98,
-        "frontend": 82,
-        "backend": 76,
-        "math_science": 79
-      },
-      "effort_levels": null,
-      "source": "artificialanalysis.ai",
-      "source_url": "https://artificialanalysis.ai/models/gemini-3-5-flash-minimal",
-      "last_checked": "2026-06-11",
-      "confidence": "verified"
-    },
-    {
       "id": "gemini-3-1-flash-lite-preview",
       "name": "Gemini 3.1 Flash-Lite",
       "provider": "google",
@@ -1295,39 +1300,42 @@
       "confidence": "verified"
     },
     {
-      "id": "kimi-k2-6",
-      "name": "Kimi K2.6",
-      "provider": "moonshot",
+      "id": "grok-4-20",
+      "name": "Grok 4.20 0309 v2",
+      "provider": "xai",
       "tier": "high",
-      "status": "active",
+      "status": "deprecated",
       "cost": {
-        "input_per_1m": 0.95,
-        "output_per_1m": 4.0
+        "input_per_1m": 2.0,
+        "output_per_1m": 6.0
       },
-      "context_window": 260000,
-      "quality_score": 91,
-      "speed": "medium",
+      "context_window": 2000000,
+      "quality_score": 49,
+      "speed": "fast",
       "strengths": [
         "complex-reasoning",
         "architecture-decisions",
         "code-generation",
         "debugging",
+        "long-context",
         "reasoning",
-        "agentic-tasks"
+        "agentic-tasks",
+        "math",
+        "structured-output"
       ],
       "capabilities": {
-        "coding": 91,
-        "debugging": 88,
-        "refactoring": 87,
-        "architecture": 86,
-        "agentic_work": 87,
-        "long_context": 72,
-        "instruction_following": 91,
-        "structured_output": 89,
-        "speed": 72,
-        "frontend": 89,
-        "backend": 91,
-        "math_science": 86
+        "coding": 57.0,
+        "debugging": 57.0,
+        "refactoring": 44.0,
+        "architecture": 63.0,
+        "agentic_work": 55.0,
+        "long_context": 100,
+        "instruction_following": 49.0,
+        "structured_output": 47.0,
+        "speed": 90,
+        "frontend": 46.0,
+        "backend": 49.0,
+        "math_science": 46.0
       },
       "effort_levels": [
         "low",
@@ -1335,127 +1343,7 @@
         "high"
       ],
       "source": "artificialanalysis.ai",
-      "source_url": "https://artificialanalysis.ai/models/kimi-k2-6",
-      "last_checked": "2026-06-11",
-      "confidence": "verified"
-    },
-    {
-      "id": "kimi-linear-48b-a3b-instruct",
-      "name": "Kimi Linear 48B A3B Instruct",
-      "provider": "moonshot",
-      "tier": "low",
-      "status": "active",
-      "cost": {
-        "input_per_1m": 0.0,
-        "output_per_1m": 0.0
-      },
-      "context_window": 1000000,
-      "quality_score": 57,
-      "speed": "medium",
-      "strengths": [
-        "long-context"
-      ],
-      "capabilities": {
-        "coding": 57,
-        "debugging": 54,
-        "refactoring": 53,
-        "architecture": 52,
-        "agentic_work": 53,
-        "long_context": 96,
-        "instruction_following": 57,
-        "structured_output": 55,
-        "speed": 72,
-        "frontend": 55,
-        "backend": 57,
-        "math_science": 52
-      },
-      "effort_levels": null,
-      "source": "artificialanalysis.ai",
-      "source_url": "https://artificialanalysis.ai/models/kimi-linear-48b-a3b-instruct",
-      "last_checked": "2026-06-11",
-      "confidence": "verified"
-    },
-    {
-      "id": "kimi-k2-5",
-      "name": "Kimi K2.5",
-      "provider": "moonshot",
-      "tier": "medium",
-      "status": "deprecated",
-      "cost": {
-        "input_per_1m": 0.58,
-        "output_per_1m": 3.0
-      },
-      "context_window": 260000,
-      "quality_score": 85,
-      "speed": "slow",
-      "strengths": [
-        "code-generation",
-        "debugging",
-        "reasoning",
-        "agentic-tasks"
-      ],
-      "capabilities": {
-        "coding": 85,
-        "debugging": 82,
-        "refactoring": 81,
-        "architecture": 80,
-        "agentic_work": 81,
-        "long_context": 72,
-        "instruction_following": 85,
-        "structured_output": 83,
-        "speed": 48,
-        "frontend": 83,
-        "backend": 85,
-        "math_science": 80
-      },
-      "effort_levels": [
-        "low",
-        "medium",
-        "high"
-      ],
-      "source": "artificialanalysis.ai",
-      "source_url": "https://artificialanalysis.ai/models/kimi-k2-5",
-      "last_checked": "2026-06-11",
-      "confidence": "verified"
-    },
-    {
-      "id": "kimi-k2-thinking",
-      "name": "Kimi K2 Thinking",
-      "provider": "moonshot",
-      "tier": "medium",
-      "status": "deprecated",
-      "cost": {
-        "input_per_1m": 0.6,
-        "output_per_1m": 2.5
-      },
-      "context_window": 260000,
-      "quality_score": 80,
-      "speed": "fast",
-      "strengths": [
-        "reasoning",
-        "agentic-tasks"
-      ],
-      "capabilities": {
-        "coding": 80,
-        "debugging": 77,
-        "refactoring": 76,
-        "architecture": 75,
-        "agentic_work": 76,
-        "long_context": 72,
-        "instruction_following": 80,
-        "structured_output": 78,
-        "speed": 92,
-        "frontend": 78,
-        "backend": 80,
-        "math_science": 75
-      },
-      "effort_levels": [
-        "low",
-        "medium",
-        "high"
-      ],
-      "source": "artificialanalysis.ai",
-      "source_url": "https://artificialanalysis.ai/models/kimi-k2-thinking",
+      "source_url": "https://artificialanalysis.ai/models/grok-4-20",
       "last_checked": "2026-06-11",
       "confidence": "verified"
     },
@@ -2013,6 +1901,97 @@
       "confidence": "verified"
     },
     {
+      "id": "qwen3-5-27b",
+      "name": "Qwen3.5 27B",
+      "provider": "alibaba",
+      "tier": "low",
+      "status": "deprecated",
+      "cost": {
+        "input_per_1m": 0.3,
+        "output_per_1m": 2.4
+      },
+      "context_window": 262144,
+      "quality_score": 42,
+      "speed": "fast",
+      "strengths": [
+        "code-generation",
+        "debugging",
+        "reasoning",
+        "agentic-tasks",
+        "backend-systems",
+        "open-source-coding"
+      ],
+      "capabilities": {
+        "coding": 55.0,
+        "debugging": 50.0,
+        "refactoring": 37.0,
+        "architecture": 36.0,
+        "agentic_work": 48.0,
+        "long_context": 76,
+        "instruction_following": 42.0,
+        "structured_output": 40.0,
+        "speed": 90,
+        "frontend": 31.0,
+        "backend": 48.0,
+        "math_science": 34.0
+      },
+      "effort_levels": [
+        "low",
+        "medium"
+      ],
+      "source": "artificialanalysis.ai",
+      "source_url": "https://artificialanalysis.ai/models/qwen3-5-27b",
+      "last_checked": "2026-06-11",
+      "confidence": "verified"
+    },
+    {
+      "id": "qwen3-5-122b-a10b",
+      "name": "Qwen3.5 122B A10B",
+      "provider": "alibaba",
+      "tier": "medium",
+      "status": "active",
+      "cost": {
+        "input_per_1m": 0.4,
+        "output_per_1m": 3.2
+      },
+      "context_window": 262144,
+      "quality_score": 42,
+      "speed": "fast",
+      "strengths": [
+        "complex-reasoning",
+        "architecture-decisions",
+        "code-generation",
+        "debugging",
+        "reasoning",
+        "agentic-tasks",
+        "backend-systems",
+        "open-source-coding"
+      ],
+      "capabilities": {
+        "coding": 55.0,
+        "debugging": 50.0,
+        "refactoring": 37.0,
+        "architecture": 56.0,
+        "agentic_work": 48.0,
+        "long_context": 76,
+        "instruction_following": 42.0,
+        "structured_output": 40.0,
+        "speed": 90,
+        "frontend": 31.0,
+        "backend": 48.0,
+        "math_science": 34.0
+      },
+      "effort_levels": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "source": "artificialanalysis.ai",
+      "source_url": "https://artificialanalysis.ai/models/qwen3-5-122b-a10b",
+      "last_checked": "2026-06-11",
+      "confidence": "verified"
+    },
+    {
       "id": "glm-5-1",
       "name": "GLM-5.1",
       "provider": "zai",
@@ -2238,6 +2217,936 @@
       ],
       "source": "artificialanalysis.ai",
       "source_url": "https://artificialanalysis.ai/models/glm-4-7-flash",
+      "last_checked": "2026-06-11",
+      "confidence": "verified"
+    },
+    {
+      "id": "glm-4-6",
+      "name": "GLM-4.6",
+      "provider": "zai",
+      "tier": "high",
+      "status": "deprecated",
+      "cost": {
+        "input_per_1m": 0.55,
+        "output_per_1m": 2.2
+      },
+      "context_window": 200000,
+      "quality_score": 33,
+      "speed": "medium",
+      "strengths": [
+        "complex-reasoning",
+        "architecture-decisions",
+        "code-generation",
+        "debugging",
+        "reasoning",
+        "agentic-tasks",
+        "backend-systems",
+        "open-source-coding"
+      ],
+      "capabilities": {
+        "coding": 41.0,
+        "debugging": 41.0,
+        "refactoring": 28.0,
+        "architecture": 47.0,
+        "agentic_work": 39.0,
+        "long_context": 76,
+        "instruction_following": 33.0,
+        "structured_output": 31.0,
+        "speed": 70,
+        "frontend": 30.0,
+        "backend": 33.0,
+        "math_science": 25.0
+      },
+      "effort_levels": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "source": "artificialanalysis.ai",
+      "source_url": "https://artificialanalysis.ai/models/glm-4-6-reasoning",
+      "last_checked": "2026-06-11",
+      "confidence": "verified"
+    },
+    {
+      "id": "glm-4-5",
+      "name": "GLM-4.5",
+      "provider": "zai",
+      "tier": "high",
+      "status": "deprecated",
+      "cost": {
+        "input_per_1m": 0.6,
+        "output_per_1m": 2.2
+      },
+      "context_window": 128000,
+      "quality_score": 26,
+      "speed": "medium",
+      "strengths": [
+        "complex-reasoning",
+        "architecture-decisions",
+        "code-generation",
+        "debugging",
+        "reasoning",
+        "agentic-tasks",
+        "backend-systems",
+        "open-source-coding"
+      ],
+      "capabilities": {
+        "coding": 34.0,
+        "debugging": 34.0,
+        "refactoring": 21.0,
+        "architecture": 40.0,
+        "agentic_work": 32.0,
+        "long_context": 66,
+        "instruction_following": 26.0,
+        "structured_output": 24.0,
+        "speed": 70,
+        "frontend": 23.0,
+        "backend": 26.0,
+        "math_science": 18.0
+      },
+      "effort_levels": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "source": "artificialanalysis.ai",
+      "source_url": "https://artificialanalysis.ai/models/glm-4.5",
+      "last_checked": "2026-06-11",
+      "confidence": "verified"
+    },
+    {
+      "id": "glm-4-5-air",
+      "name": "GLM-4.5-Air",
+      "provider": "zai",
+      "tier": "medium",
+      "status": "deprecated",
+      "cost": {
+        "input_per_1m": 0.17,
+        "output_per_1m": 0.98
+      },
+      "context_window": 128000,
+      "quality_score": 23,
+      "speed": "fast",
+      "strengths": [
+        "code-generation",
+        "debugging",
+        "reasoning",
+        "agentic-tasks",
+        "backend-systems",
+        "open-source-coding",
+        "simple-fixes"
+      ],
+      "capabilities": {
+        "coding": 31.0,
+        "debugging": 31.0,
+        "refactoring": 18.0,
+        "architecture": 17.0,
+        "agentic_work": 29.0,
+        "long_context": 66,
+        "instruction_following": 23.0,
+        "structured_output": 21.0,
+        "speed": 94,
+        "frontend": 20.0,
+        "backend": 23.0,
+        "math_science": 15.0
+      },
+      "effort_levels": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "source": "artificialanalysis.ai",
+      "source_url": "https://artificialanalysis.ai/models/glm-4-5-air",
+      "last_checked": "2026-06-11",
+      "confidence": "verified"
+    },
+    {
+      "id": "kimi-k2-6",
+      "name": "Kimi K2.6",
+      "provider": "moonshot",
+      "tier": "high",
+      "status": "active",
+      "cost": {
+        "input_per_1m": 0.95,
+        "output_per_1m": 4.0
+      },
+      "context_window": 260000,
+      "quality_score": 91,
+      "speed": "medium",
+      "strengths": [
+        "complex-reasoning",
+        "architecture-decisions",
+        "code-generation",
+        "debugging",
+        "reasoning",
+        "agentic-tasks"
+      ],
+      "capabilities": {
+        "coding": 91,
+        "debugging": 88,
+        "refactoring": 87,
+        "architecture": 86,
+        "agentic_work": 87,
+        "long_context": 72,
+        "instruction_following": 91,
+        "structured_output": 89,
+        "speed": 72,
+        "frontend": 89,
+        "backend": 91,
+        "math_science": 86
+      },
+      "effort_levels": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "source": "artificialanalysis.ai",
+      "source_url": "https://artificialanalysis.ai/models/kimi-k2-6",
+      "last_checked": "2026-06-11",
+      "confidence": "verified"
+    },
+    {
+      "id": "kimi-linear-48b-a3b-instruct",
+      "name": "Kimi Linear 48B A3B Instruct",
+      "provider": "moonshot",
+      "tier": "low",
+      "status": "active",
+      "cost": {
+        "input_per_1m": 0.0,
+        "output_per_1m": 0.0
+      },
+      "context_window": 1000000,
+      "quality_score": 57,
+      "speed": "medium",
+      "strengths": [
+        "long-context"
+      ],
+      "capabilities": {
+        "coding": 57,
+        "debugging": 54,
+        "refactoring": 53,
+        "architecture": 52,
+        "agentic_work": 53,
+        "long_context": 96,
+        "instruction_following": 57,
+        "structured_output": 55,
+        "speed": 72,
+        "frontend": 55,
+        "backend": 57,
+        "math_science": 52
+      },
+      "effort_levels": null,
+      "source": "artificialanalysis.ai",
+      "source_url": "https://artificialanalysis.ai/models/kimi-linear-48b-a3b-instruct",
+      "last_checked": "2026-06-11",
+      "confidence": "verified"
+    },
+    {
+      "id": "kimi-k2-5",
+      "name": "Kimi K2.5",
+      "provider": "moonshot",
+      "tier": "medium",
+      "status": "deprecated",
+      "cost": {
+        "input_per_1m": 0.58,
+        "output_per_1m": 3.0
+      },
+      "context_window": 260000,
+      "quality_score": 85,
+      "speed": "slow",
+      "strengths": [
+        "code-generation",
+        "debugging",
+        "reasoning",
+        "agentic-tasks"
+      ],
+      "capabilities": {
+        "coding": 85,
+        "debugging": 82,
+        "refactoring": 81,
+        "architecture": 80,
+        "agentic_work": 81,
+        "long_context": 72,
+        "instruction_following": 85,
+        "structured_output": 83,
+        "speed": 48,
+        "frontend": 83,
+        "backend": 85,
+        "math_science": 80
+      },
+      "effort_levels": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "source": "artificialanalysis.ai",
+      "source_url": "https://artificialanalysis.ai/models/kimi-k2-5",
+      "last_checked": "2026-06-11",
+      "confidence": "verified"
+    },
+    {
+      "id": "kimi-k2-thinking",
+      "name": "Kimi K2 Thinking",
+      "provider": "moonshot",
+      "tier": "medium",
+      "status": "deprecated",
+      "cost": {
+        "input_per_1m": 0.6,
+        "output_per_1m": 2.5
+      },
+      "context_window": 260000,
+      "quality_score": 80,
+      "speed": "fast",
+      "strengths": [
+        "reasoning",
+        "agentic-tasks"
+      ],
+      "capabilities": {
+        "coding": 80,
+        "debugging": 77,
+        "refactoring": 76,
+        "architecture": 75,
+        "agentic_work": 76,
+        "long_context": 72,
+        "instruction_following": 80,
+        "structured_output": 78,
+        "speed": 92,
+        "frontend": 78,
+        "backend": 80,
+        "math_science": 75
+      },
+      "effort_levels": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "source": "artificialanalysis.ai",
+      "source_url": "https://artificialanalysis.ai/models/kimi-k2-thinking",
+      "last_checked": "2026-06-11",
+      "confidence": "verified"
+    },
+    {
+      "id": "mistral-medium-3-5",
+      "name": "Mistral Medium 3.5",
+      "provider": "mistral",
+      "tier": "medium",
+      "status": "active",
+      "cost": {
+        "input_per_1m": 1.5,
+        "output_per_1m": 7.5
+      },
+      "context_window": 260000,
+      "quality_score": 78,
+      "speed": "fast",
+      "strengths": [
+        "reasoning",
+        "agentic-tasks",
+        "backend-systems",
+        "open-source-coding"
+      ],
+      "capabilities": {
+        "coding": 83,
+        "debugging": 75,
+        "refactoring": 74,
+        "architecture": 73,
+        "agentic_work": 74,
+        "long_context": 72,
+        "instruction_following": 78,
+        "structured_output": 76,
+        "speed": 92,
+        "frontend": 68,
+        "backend": 86,
+        "math_science": 73
+      },
+      "effort_levels": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "source": "artificialanalysis.ai",
+      "source_url": "https://artificialanalysis.ai/models/mistral-medium-3-5",
+      "last_checked": "2026-06-11",
+      "confidence": "verified"
+    },
+    {
+      "id": "mistral-large-3",
+      "name": "Mistral Large 3",
+      "provider": "mistral",
+      "tier": "low",
+      "status": "active",
+      "cost": {
+        "input_per_1m": 0.5,
+        "output_per_1m": 1.5
+      },
+      "context_window": 260000,
+      "quality_score": 65,
+      "speed": "medium",
+      "strengths": [
+        "backend-systems",
+        "open-source-coding"
+      ],
+      "capabilities": {
+        "coding": 70,
+        "debugging": 62,
+        "refactoring": 61,
+        "architecture": 60,
+        "agentic_work": 61,
+        "long_context": 72,
+        "instruction_following": 65,
+        "structured_output": 63,
+        "speed": 72,
+        "frontend": 55,
+        "backend": 73,
+        "math_science": 60
+      },
+      "effort_levels": null,
+      "source": "artificialanalysis.ai",
+      "source_url": "https://artificialanalysis.ai/models/mistral-large-3",
+      "last_checked": "2026-06-11",
+      "confidence": "verified"
+    },
+    {
+      "id": "mistral-small-4",
+      "name": "Mistral Small 4",
+      "provider": "mistral",
+      "tier": "low",
+      "status": "active",
+      "cost": {
+        "input_per_1m": 0.15,
+        "output_per_1m": 0.6
+      },
+      "context_window": 260000,
+      "quality_score": 63,
+      "speed": "fast",
+      "strengths": [
+        "reasoning",
+        "agentic-tasks",
+        "backend-systems",
+        "open-source-coding"
+      ],
+      "capabilities": {
+        "coding": 68,
+        "debugging": 60,
+        "refactoring": 59,
+        "architecture": 58,
+        "agentic_work": 59,
+        "long_context": 72,
+        "instruction_following": 63,
+        "structured_output": 61,
+        "speed": 92,
+        "frontend": 53,
+        "backend": 71,
+        "math_science": 58
+      },
+      "effort_levels": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "source": "artificialanalysis.ai",
+      "source_url": "https://artificialanalysis.ai/models/mistral-small-4",
+      "last_checked": "2026-06-11",
+      "confidence": "verified"
+    },
+    {
+      "id": "deepseek-v4-pro",
+      "name": "DeepSeek V4 Pro",
+      "provider": "deepseek",
+      "tier": "high",
+      "status": "active",
+      "cost": {
+        "input_per_1m": 0.43,
+        "output_per_1m": 0.87
+      },
+      "context_window": 1000000,
+      "quality_score": 91,
+      "speed": "medium",
+      "strengths": [
+        "complex-reasoning",
+        "architecture-decisions",
+        "code-generation",
+        "debugging",
+        "long-context",
+        "reasoning",
+        "agentic-tasks",
+        "multi-file-refactoring",
+        "cross-cutting-changes",
+        "backend-systems",
+        "open-source-coding"
+      ],
+      "capabilities": {
+        "coding": 96,
+        "debugging": 88,
+        "refactoring": 93,
+        "architecture": 92,
+        "agentic_work": 87,
+        "long_context": 96,
+        "instruction_following": 91,
+        "structured_output": 89,
+        "speed": 72,
+        "frontend": 81,
+        "backend": 99,
+        "math_science": 86
+      },
+      "effort_levels": [
+        "high",
+        "max"
+      ],
+      "source": "artificialanalysis.ai",
+      "source_url": "https://artificialanalysis.ai/models/deepseek-v4-pro",
+      "last_checked": "2026-06-11",
+      "confidence": "verified"
+    },
+    {
+      "id": "deepseek-v4-flash",
+      "name": "DeepSeek V4 Flash",
+      "provider": "deepseek",
+      "tier": "medium",
+      "status": "active",
+      "cost": {
+        "input_per_1m": 0.14,
+        "output_per_1m": 0.28
+      },
+      "context_window": 1000000,
+      "quality_score": 87,
+      "speed": "fast",
+      "strengths": [
+        "code-generation",
+        "debugging",
+        "long-context",
+        "reasoning",
+        "agentic-tasks",
+        "fast-iteration",
+        "simple-fixes",
+        "backend-systems",
+        "open-source-coding"
+      ],
+      "capabilities": {
+        "coding": 92,
+        "debugging": 84,
+        "refactoring": 89,
+        "architecture": 88,
+        "agentic_work": 83,
+        "long_context": 96,
+        "instruction_following": 87,
+        "structured_output": 85,
+        "speed": 98,
+        "frontend": 77,
+        "backend": 95,
+        "math_science": 82
+      },
+      "effort_levels": [
+        "high",
+        "max"
+      ],
+      "source": "artificialanalysis.ai",
+      "source_url": "https://artificialanalysis.ai/models/deepseek-v4-flash",
+      "last_checked": "2026-06-11",
+      "confidence": "verified"
+    },
+    {
+      "id": "deepseek-v3-2",
+      "name": "DeepSeek V3.2",
+      "provider": "deepseek",
+      "tier": "high",
+      "status": "deprecated",
+      "cost": {
+        "input_per_1m": 0.5,
+        "output_per_1m": 1.6
+      },
+      "context_window": 128000,
+      "quality_score": 32,
+      "speed": "fast",
+      "strengths": [
+        "complex-reasoning",
+        "architecture-decisions",
+        "code-generation",
+        "debugging",
+        "long-context",
+        "reasoning",
+        "agentic-tasks",
+        "multi-file-refactoring",
+        "cross-cutting-changes",
+        "backend-systems",
+        "open-source-coding"
+      ],
+      "capabilities": {
+        "coding": 45.0,
+        "debugging": 40.0,
+        "refactoring": 47.0,
+        "architecture": 46.0,
+        "agentic_work": 38.0,
+        "long_context": 78,
+        "instruction_following": 32.0,
+        "structured_output": 30.0,
+        "speed": 90,
+        "frontend": 21.0,
+        "backend": 38.0,
+        "math_science": 24.0
+      },
+      "effort_levels": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "source": "artificialanalysis.ai",
+      "source_url": "https://artificialanalysis.ai/models/deepseek-v3-2",
+      "last_checked": "2026-06-11",
+      "confidence": "verified"
+    },
+    {
+      "id": "deepseek-r1",
+      "name": "DeepSeek R1 0528",
+      "provider": "deepseek",
+      "tier": "high",
+      "status": "deprecated",
+      "cost": {
+        "input_per_1m": 1.35,
+        "output_per_1m": 4.2
+      },
+      "context_window": 128000,
+      "quality_score": 27,
+      "speed": "medium",
+      "strengths": [
+        "complex-reasoning",
+        "architecture-decisions",
+        "code-generation",
+        "debugging",
+        "long-context",
+        "reasoning",
+        "agentic-tasks",
+        "multi-file-refactoring",
+        "cross-cutting-changes",
+        "backend-systems",
+        "open-source-coding"
+      ],
+      "capabilities": {
+        "coding": 40.0,
+        "debugging": 35.0,
+        "refactoring": 42.0,
+        "architecture": 41.0,
+        "agentic_work": 33.0,
+        "long_context": 78,
+        "instruction_following": 27.0,
+        "structured_output": 25.0,
+        "speed": 70,
+        "frontend": 16.0,
+        "backend": 33.0,
+        "math_science": 19.0
+      },
+      "effort_levels": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "source": "artificialanalysis.ai",
+      "source_url": "https://artificialanalysis.ai/models/deepseek-r1",
+      "last_checked": "2026-06-11",
+      "confidence": "verified"
+    },
+    {
+      "id": "deepseek-v3",
+      "name": "DeepSeek V3 (Dec)",
+      "provider": "deepseek",
+      "tier": "high",
+      "status": "deprecated",
+      "cost": {
+        "input_per_1m": 0.4,
+        "output_per_1m": 0.89
+      },
+      "context_window": 128000,
+      "quality_score": 16,
+      "speed": "slow",
+      "strengths": [
+        "complex-reasoning",
+        "architecture-decisions",
+        "code-generation",
+        "debugging",
+        "long-context",
+        "reasoning",
+        "agentic-tasks",
+        "multi-file-refactoring",
+        "cross-cutting-changes",
+        "backend-systems",
+        "open-source-coding"
+      ],
+      "capabilities": {
+        "coding": 29.0,
+        "debugging": 24.0,
+        "refactoring": 31.0,
+        "architecture": 30.0,
+        "agentic_work": 22.0,
+        "long_context": 78,
+        "instruction_following": 16.0,
+        "structured_output": 14.0,
+        "speed": 45,
+        "frontend": 5.0,
+        "backend": 22.0,
+        "math_science": 8.0
+      },
+      "effort_levels": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "source": "artificialanalysis.ai",
+      "source_url": "https://artificialanalysis.ai/models/deepseek-v3",
+      "last_checked": "2026-06-11",
+      "confidence": "verified"
+    },
+    {
+      "id": "deepseek-v3-1",
+      "name": "DeepSeek V3.1",
+      "provider": "deepseek",
+      "tier": "high",
+      "status": "deprecated",
+      "cost": {
+        "input_per_1m": 0.555,
+        "output_per_1m": 1.67
+      },
+      "context_window": 128000,
+      "quality_score": 28,
+      "speed": "medium",
+      "strengths": [
+        "complex-reasoning",
+        "architecture-decisions",
+        "code-generation",
+        "debugging",
+        "long-context",
+        "reasoning",
+        "agentic-tasks",
+        "multi-file-refactoring",
+        "cross-cutting-changes",
+        "backend-systems",
+        "open-source-coding"
+      ],
+      "capabilities": {
+        "coding": 41.0,
+        "debugging": 36.0,
+        "refactoring": 43.0,
+        "architecture": 42.0,
+        "agentic_work": 34.0,
+        "long_context": 78,
+        "instruction_following": 28.0,
+        "structured_output": 26.0,
+        "speed": 70,
+        "frontend": 17.0,
+        "backend": 34.0,
+        "math_science": 20.0
+      },
+      "effort_levels": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "source": "artificialanalysis.ai",
+      "source_url": "https://artificialanalysis.ai/models/deepseek-v3-1",
+      "last_checked": "2026-06-11",
+      "confidence": "verified"
+    },
+    {
+      "id": "llama-4-maverick",
+      "name": "Llama 4 Maverick",
+      "provider": "meta",
+      "tier": "low",
+      "status": "active",
+      "cost": {
+        "input_per_1m": 0.35,
+        "output_per_1m": 0.85
+      },
+      "context_window": 1000000,
+      "quality_score": 60,
+      "speed": "fast",
+      "strengths": [
+        "long-context"
+      ],
+      "capabilities": {
+        "coding": 60,
+        "debugging": 57,
+        "refactoring": 56,
+        "architecture": 55,
+        "agentic_work": 56,
+        "long_context": 96,
+        "instruction_following": 60,
+        "structured_output": 58,
+        "speed": 92,
+        "frontend": 58,
+        "backend": 60,
+        "math_science": 55
+      },
+      "effort_levels": null,
+      "source": "artificialanalysis.ai",
+      "source_url": "https://artificialanalysis.ai/models/llama-4-maverick",
+      "last_checked": "2026-06-11",
+      "confidence": "verified"
+    },
+    {
+      "id": "llama-4-scout",
+      "name": "Llama 4 Scout",
+      "provider": "meta",
+      "tier": "low",
+      "status": "active",
+      "cost": {
+        "input_per_1m": 0.17,
+        "output_per_1m": 0.66
+      },
+      "context_window": 10000000,
+      "quality_score": 57,
+      "speed": "fast",
+      "strengths": [
+        "long-context"
+      ],
+      "capabilities": {
+        "coding": 57,
+        "debugging": 54,
+        "refactoring": 53,
+        "architecture": 52,
+        "agentic_work": 53,
+        "long_context": 96,
+        "instruction_following": 57,
+        "structured_output": 55,
+        "speed": 92,
+        "frontend": 55,
+        "backend": 57,
+        "math_science": 52
+      },
+      "effort_levels": null,
+      "source": "artificialanalysis.ai",
+      "source_url": "https://artificialanalysis.ai/models/llama-4-scout",
+      "last_checked": "2026-06-11",
+      "confidence": "verified"
+    },
+    {
+      "id": "nvidia-nemotron-3-ultra-550b-a55b",
+      "name": "Nemotron 3 Ultra",
+      "provider": "nvidia",
+      "tier": "medium",
+      "status": "active",
+      "cost": {
+        "input_per_1m": 0.6,
+        "output_per_1m": 2.6
+      },
+      "context_window": 260000,
+      "quality_score": 86,
+      "speed": "fast",
+      "strengths": [
+        "code-generation",
+        "debugging",
+        "reasoning",
+        "agentic-tasks"
+      ],
+      "capabilities": {
+        "coding": 86,
+        "debugging": 83,
+        "refactoring": 82,
+        "architecture": 81,
+        "agentic_work": 82,
+        "long_context": 72,
+        "instruction_following": 86,
+        "structured_output": 84,
+        "speed": 92,
+        "frontend": 84,
+        "backend": 86,
+        "math_science": 81
+      },
+      "effort_levels": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "source": "artificialanalysis.ai",
+      "source_url": "https://artificialanalysis.ai/models/nvidia-nemotron-3-ultra-550b-a55b",
+      "last_checked": "2026-06-11",
+      "confidence": "verified"
+    },
+    {
+      "id": "nvidia-nemotron-3-nano-omni-30b-a3b",
+      "name": "Nemotron 3 Nano Omni 30B A3B Reasoning",
+      "provider": "nvidia",
+      "tier": "low",
+      "status": "active",
+      "cost": {
+        "input_per_1m": 0.075,
+        "output_per_1m": 0.3
+      },
+      "context_window": 256000,
+      "quality_score": 21,
+      "speed": "fast",
+      "strengths": [
+        "code-generation",
+        "debugging",
+        "reasoning",
+        "agentic-tasks",
+        "long-context",
+        "open-source-coding",
+        "backend-systems"
+      ],
+      "capabilities": {
+        "coding": 29.0,
+        "debugging": 29.0,
+        "refactoring": 16.0,
+        "architecture": 15.0,
+        "agentic_work": 27.0,
+        "long_context": 88,
+        "instruction_following": 21.0,
+        "structured_output": 19.0,
+        "speed": 90,
+        "frontend": 18.0,
+        "backend": 21.0,
+        "math_science": 13.0
+      },
+      "effort_levels": [
+        "low",
+        "medium"
+      ],
+      "source": "artificialanalysis.ai",
+      "source_url": "https://artificialanalysis.ai/models/nemotron-3-nano-omni-30b-a3b",
+      "last_checked": "2026-06-11",
+      "confidence": "verified"
+    },
+    {
+      "id": "nvidia-nemotron-3-super-120b-a12b",
+      "name": "NVIDIA Nemotron 3 Super",
+      "provider": "nvidia",
+      "tier": "medium",
+      "status": "active",
+      "cost": {
+        "input_per_1m": 0.3,
+        "output_per_1m": 0.75
+      },
+      "context_window": 1000000,
+      "quality_score": 36,
+      "speed": "fast",
+      "strengths": [
+        "code-generation",
+        "debugging",
+        "reasoning",
+        "agentic-tasks",
+        "long-context",
+        "open-source-coding",
+        "backend-systems"
+      ],
+      "capabilities": {
+        "coding": 44.0,
+        "debugging": 44.0,
+        "refactoring": 31.0,
+        "architecture": 30.0,
+        "agentic_work": 42.0,
+        "long_context": 100,
+        "instruction_following": 36.0,
+        "structured_output": 34.0,
+        "speed": 90,
+        "frontend": 33.0,
+        "backend": 36.0,
+        "math_science": 28.0
+      },
+      "effort_levels": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "source": "artificialanalysis.ai",
+      "source_url": "https://artificialanalysis.ai/models/nvidia-nemotron-3-super-120b-a12b",
       "last_checked": "2026-06-11",
       "confidence": "verified"
     },
@@ -2641,43 +3550,6 @@
       "confidence": "verified"
     },
     {
-      "id": "mimo-v2-flash",
-      "name": "MiMo-V2-Flash",
-      "provider": "xiaomi",
-      "tier": "low",
-      "status": "active",
-      "cost": {
-        "input_per_1m": 0.1,
-        "output_per_1m": 0.3
-      },
-      "context_window": 260000,
-      "quality_score": 70,
-      "speed": "fast",
-      "strengths": [
-        "fast-iteration",
-        "simple-fixes"
-      ],
-      "capabilities": {
-        "coding": 70,
-        "debugging": 67,
-        "refactoring": 66,
-        "architecture": 65,
-        "agentic_work": 66,
-        "long_context": 72,
-        "instruction_following": 70,
-        "structured_output": 68,
-        "speed": 98,
-        "frontend": 68,
-        "backend": 70,
-        "math_science": 65
-      },
-      "effort_levels": null,
-      "source": "artificialanalysis.ai",
-      "source_url": "https://artificialanalysis.ai/models/mimo-v2-flash",
-      "last_checked": "2026-06-11",
-      "confidence": "verified"
-    },
-    {
       "id": "mimo-v2-pro",
       "name": "MiMo-V2-Pro",
       "provider": "xiaomi",
@@ -2726,369 +3598,39 @@
       "confidence": "verified"
     },
     {
-      "id": "deepseek-v4-pro",
-      "name": "DeepSeek V4 Pro",
-      "provider": "deepseek",
-      "tier": "high",
-      "status": "active",
-      "cost": {
-        "input_per_1m": 0.43,
-        "output_per_1m": 0.87
-      },
-      "context_window": 1000000,
-      "quality_score": 91,
-      "speed": "medium",
-      "strengths": [
-        "complex-reasoning",
-        "architecture-decisions",
-        "code-generation",
-        "debugging",
-        "long-context",
-        "reasoning",
-        "agentic-tasks",
-        "multi-file-refactoring",
-        "cross-cutting-changes",
-        "backend-systems",
-        "open-source-coding"
-      ],
-      "capabilities": {
-        "coding": 96,
-        "debugging": 88,
-        "refactoring": 93,
-        "architecture": 92,
-        "agentic_work": 87,
-        "long_context": 96,
-        "instruction_following": 91,
-        "structured_output": 89,
-        "speed": 72,
-        "frontend": 81,
-        "backend": 99,
-        "math_science": 86
-      },
-      "effort_levels": [
-        "high",
-        "max"
-      ],
-      "source": "artificialanalysis.ai",
-      "source_url": "https://artificialanalysis.ai/models/deepseek-v4-pro",
-      "last_checked": "2026-06-11",
-      "confidence": "verified"
-    },
-    {
-      "id": "deepseek-v4-flash",
-      "name": "DeepSeek V4 Flash",
-      "provider": "deepseek",
-      "tier": "medium",
-      "status": "active",
-      "cost": {
-        "input_per_1m": 0.14,
-        "output_per_1m": 0.28
-      },
-      "context_window": 1000000,
-      "quality_score": 87,
-      "speed": "fast",
-      "strengths": [
-        "code-generation",
-        "debugging",
-        "long-context",
-        "reasoning",
-        "agentic-tasks",
-        "fast-iteration",
-        "simple-fixes",
-        "backend-systems",
-        "open-source-coding"
-      ],
-      "capabilities": {
-        "coding": 92,
-        "debugging": 84,
-        "refactoring": 89,
-        "architecture": 88,
-        "agentic_work": 83,
-        "long_context": 96,
-        "instruction_following": 87,
-        "structured_output": 85,
-        "speed": 98,
-        "frontend": 77,
-        "backend": 95,
-        "math_science": 82
-      },
-      "effort_levels": [
-        "high",
-        "max"
-      ],
-      "source": "artificialanalysis.ai",
-      "source_url": "https://artificialanalysis.ai/models/deepseek-v4-flash",
-      "last_checked": "2026-06-11",
-      "confidence": "verified"
-    },
-    {
-      "id": "mistral-medium-3-5",
-      "name": "Mistral Medium 3.5",
-      "provider": "mistral",
-      "tier": "medium",
-      "status": "active",
-      "cost": {
-        "input_per_1m": 1.5,
-        "output_per_1m": 7.5
-      },
-      "context_window": 260000,
-      "quality_score": 78,
-      "speed": "fast",
-      "strengths": [
-        "reasoning",
-        "agentic-tasks",
-        "backend-systems",
-        "open-source-coding"
-      ],
-      "capabilities": {
-        "coding": 83,
-        "debugging": 75,
-        "refactoring": 74,
-        "architecture": 73,
-        "agentic_work": 74,
-        "long_context": 72,
-        "instruction_following": 78,
-        "structured_output": 76,
-        "speed": 92,
-        "frontend": 68,
-        "backend": 86,
-        "math_science": 73
-      },
-      "effort_levels": [
-        "low",
-        "medium",
-        "high"
-      ],
-      "source": "artificialanalysis.ai",
-      "source_url": "https://artificialanalysis.ai/models/mistral-medium-3-5",
-      "last_checked": "2026-06-11",
-      "confidence": "verified"
-    },
-    {
-      "id": "mistral-large-3",
-      "name": "Mistral Large 3",
-      "provider": "mistral",
-      "tier": "low",
-      "status": "active",
-      "cost": {
-        "input_per_1m": 0.5,
-        "output_per_1m": 1.5
-      },
-      "context_window": 260000,
-      "quality_score": 65,
-      "speed": "medium",
-      "strengths": [
-        "backend-systems",
-        "open-source-coding"
-      ],
-      "capabilities": {
-        "coding": 70,
-        "debugging": 62,
-        "refactoring": 61,
-        "architecture": 60,
-        "agentic_work": 61,
-        "long_context": 72,
-        "instruction_following": 65,
-        "structured_output": 63,
-        "speed": 72,
-        "frontend": 55,
-        "backend": 73,
-        "math_science": 60
-      },
-      "effort_levels": null,
-      "source": "artificialanalysis.ai",
-      "source_url": "https://artificialanalysis.ai/models/mistral-large-3",
-      "last_checked": "2026-06-11",
-      "confidence": "verified"
-    },
-    {
-      "id": "mistral-small-4",
-      "name": "Mistral Small 4",
-      "provider": "mistral",
-      "tier": "low",
-      "status": "active",
-      "cost": {
-        "input_per_1m": 0.15,
-        "output_per_1m": 0.6
-      },
-      "context_window": 260000,
-      "quality_score": 63,
-      "speed": "fast",
-      "strengths": [
-        "reasoning",
-        "agentic-tasks",
-        "backend-systems",
-        "open-source-coding"
-      ],
-      "capabilities": {
-        "coding": 68,
-        "debugging": 60,
-        "refactoring": 59,
-        "architecture": 58,
-        "agentic_work": 59,
-        "long_context": 72,
-        "instruction_following": 63,
-        "structured_output": 61,
-        "speed": 92,
-        "frontend": 53,
-        "backend": 71,
-        "math_science": 58
-      },
-      "effort_levels": [
-        "low",
-        "medium",
-        "high"
-      ],
-      "source": "artificialanalysis.ai",
-      "source_url": "https://artificialanalysis.ai/models/mistral-small-4",
-      "last_checked": "2026-06-11",
-      "confidence": "verified"
-    },
-    {
-      "id": "llama-4-maverick",
-      "name": "Llama 4 Maverick",
-      "provider": "meta",
-      "tier": "low",
-      "status": "active",
-      "cost": {
-        "input_per_1m": 0.35,
-        "output_per_1m": 0.85
-      },
-      "context_window": 1000000,
-      "quality_score": 60,
-      "speed": "fast",
-      "strengths": [
-        "long-context"
-      ],
-      "capabilities": {
-        "coding": 60,
-        "debugging": 57,
-        "refactoring": 56,
-        "architecture": 55,
-        "agentic_work": 56,
-        "long_context": 96,
-        "instruction_following": 60,
-        "structured_output": 58,
-        "speed": 92,
-        "frontend": 58,
-        "backend": 60,
-        "math_science": 55
-      },
-      "effort_levels": null,
-      "source": "artificialanalysis.ai",
-      "source_url": "https://artificialanalysis.ai/models/llama-4-maverick",
-      "last_checked": "2026-06-11",
-      "confidence": "verified"
-    },
-    {
-      "id": "llama-4-scout",
-      "name": "Llama 4 Scout",
-      "provider": "meta",
-      "tier": "low",
-      "status": "active",
-      "cost": {
-        "input_per_1m": 0.17,
-        "output_per_1m": 0.66
-      },
-      "context_window": 10000000,
-      "quality_score": 57,
-      "speed": "fast",
-      "strengths": [
-        "long-context"
-      ],
-      "capabilities": {
-        "coding": 57,
-        "debugging": 54,
-        "refactoring": 53,
-        "architecture": 52,
-        "agentic_work": 53,
-        "long_context": 96,
-        "instruction_following": 57,
-        "structured_output": 55,
-        "speed": 92,
-        "frontend": 55,
-        "backend": 57,
-        "math_science": 52
-      },
-      "effort_levels": null,
-      "source": "artificialanalysis.ai",
-      "source_url": "https://artificialanalysis.ai/models/llama-4-scout",
-      "last_checked": "2026-06-11",
-      "confidence": "verified"
-    },
-    {
-      "id": "nvidia-nemotron-3-ultra-550b-a55b",
-      "name": "Nemotron 3 Ultra",
-      "provider": "nvidia",
-      "tier": "medium",
-      "status": "active",
-      "cost": {
-        "input_per_1m": 0.6,
-        "output_per_1m": 2.6
-      },
-      "context_window": 260000,
-      "quality_score": 86,
-      "speed": "fast",
-      "strengths": [
-        "code-generation",
-        "debugging",
-        "reasoning",
-        "agentic-tasks"
-      ],
-      "capabilities": {
-        "coding": 86,
-        "debugging": 83,
-        "refactoring": 82,
-        "architecture": 81,
-        "agentic_work": 82,
-        "long_context": 72,
-        "instruction_following": 86,
-        "structured_output": 84,
-        "speed": 92,
-        "frontend": 84,
-        "backend": 86,
-        "math_science": 81
-      },
-      "effort_levels": [
-        "low",
-        "medium",
-        "high"
-      ],
-      "source": "artificialanalysis.ai",
-      "source_url": "https://artificialanalysis.ai/models/nvidia-nemotron-3-ultra-550b-a55b",
-      "last_checked": "2026-06-11",
-      "confidence": "verified"
-    },
-    {
       "id": "command-a-plus",
       "name": "Command A+",
-      "provider": "cohere",
-      "tier": "medium",
+      "provider": "others",
+      "tier": "high",
       "status": "active",
       "cost": {
         "input_per_1m": 0.0,
         "output_per_1m": 0.0
       },
-      "context_window": 190000,
-      "quality_score": 76,
+      "context_window": 192000,
+      "quality_score": 37,
       "speed": "fast",
       "strengths": [
+        "code-generation",
+        "debugging",
+        "long-context",
+        "backend-systems",
         "reasoning",
         "agentic-tasks"
       ],
       "capabilities": {
-        "coding": 76,
-        "debugging": 73,
-        "refactoring": 72,
-        "architecture": 71,
-        "agentic_work": 72,
-        "long_context": 60,
-        "instruction_following": 76,
-        "structured_output": 74,
-        "speed": 92,
-        "frontend": 74,
-        "backend": 76,
-        "math_science": 71
+        "coding": 45.0,
+        "debugging": 45.0,
+        "refactoring": 32.0,
+        "architecture": 31.0,
+        "agentic_work": 43.0,
+        "long_context": 78,
+        "instruction_following": 37.0,
+        "structured_output": 35.0,
+        "speed": 90,
+        "frontend": 34.0,
+        "backend": 37.0,
+        "math_science": 29.0
       },
       "effort_levels": [
         "low",
@@ -3103,34 +3645,230 @@
     {
       "id": "command-a",
       "name": "Command A",
-      "provider": "cohere",
-      "tier": "low",
+      "provider": "others",
+      "tier": "medium",
       "status": "active",
       "cost": {
         "input_per_1m": 2.5,
         "output_per_1m": 10.0
       },
-      "context_window": 260000,
-      "quality_score": 56,
+      "context_window": 256000,
+      "quality_score": 13,
       "speed": "medium",
-      "strengths": [],
+      "strengths": [
+        "code-generation",
+        "debugging",
+        "long-context",
+        "backend-systems",
+        "instruction-following"
+      ],
       "capabilities": {
-        "coding": 56,
-        "debugging": 53,
-        "refactoring": 52,
-        "architecture": 51,
-        "agentic_work": 52,
-        "long_context": 72,
-        "instruction_following": 56,
-        "structured_output": 54,
-        "speed": 72,
-        "frontend": 54,
-        "backend": 56,
-        "math_science": 51
+        "coding": 21.0,
+        "debugging": 21.0,
+        "refactoring": 8.0,
+        "architecture": 7.0,
+        "agentic_work": 7.0,
+        "long_context": 88,
+        "instruction_following": 13.0,
+        "structured_output": 11.0,
+        "speed": 70,
+        "frontend": 10.0,
+        "backend": 13.0,
+        "math_science": 5.0
       },
-      "effort_levels": null,
+      "effort_levels": [
+        "low",
+        "medium",
+        "high"
+      ],
       "source": "artificialanalysis.ai",
       "source_url": "https://artificialanalysis.ai/models/command-a",
+      "last_checked": "2026-06-11",
+      "confidence": "verified"
+    },
+    {
+      "id": "step-3-7-flash",
+      "name": "Step 3.7 Flash",
+      "provider": "others",
+      "tier": "high",
+      "status": "active",
+      "cost": {
+        "input_per_1m": 0.2,
+        "output_per_1m": 1.15
+      },
+      "context_window": 256000,
+      "quality_score": 43,
+      "speed": "fast",
+      "strengths": [
+        "complex-reasoning",
+        "architecture-decisions",
+        "code-generation",
+        "debugging",
+        "long-context",
+        "reasoning",
+        "agentic-tasks",
+        "backend-systems",
+        "open-source-coding"
+      ],
+      "capabilities": {
+        "coding": 51.0,
+        "debugging": 51.0,
+        "refactoring": 38.0,
+        "architecture": 57.0,
+        "agentic_work": 49.0,
+        "long_context": 88,
+        "instruction_following": 43.0,
+        "structured_output": 41.0,
+        "speed": 90,
+        "frontend": 40.0,
+        "backend": 43.0,
+        "math_science": 35.0
+      },
+      "effort_levels": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "source": "artificialanalysis.ai",
+      "source_url": "https://artificialanalysis.ai/models/step-3-7-flash",
+      "last_checked": "2026-06-11",
+      "confidence": "verified"
+    },
+    {
+      "id": "step-3-5-flash",
+      "name": "Step 3.5 Flash 2603",
+      "provider": "others",
+      "tier": "medium",
+      "status": "active",
+      "cost": {
+        "input_per_1m": 0.1,
+        "output_per_1m": 0.3
+      },
+      "context_window": 256000,
+      "quality_score": 38,
+      "speed": "fast",
+      "strengths": [
+        "complex-reasoning",
+        "code-generation",
+        "debugging",
+        "reasoning",
+        "agentic-tasks",
+        "backend-systems",
+        "open-source-coding"
+      ],
+      "capabilities": {
+        "coding": 46.0,
+        "debugging": 46.0,
+        "refactoring": 33.0,
+        "architecture": 40.0,
+        "agentic_work": 44.0,
+        "long_context": 76,
+        "instruction_following": 38.0,
+        "structured_output": 36.0,
+        "speed": 90,
+        "frontend": 35.0,
+        "backend": 38.0,
+        "math_science": 30.0
+      },
+      "effort_levels": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "source": "artificialanalysis.ai",
+      "source_url": "https://artificialanalysis.ai/models/step-3-5-flash",
+      "last_checked": "2026-06-11",
+      "confidence": "verified"
+    },
+    {
+      "id": "hy3",
+      "name": "Hy3-preview",
+      "provider": "others",
+      "tier": "high",
+      "status": "active",
+      "cost": {
+        "input_per_1m": 0.123,
+        "output_per_1m": 0.43
+      },
+      "context_window": 256000,
+      "quality_score": 42,
+      "speed": "fast",
+      "strengths": [
+        "complex-reasoning",
+        "code-generation",
+        "debugging",
+        "reasoning",
+        "agentic-tasks",
+        "backend-systems",
+        "open-source-coding",
+        "long-context"
+      ],
+      "capabilities": {
+        "coding": 50.0,
+        "debugging": 50.0,
+        "refactoring": 37.0,
+        "architecture": 44.0,
+        "agentic_work": 48.0,
+        "long_context": 88,
+        "instruction_following": 42.0,
+        "structured_output": 40.0,
+        "speed": 90,
+        "frontend": 39.0,
+        "backend": 42.0,
+        "math_science": 34.0
+      },
+      "effort_levels": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "source": "artificialanalysis.ai",
+      "source_url": "https://artificialanalysis.ai/models/hy3",
+      "last_checked": "2026-06-11",
+      "confidence": "verified"
+    },
+    {
+      "id": "kat-coder-pro-v2",
+      "name": "KAT-Coder-Pro V2",
+      "provider": "others",
+      "tier": "medium",
+      "status": "active",
+      "cost": {
+        "input_per_1m": 0.3,
+        "output_per_1m": 1.2
+      },
+      "context_window": 256000,
+      "quality_score": 44,
+      "speed": "fast",
+      "strengths": [
+        "code-generation",
+        "debugging",
+        "reasoning",
+        "agentic-tasks",
+        "backend-systems",
+        "structured-output"
+      ],
+      "capabilities": {
+        "coding": 62.0,
+        "debugging": 52.0,
+        "refactoring": 39.0,
+        "architecture": 38.0,
+        "agentic_work": 50.0,
+        "long_context": 76,
+        "instruction_following": 44.0,
+        "structured_output": 46.0,
+        "speed": 90,
+        "frontend": 41.0,
+        "backend": 52.0,
+        "math_science": 36.0
+      },
+      "effort_levels": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "source": "artificialanalysis.ai",
+      "source_url": "https://artificialanalysis.ai/models/kat-coder-pro-v2",
       "last_checked": "2026-06-11",
       "confidence": "verified"
     }

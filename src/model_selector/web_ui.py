@@ -282,15 +282,15 @@ var ROUTER_MODES = [
 var PROVIDER_ICONS = {
   anthropic:'anthropic', openai:null, google:'google', xai:'x',
   meta:'meta', alibaba:'alibabacloud', mistral:'mistralai', nvidia:'nvidia',
-  cohere:null, deepseek:'deepseek', minimax:null, moonshot:null,
+  deepseek:'deepseek', minimax:null, moonshot:null, others:null,
   xiaomi:'xiaomi', zai:null
 };
 
 var PROVIDER_NAMES = {
   anthropic:'Anthropic', openai:'OpenAI', google:'Google', xai:'xAI',
   meta:'Meta', alibaba:'Alibaba', mistral:'Mistral', nvidia:'NVIDIA',
-  cohere:'Cohere', deepseek:'DeepSeek', minimax:'MiniMax', moonshot:'Moonshot',
-  xiaomi:'Xiaomi', zai:'Zhipu AI'
+  deepseek:'DeepSeek', minimax:'MiniMax', moonshot:'Moonshot',
+  others:'Others', xiaomi:'Xiaomi', zai:'Zhipu AI'
 };
 
 function debounce(fn, ms) {

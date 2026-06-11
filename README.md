@@ -11,7 +11,7 @@ Es kombiniert Graphify-Blast-Radius, Task-Typ, Router-Modus, Modellkosten, Conte
 - Unterstuetzt `deterministic`, `hybrid` und `ai-review` Routing
 - Liefert Modell + Effort-Level + Budget-Alternative
 
-Aktuell sind `74` aktive Modelle aus `14` Providern im Katalog, dazu weitere als `deprecated` markierte Vergleichsmodelle.
+Aktuell sind `53` aktive Modelle aus `14` Providern im Katalog, dazu weitere als `deprecated` markierte Vergleichsmodelle.
 
 ## Supported Platforms
 
@@ -183,7 +183,7 @@ Der Katalog enthaelt aktuell unter anderem:
 - Moonshot: Kimi K2.6, K2.5, K2 Thinking
 - MiniMax: M3, M2.7, M2.5, M2.1, M2
 - Xiaomi: MiMo V2.5 Pro, V2.5, V2 Omni, V2 Flash, V2 Pro
-- DeepSeek, Mistral, Meta, NVIDIA, Cohere
+- DeepSeek, Mistral, Meta, NVIDIA, Others (StepFun, KAT Coder, Hy3, Cohere)
 
 Veraltete Modelle koennen weiter im Katalog stehen, werden aber mit `status: deprecated` markiert und im Router abgewertet.
 
