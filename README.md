@@ -10,7 +10,7 @@ L4-Smartroute is an MCP server that analyzes your task (prompt or git diff), cal
 
 ## Built on Graphify
 
-L4-Smartroute uses [Graphify](https://github.com/Linux5real/graphify) knowledge graphs to calculate blast radius — how many files, communities, and code paths a change affects. This drives complexity scoring and ensures high-risk cross-module work gets a capable model while simple edits stay cheap.
+L4-Smartroute uses [Graphify]((https://github.com/safishamsi/graphify) knowledge graphs to calculate blast radius — how many files, communities, and code paths a change affects. This drives complexity scoring and ensures high-risk cross-module work gets a capable model while simple edits stay cheap.
 
 ## Features
 
