@@ -88,19 +88,19 @@ Prompt / Git Diff
 
 | Provider | Models |
 |----------|--------|
-| Anthropic | Claude Fable 5, Opus 4.8, Opus 4.7, Sonnet 4.6, Haiku 4.5 |
-| OpenAI | GPT-5.5, GPT-5.5 Pro, GPT-5.4, GPT-5.4 mini/nano, GPT-5.3 Codex |
-| Google | Gemini 3.1 Pro Preview, 3.5 Flash, 3.1 Flash-Lite, 3 Deep Think, 2.5 Pro |
-| xAI | Grok 4.3 |
+| Anthropic | Claude Fable 5, Opus 4.8, Opus 4.7, Opus 4.6, Sonnet 4.6 / 4.5, Haiku 4.5 |
+| OpenAI | GPT-5.5, GPT-5.5 Pro, GPT-5.4, GPT-5.4 mini/nano, GPT-5.3 Codex, GPT-5.2 |
+| Google | Gemini 3.1 Pro, 3.5 Flash, 3.1 Flash-Lite, 3 Deep Think, 2.5 Pro / flash |
+| xAI | Grok 4.3, Grok 4.20, Grok 4.1, Grok-build-0.1 |
 | Meta | Llama 4 Maverick, Llama 4 Scout |
 | Alibaba | Qwen3.7 Max/Plus, Qwen3.6 Plus, Qwen3.5, Qwen3 Coder Next, and more |
 | Mistral | Mistral Large 3, Medium 3.5, Small 4 |
-| DeepSeek | DeepSeek V4 Pro, V4 Flash |
+| DeepSeek | DeepSeek V4 Pro, V4 Flash and more |
 | NVIDIA | Nemotron 3 Ultra, Super, Nano Omni |
-| Moonshot | Kimi K2.6, Kimi Linear 48B |
-| MiniMax | MiniMax-M3, M2.7 |
+| Moonshot | Kimi K2.6, Kimi K2.5|
+| MiniMax | MiniMax-M3, M2.7, M2.5, M2.1, M2 |
 | Xiaomi | MiMo-V2.5-Pro, V2.5, V2-Omni, V2-Flash |
-| Zhipu AI | GLM-5.1, GLM-5-Turbo |
+| Zhipu AI | GLM-5.1, GLM-5-Turbo and more |
 | Others | Command A/A+, Step 3.7 Flash, KAT-Coder-Pro V2, Hy3 |
 
 **Missing a model?** [Open an issue](https://github.com/Linux5Real/L4-Smartroute/issues) and we'll add it.
