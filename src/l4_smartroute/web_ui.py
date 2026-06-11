@@ -51,7 +51,7 @@ HTML_PAGE = r"""<!DOCTYPE html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Model Selector &#8212; Settings</title>
+<title>L4-Smartroute &#8212; Settings</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -178,7 +178,7 @@ header{margin-bottom:32px}
 <div class="app">
   <header>
     <div class="header-row">
-      <h1>Model Selector</h1>
+      <h1>L4-Smartroute</h1>
       <div class="sync-indicator" id="syncDot" title="Live sync active"></div>
     </div>
     <p class="subtitle">Configure model routing and preferences &#183; auto-saved to config.yaml</p>
@@ -236,9 +236,9 @@ header{margin-bottom:32px}
 
   <footer class="footer">
     <div class="footer-left">
-      <span>Model Selector MCP</span>
+      <span>L4-Smartroute</span>
       <span>&#183;</span>
-      <span>Built by <a href="https://github.com/Linux5real" target="_blank" rel="noopener">Linux5real</a></span>
+      <span>made by <a href="https://github.com/Linux5real" target="_blank" rel="noopener">linux5real</a></span>
     </div>
     <button class="btn" onclick="resetDefaults()">Reset to Defaults</button>
   </footer>
@@ -752,13 +752,13 @@ def run_setup(port: int = 6639):
     handler = partial(SetupHandler, models)
     server = HTTPServer(("127.0.0.1", port), handler)
     url = f"http://127.0.0.1:{port}"
-    open_browser = os.environ.get("MODEL_SELECTOR_OPEN_BROWSER", "1").lower() not in {
+    open_browser = os.environ.get("L4_SMARTROUTE_OPEN_BROWSER", "1").lower() not in {
         "0",
         "false",
         "no",
         "off",
     }
-    print(f"Model Selector Settings: {url}")
+    print(f"L4-Smartroute Settings: {url}")
     print("Press Ctrl+C to stop.")
     if open_browser:
         threading.Timer(0.5, lambda: webbrowser.open(url)).start()
