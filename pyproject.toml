@@ -3,7 +3,7 @@ requires = ["setuptools>=68.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "model-selector-mcp"
+name = "l4-smartroute"
 version = "0.1.0"
 description = "MCP server that recommends AI models based on Graphify knowledge graph analysis"
 requires-python = ">=3.11"
@@ -19,8 +19,8 @@ dev = [
 ]
 
 [project.scripts]
-model-selector-mcp = "model_selector.server:main"
-model-selector-setup = "model_selector.web_ui:main"
+l4-smartroute = "l4_smartroute.server:main"
+l4-smartroute-setup = "l4_smartroute.web_ui:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
