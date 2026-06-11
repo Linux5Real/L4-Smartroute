@@ -1,6 +1,6 @@
 import subprocess
 
-from model_selector.graph_analyzer import GraphAnalyzer
+from l4_smartroute.graph_analyzer import GraphAnalyzer
 
 
 def parse_diff_output(output: str) -> list[str]:

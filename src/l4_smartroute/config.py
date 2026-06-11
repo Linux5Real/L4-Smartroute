@@ -3,7 +3,7 @@ from pathlib import Path
 
 import yaml
 
-from model_selector.recommender import _infer_capabilities
+from l4_smartroute.recommender import _infer_capabilities
 
 DEFAULTS = {
     "graphify_path": "./graphify-out/graph.json",

@@ -6,7 +6,7 @@ from functools import partial
 from http.server import HTTPServer, BaseHTTPRequestHandler
 from pathlib import Path
 
-from model_selector.config import load_config, load_model_library
+from l4_smartroute.config import load_config, load_model_library
 
 SERVER_DIR = Path(__file__).parent.parent.parent
 DEFAULT_CONFIG = SERVER_DIR / "config.yaml"

@@ -1,6 +1,6 @@
 import re
 
-from model_selector.graph_analyzer import GraphAnalyzer
+from l4_smartroute.graph_analyzer import GraphAnalyzer
 
 STOPWORDS = frozenset({
     "a", "an", "the", "to", "in", "on", "at", "of", "for", "is", "it",

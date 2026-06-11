@@ -1,4 +1,4 @@
-from model_selector.graph_analyzer import GraphAnalyzer
+from l4_smartroute.graph_analyzer import GraphAnalyzer
 
 WEIGHT_FILES = 1.0
 WEIGHT_COMMUNITIES = 3.0

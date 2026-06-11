@@ -4,12 +4,12 @@ from pathlib import Path
 
 from mcp.server.fastmcp import FastMCP
 
-from model_selector.blast_radius import calculate_blast_radius, compute_blast_score, score_to_complexity
-from model_selector.config import get_available_models, load_config, load_model_library
-from model_selector.git_diff_analyzer import get_changed_files, match_diff
-from model_selector.graph_analyzer import GraphAnalyzer
-from model_selector.prompt_matcher import extract_keywords, match_prompt
-from model_selector.recommender import recommend
+from l4_smartroute.blast_radius import calculate_blast_radius, compute_blast_score, score_to_complexity
+from l4_smartroute.config import get_available_models, load_config, load_model_library
+from l4_smartroute.git_diff_analyzer import get_changed_files, match_diff
+from l4_smartroute.graph_analyzer import GraphAnalyzer
+from l4_smartroute.prompt_matcher import extract_keywords, match_prompt
+from l4_smartroute.recommender import recommend
 
 SERVER_DIR = Path(__file__).parent.parent.parent
 
@@ -91,7 +91,7 @@ def create_server(
         models_path = SERVER_DIR / "models.json"
 
     loader = _ConfigLoader(config_path, models_path)
-    mcp = FastMCP("model-selector")
+    mcp = FastMCP("l4-smartroute")
     analyzer_cache: dict[str, GraphAnalyzer] = {}
 
     def _get_analyzer(graphify_path: str | None) -> GraphAnalyzer:

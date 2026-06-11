@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from model_selector.task_classifier import classify_task
+from l4_smartroute.task_classifier import classify_task
 
 SPEED_ORDER = {"fast": 0, "medium": 1, "slow": 2}
 SPEED_SCORE = {"fast": 90, "medium": 70, "slow": 45}
