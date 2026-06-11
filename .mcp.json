@@ -1,8 +1,8 @@
 {
   "mcpServers": {
-    "model-selector": {
+    "l4-smartroute": {
       "command": "python3",
-      "args": ["-m", "model_selector.server"],
+      "args": ["-m", "l4_smartroute.server"],
       "cwd": "/home/mcp-project"
     }
   }

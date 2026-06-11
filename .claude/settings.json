@@ -2,20 +2,20 @@
   "hooks": {
     "UserPromptExpansion": [
       {
-        "matcher": "model-settings",
+        "matcher": "smartroute-settings",
         "hooks": [
           {
             "type": "command",
-            "command": "bash \"$CLAUDE_PROJECT_DIR\"/scripts/model-settings-hook.sh"
+            "command": "bash \"$CLAUDE_PROJECT_DIR\"/scripts/smartroute-settings-hook.sh"
           }
         ]
       }
     ]
   },
   "mcpServers": {
-    "model-selector": {
+    "l4-smartroute": {
       "command": "python",
-      "args": ["-m", "model_selector.server"],
+      "args": ["-m", "l4_smartroute.server"],
       "cwd": "/home/mcp-project"
     }
   }

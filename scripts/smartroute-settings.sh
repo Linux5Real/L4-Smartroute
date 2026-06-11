@@ -2,12 +2,12 @@
 set -euo pipefail
 
 PORT="6639"
-LOG_FILE="${TMPDIR:-/tmp}/model-selector-setup.log"
+LOG_FILE="${TMPDIR:-/tmp}/l4-smartroute-setup.log"
 
 print_ready_message() {
   cat <<'EOF'
 
-Model Selector Settings is running at:
+L4-Smartroute Settings is running at:
 
 http://localhost:6639
 
@@ -19,7 +19,7 @@ Open that link in your browser to configure:
 After saving, changes to the optimization mode take effect immediately.
 Changes to the model list require a Claude Code restart to apply.
 
-To stop the settings server, run: `pkill -f model-selector-setup`
+To stop the settings server, run: `pkill -f l4-smartroute-setup`
 EOF
 }
 
@@ -28,7 +28,7 @@ stop_existing_server() {
 import os
 import signal
 
-patterns = ("model-selector-setup", "model_selector.web_ui")
+patterns = ("l4-smartroute-setup", "l4_smartroute.web_ui")
 
 if not os.path.isdir("/proc"):
     raise SystemExit(0)
@@ -50,13 +50,13 @@ for pid_str in os.listdir("/proc"):
 PY
 }
 
-if ! command -v model-selector-setup >/dev/null 2>&1; then
-  echo "model-selector-setup is not available on PATH." >&2
+if ! command -v l4-smartroute-setup >/dev/null 2>&1; then
+  echo "l4-smartroute-setup is not available on PATH." >&2
   exit 1
 fi
 
 stop_existing_server
 sleep 0.2
 
-setsid -f sh -c 'MODEL_SELECTOR_OPEN_BROWSER=0 exec model-selector-setup' >"${LOG_FILE}" 2>&1 </dev/null
+setsid -f sh -c 'L4_SMARTROUTE_OPEN_BROWSER=0 exec l4-smartroute-setup' >"${LOG_FILE}" 2>&1 </dev/null
 print_ready_message

@@ -6,7 +6,7 @@ IMPORTANT: You MUST call MCP tools using the tool-call interface, NOT via Bash. 
 
 1. If $ARGUMENTS is empty, ask the user what task they want analyzed.
 
-2. Call the MCP tool `mcp__model-selector__analyze_task` (this is a tool call, NOT a bash command) with these parameters:
+2. Call the MCP tool `mcp__l4-smartroute__analyze_task` (this is a tool call, NOT a bash command) with these parameters:
    - `prompt`: "$ARGUMENTS"
    - `graphify_path`: "./graphify-out/graph.json" (if graphify-out/ exists in the working directory, otherwise omit)
 
@@ -45,7 +45,7 @@ Top model fits:
 Reason:
 {one short reason from deterministic or AI review}
 
-➜ `/model {recommended_model_id}`
+-> `/model {recommended_model_id}`
 
 ---
 

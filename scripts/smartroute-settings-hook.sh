@@ -2,7 +2,7 @@
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-SETUP_SCRIPT="${SCRIPT_DIR}/model-settings.sh"
+SETUP_SCRIPT="${SCRIPT_DIR}/smartroute-settings.sh"
 
 reason="$("${SETUP_SCRIPT}")"
 
