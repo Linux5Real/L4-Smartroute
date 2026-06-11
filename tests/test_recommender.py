@@ -1,7 +1,7 @@
 import pytest
 
-from model_selector.recommender import recommend
-from model_selector.task_classifier import classify_task
+from l4_smartroute.recommender import recommend
+from l4_smartroute.task_classifier import classify_task
 
 MODELS = [
     {

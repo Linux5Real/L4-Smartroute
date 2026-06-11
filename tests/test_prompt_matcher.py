@@ -2,8 +2,8 @@ from pathlib import Path
 
 import pytest
 
-from model_selector.graph_analyzer import GraphAnalyzer
-from model_selector.prompt_matcher import extract_keywords, match_prompt
+from l4_smartroute.graph_analyzer import GraphAnalyzer
+from l4_smartroute.prompt_matcher import extract_keywords, match_prompt
 
 FIXTURE = Path(__file__).parent / "fixtures" / "sample_graph.json"
 

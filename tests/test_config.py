@@ -4,7 +4,7 @@ from pathlib import Path
 import pytest
 import yaml
 
-from model_selector.config import load_config, load_model_library, get_available_models
+from l4_smartroute.config import load_config, load_model_library, get_available_models
 
 FIXTURES = Path(__file__).parent / "fixtures"
 ROOT = Path(__file__).parent.parent

@@ -2,8 +2,8 @@ from pathlib import Path
 
 import pytest
 
-from model_selector.graph_analyzer import GraphAnalyzer
-from model_selector.blast_radius import calculate_blast_radius, compute_blast_score, score_to_complexity
+from l4_smartroute.graph_analyzer import GraphAnalyzer
+from l4_smartroute.blast_radius import calculate_blast_radius, compute_blast_score, score_to_complexity
 
 FIXTURE = Path(__file__).parent / "fixtures" / "sample_graph.json"
 

@@ -3,11 +3,11 @@ from pathlib import Path
 
 import pytest
 
-from model_selector.blast_radius import calculate_blast_radius, compute_blast_score, score_to_complexity
-from model_selector.config import get_available_models, load_config, load_model_library
-from model_selector.graph_analyzer import GraphAnalyzer
-from model_selector.prompt_matcher import match_prompt, extract_keywords
-from model_selector.recommender import recommend
+from l4_smartroute.blast_radius import calculate_blast_radius, compute_blast_score, score_to_complexity
+from l4_smartroute.config import get_available_models, load_config, load_model_library
+from l4_smartroute.graph_analyzer import GraphAnalyzer
+from l4_smartroute.prompt_matcher import match_prompt, extract_keywords
+from l4_smartroute.recommender import recommend
 
 ROOT = Path(__file__).parent.parent
 REAL_GRAPH = ROOT / "graphify-out" / "graph.json"

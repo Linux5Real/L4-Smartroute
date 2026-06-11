@@ -3,7 +3,7 @@ from pathlib import Path
 
 import pytest
 
-from model_selector.graph_analyzer import GraphAnalyzer
+from l4_smartroute.graph_analyzer import GraphAnalyzer
 
 FIXTURE = Path(__file__).parent / "fixtures" / "sample_graph.json"
 

@@ -2,8 +2,8 @@ from pathlib import Path
 
 import pytest
 
-from model_selector.graph_analyzer import GraphAnalyzer
-from model_selector.git_diff_analyzer import parse_diff_output, match_diff
+from l4_smartroute.graph_analyzer import GraphAnalyzer
+from l4_smartroute.git_diff_analyzer import parse_diff_output, match_diff
 
 FIXTURE = Path(__file__).parent / "fixtures" / "sample_graph.json"
 

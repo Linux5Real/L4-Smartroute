@@ -3,7 +3,7 @@ from pathlib import Path
 
 import pytest
 
-from model_selector.server import build_analyze_result, create_server
+from l4_smartroute.server import build_analyze_result, create_server
 
 FIXTURE = Path(__file__).parent / "fixtures" / "sample_graph.json"
 ROOT = Path(__file__).parent.parent
