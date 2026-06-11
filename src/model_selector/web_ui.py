@@ -575,6 +575,7 @@ function renderModels() {
   filtered.forEach(function(m) {
     var card = document.createElement('div');
     card.className = 'model-card' + (selectedModels.has(m.id) ? ' selected' : '');
+    card.dataset.modelId = m.id;
     card.onclick = function() { toggleModel(m.id); };
 
     var info = document.createElement('div');
@@ -644,14 +645,25 @@ function renderModels() {
     grid.appendChild(card);
   });
 
+  updateModelCount();
+}
+
+function updateModelCount() {
   document.getElementById('modelCount').textContent = selectedModels.size + ' / ' + allModels.length;
+}
+
+function updateModelCardSelection(id) {
+  var card = document.querySelector('[data-model-id="' + id + '"]');
+  if (!card) return;
+  card.classList.toggle('selected', selectedModels.has(id));
 }
 
 function toggleModel(id) {
   if (selectedModels.has(id)) selectedModels.delete(id);
   else selectedModels.add(id);
   checkRestartNeeded();
-  renderModels();
+  updateModelCardSelection(id);
+  updateModelCount();
   autoSave();
 }
 
