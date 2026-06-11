@@ -43,7 +43,10 @@
       "effort_levels": [
         "low",
         "medium",
-        "high"
+        "high",
+        "xhigh",
+        "max",
+        "ultra"
       ],
       "source": "artificialanalysis.ai",
       "source_url": "https://artificialanalysis.ai/models/claude-fable-5",
@@ -91,9 +94,12 @@
         "math_science": 94
       },
       "effort_levels": [
+        "low",
+        "medium",
         "high",
         "xhigh",
-        "max"
+        "max",
+        "ultra"
       ],
       "source": "artificialanalysis.ai",
       "source_url": "https://artificialanalysis.ai/models/claude-opus-4-8",
@@ -141,9 +147,12 @@
         "math_science": 90
       },
       "effort_levels": [
+        "low",
+        "medium",
         "high",
         "xhigh",
-        "max"
+        "max",
+        "ultra"
       ],
       "source": "artificialanalysis.ai",
       "source_url": "https://artificialanalysis.ai/models/claude-opus-4-7",
@@ -189,8 +198,12 @@
         "math_science": 86
       },
       "effort_levels": [
+        "low",
+        "medium",
         "high",
-        "max"
+        "xhigh",
+        "max",
+        "ultra"
       ],
       "source": "artificialanalysis.ai",
       "source_url": "https://artificialanalysis.ai/models/claude-opus-4-7-non-reasoning",
@@ -502,6 +515,8 @@
         "math_science": 85
       },
       "effort_levels": [
+        "low",
+        "medium",
         "high",
         "max"
       ],
@@ -547,6 +562,8 @@
         "math_science": 81
       },
       "effort_levels": [
+        "low",
+        "medium",
         "high",
         "max"
       ],
@@ -591,6 +608,8 @@
         "math_science": 79
       },
       "effort_levels": [
+        "low",
+        "medium",
         "high",
         "max"
       ],
@@ -2517,8 +2536,7 @@
       "effort_levels": [
         "low",
         "medium",
-        "high",
-        "max"
+        "high"
       ],
       "source": "artificialanalysis.ai",
       "source_url": "https://artificialanalysis.ai/models/qwen3-7-max",
