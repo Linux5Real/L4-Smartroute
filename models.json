@@ -528,6 +528,55 @@
       "confidence": "verified"
     },
     {
+      "id": "gpt-5-4",
+      "name": "GPT-5.4",
+      "provider": "openai",
+      "tier": "ultra",
+      "status": "active",
+      "cost": {
+        "input_per_1m": 2.5,
+        "output_per_1m": 15.0
+      },
+      "context_window": 1050000,
+      "quality_score": 95,
+      "speed": "medium",
+      "strengths": [
+        "complex-reasoning",
+        "architecture-decisions",
+        "code-generation",
+        "debugging",
+        "reasoning",
+        "agentic-tasks",
+        "computer-use",
+        "math",
+        "structured-output"
+      ],
+      "capabilities": {
+        "coding": 95,
+        "debugging": 93,
+        "refactoring": 91,
+        "architecture": 92,
+        "agentic_work": 92,
+        "long_context": 96,
+        "instruction_following": 95,
+        "structured_output": 96,
+        "speed": 72,
+        "frontend": 96,
+        "backend": 95,
+        "math_science": 97
+      },
+      "effort_levels": [
+        "low",
+        "medium",
+        "high",
+        "xhigh"
+      ],
+      "source": "openai.com",
+      "source_url": "https://developers.openai.com/api/docs/models/gpt-5.4",
+      "last_checked": "2026-06-11",
+      "confidence": "verified"
+    },
+    {
       "id": "gpt-5-5-pro",
       "name": "GPT-5.5 Pro",
       "provider": "openai",

@@ -11,7 +11,7 @@ Es kombiniert Graphify-Blast-Radius, Task-Typ, Router-Modus, Modellkosten, Conte
 - Unterstuetzt `deterministic`, `hybrid` und `ai-review` Routing
 - Liefert Modell + Effort-Level + Budget-Alternative
 
-Aktuell sind `53` aktive Modelle aus `14` Providern im Katalog, dazu weitere als `deprecated` markierte Vergleichsmodelle.
+Aktuell sind `54` aktive Modelle aus `14` Providern im Katalog, dazu weitere als `deprecated` markierte Vergleichsmodelle.
 
 ## Supported Platforms
 
