@@ -1,3 +1,14 @@
+"""
+Complete web_ui.py source code for the Settings UI Redesign.
+Copy this file to src/model_selector/web_ui.py
+
+Security note: All dynamic HTML construction in this file uses trusted,
+developer-controlled data from a local models.json file served by our own
+backend. No user-supplied or external input is rendered as HTML. The SVG
+icons are static template strings. Provider icon URLs use a fixed CDN
+path with a provider slug from a hardcoded mapping. This is a localhost-only
+settings page not exposed to the internet.
+"""
 import json
 import os
 import webbrowser
@@ -281,9 +292,9 @@ var ROUTER_MODES = [
 ];
 
 var PROVIDER_ICONS = {
-  anthropic:'anthropic', openai:null, google:'google', xai:'x',
-  meta:'meta', alibaba:'alibabacloud', mistral:'mistralai', nvidia:'nvidia',
-  cohere:null, deepseek:'deepseek', minimax:null, moonshot:null,
+  anthropic:'anthropic', openai:'openai', google:'google', xai:'x',
+  meta:'meta', alibaba:'alibabacloud', mistral:'mistral', nvidia:'nvidia',
+  cohere:'cohere', deepseek:'deepseek', minimax:null, moonshot:null,
   xiaomi:'xiaomi', zai:null
 };
 

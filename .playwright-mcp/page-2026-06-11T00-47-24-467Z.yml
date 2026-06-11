@@ -1,0 +1,207 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - heading "Model Selector" [level=1] [ref=e5]
+      - generic "Live sync active" [ref=e6]
+    - paragraph [ref=e7]: Configure model routing and preferences · auto-saved to config.yaml
+  - generic [ref=e8]:
+    - heading "Optimization Mode" [level=2] [ref=e9]
+    - generic [ref=e10]:
+      - generic [ref=e11] [cursor=pointer]:
+        - img [ref=e13]
+        - heading "Quality" [level=3] [ref=e17]
+        - paragraph [ref=e18]: Best model for every task. No compromises.
+      - generic [ref=e19] [cursor=pointer]:
+        - img [ref=e21]
+        - heading "Balanced" [level=3] [ref=e24]
+        - paragraph [ref=e25]: Smart trade-off between cost and quality.
+      - generic [ref=e26] [cursor=pointer]:
+        - img [ref=e28]
+        - heading "Performance" [level=3] [ref=e30]
+        - paragraph [ref=e31]: Faster models with boosted effort levels.
+      - generic [ref=e32] [cursor=pointer]:
+        - img [ref=e34]
+        - heading "Token Saver" [level=3] [ref=e37]
+        - paragraph [ref=e38]: Maximum savings, minimum viable quality.
+  - generic [ref=e39]:
+    - heading "Router Mode" [level=2] [ref=e40]
+    - generic [ref=e41]:
+      - generic [ref=e42] [cursor=pointer]:
+        - radio "Deterministic Pure local scoring. Fast, cheap, and consistent — no AI calls during routing." [ref=e43]
+        - generic [ref=e44]:
+          - generic [ref=e45]: Deterministic
+          - generic [ref=e46]: Pure local scoring. Fast, cheap, and consistent — no AI calls during routing.
+      - generic [ref=e47] [cursor=pointer]:
+        - radio "Hybrid Recommended Local scoring first, AI review only for complex tasks or close-call decisions." [checked] [ref=e48]
+        - generic [ref=e49]:
+          - generic [ref=e50]:
+            - text: Hybrid
+            - generic [ref=e51]: Recommended
+          - generic [ref=e52]: Local scoring first, AI review only for complex tasks or close-call decisions.
+      - generic [ref=e53] [cursor=pointer]:
+        - radio "AI Review Always consult AI to rank model candidates. Best for calibration and evaluation." [ref=e54]
+        - generic [ref=e55]:
+          - generic [ref=e56]: AI Review
+          - generic [ref=e57]: Always consult AI to rank model candidates. Best for calibration and evaluation.
+  - generic [ref=e58]:
+    - generic [ref=e59]:
+      - heading "Models 3 / 113" [level=2] [ref=e60]
+      - generic [ref=e61]:
+        - textbox "Search models..." [active] [ref=e62]: grok
+        - combobox [ref=e63] [cursor=pointer]:
+          - option "Name" [selected]
+          - option "Quality"
+          - option "Cost"
+          - option "Context"
+    - generic [ref=e64]:
+      - button "All" [ref=e65] [cursor=pointer]
+      - button "Alibaba" [ref=e66] [cursor=pointer]
+      - button "Anthropic" [ref=e67] [cursor=pointer]
+      - button "Cohere" [ref=e68] [cursor=pointer]
+      - button "DeepSeek" [ref=e69] [cursor=pointer]
+      - button "Google" [ref=e70] [cursor=pointer]
+      - button "Meta" [ref=e71] [cursor=pointer]
+      - button "MiniMax" [ref=e72] [cursor=pointer]
+      - button "Mistral" [ref=e73] [cursor=pointer]
+      - button "Moonshot" [ref=e74] [cursor=pointer]
+      - button "NVIDIA" [ref=e75] [cursor=pointer]
+      - button "OpenAI" [ref=e76] [cursor=pointer]
+      - button "xAI" [ref=e77] [cursor=pointer]
+      - button "Xiaomi" [ref=e78] [cursor=pointer]
+      - button "Zhipu AI" [ref=e79] [cursor=pointer]
+    - generic [ref=e80]:
+      - generic [ref=e1781] [cursor=pointer]:
+        - checkbox [ref=e1782]
+        - generic [ref=e1783]:
+          - generic [ref=e1784]:
+            - generic [ref=e1785]: Grok 4.1 Fast
+            - generic [ref=e1786]: medium
+          - generic [ref=e1787]:
+            - generic [ref=e1788]: Free
+            - generic [ref=e1789]: ·
+            - generic [ref=e1790]: 2M
+            - generic [ref=e1791]: ·
+            - generic [ref=e1792]: medium
+          - generic [ref=e1793]: "Effort: low, medium, high"
+      - generic [ref=e1794] [cursor=pointer]:
+        - checkbox [ref=e1795]
+        - generic [ref=e1796]:
+          - generic [ref=e1797]:
+            - generic [ref=e1798]: Grok 4.1 Fast
+            - generic [ref=e1799]: low
+          - generic [ref=e1800]:
+            - generic [ref=e1801]: Free
+            - generic [ref=e1802]: ·
+            - generic [ref=e1803]: 2M
+            - generic [ref=e1804]: ·
+            - generic [ref=e1805]: medium
+      - generic [ref=e1806] [cursor=pointer]:
+        - checkbox [ref=e1807]
+        - generic [ref=e1808]:
+          - generic [ref=e1809]:
+            - generic [ref=e1810]: Grok 4.3 (high)
+            - generic [ref=e1811]: high
+          - generic [ref=e1812]:
+            - generic [ref=e1813]: In $1.25
+            - generic [ref=e1814]: ·
+            - generic [ref=e1815]: Out $2.5
+            - generic [ref=e1816]: ·
+            - generic [ref=e1817]: 1M
+            - generic [ref=e1818]: ·
+            - generic [ref=e1819]: fast
+          - generic [ref=e1820]: "Effort: low, medium, high"
+      - generic [ref=e1821] [cursor=pointer]:
+        - checkbox [ref=e1822]
+        - generic [ref=e1823]:
+          - generic [ref=e1824]:
+            - generic [ref=e1825]: Grok 4.3 (low)
+            - generic [ref=e1826]: medium
+          - generic [ref=e1827]:
+            - generic [ref=e1828]: In $1.25
+            - generic [ref=e1829]: ·
+            - generic [ref=e1830]: Out $2.5
+            - generic [ref=e1831]: ·
+            - generic [ref=e1832]: 1M
+            - generic [ref=e1833]: ·
+            - generic [ref=e1834]: fast
+          - generic [ref=e1835]: "Effort: low, medium, high"
+      - generic [ref=e1836] [cursor=pointer]:
+        - checkbox [ref=e1837]
+        - generic [ref=e1838]:
+          - generic [ref=e1839]:
+            - generic [ref=e1840]: Grok 4.3 (medium)
+            - generic [ref=e1841]: medium
+          - generic [ref=e1842]:
+            - generic [ref=e1843]: In $1.25
+            - generic [ref=e1844]: ·
+            - generic [ref=e1845]: Out $2.5
+            - generic [ref=e1846]: ·
+            - generic [ref=e1847]: 1M
+            - generic [ref=e1848]: ·
+            - generic [ref=e1849]: fast
+          - generic [ref=e1850]: "Effort: low, medium, high"
+      - generic [ref=e1851] [cursor=pointer]:
+        - checkbox [ref=e1852]
+        - generic [ref=e1853]:
+          - generic [ref=e1854]:
+            - generic [ref=e1855]: Grok 4.3 (Non-reasoning)
+            - generic [ref=e1856]: low
+          - generic [ref=e1857]:
+            - generic [ref=e1858]: In $1.25
+            - generic [ref=e1859]: ·
+            - generic [ref=e1860]: Out $2.5
+            - generic [ref=e1861]: ·
+            - generic [ref=e1862]: 1M
+            - generic [ref=e1863]: ·
+            - generic [ref=e1864]: fast
+      - generic [ref=e1865] [cursor=pointer]:
+        - checkbox [ref=e1866]
+        - generic [ref=e1867]:
+          - generic [ref=e1868]:
+            - generic [ref=e1869]: Grok Build 0.1
+            - generic [ref=e1870]: high
+          - generic [ref=e1871]:
+            - generic [ref=e1872]: In $1
+            - generic [ref=e1873]: ·
+            - generic [ref=e1874]: Out $2
+            - generic [ref=e1875]: ·
+            - generic [ref=e1876]: 256k
+            - generic [ref=e1877]: ·
+            - generic [ref=e1878]: fast
+          - generic [ref=e1879]: "Effort: low, medium, high"
+      - generic [ref=e1880] [cursor=pointer]:
+        - checkbox [ref=e1881]
+        - generic [ref=e1882]:
+          - generic [ref=e1883]:
+            - generic [ref=e1884]: Grok Code Fast 1
+            - generic [ref=e1885]: low
+          - generic [ref=e1886]:
+            - generic [ref=e1887]: Free
+            - generic [ref=e1888]: ·
+            - generic [ref=e1889]: 260k
+            - generic [ref=e1890]: ·
+            - generic [ref=e1891]: medium
+          - generic [ref=e1892]: "Effort: low, medium, high"
+  - generic [ref=e1762]:
+    - heading "Advanced Settings" [level=2] [ref=e1763]
+    - generic [ref=e1764]:
+      - generic [ref=e1765]:
+        - generic [ref=e1766]: Graphify Path
+        - textbox "Graphify Path" [ref=e1767]:
+          - /placeholder: ./graphify-out/graph.json
+          - text: ./graphify-out/graph.json
+      - generic [ref=e1768]:
+        - generic [ref=e1769]: BFS Max Depth
+        - spinbutton "BFS Max Depth" [ref=e1770]: "3"
+      - generic [ref=e1771]:
+        - generic [ref=e1772]: Max Budget per Task ($)
+        - spinbutton "Max Budget per Task ($)" [ref=e1773]
+  - contentinfo [ref=e1774]:
+    - generic [ref=e1775]:
+      - generic [ref=e1776]: Model Selector MCP
+      - generic [ref=e1777]: ·
+      - generic [ref=e1778]:
+        - text: Built by
+        - link "Linux5real" [ref=e1779] [cursor=pointer]:
+          - /url: https://github.com/Linux5real
+    - button "Reset to Defaults" [ref=e1780] [cursor=pointer]

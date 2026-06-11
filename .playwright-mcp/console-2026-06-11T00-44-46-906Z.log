@@ -1,0 +1,5 @@
+[   45475ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://cdn.simpleicons.org/openai/e8e8ed:0
+[   45476ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://cdn.simpleicons.org/cohere/e8e8ed:0
+[   45497ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://cdn.simpleicons.org/mistral/e8e8ed:0
+[   45713ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:6639/favicon.ico:0
+[   90383ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:6639/api/state:0
