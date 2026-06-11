@@ -6,7 +6,7 @@ Intelligent AI model routing for coding agents. Picks the right model for the ri
 
 ## What is L4-Smartroute?
 
-L4-Smartroute is an MCP server that analyzes your task (prompt or git diff), calculates code complexity using knowledge graph analysis, and recommends the best AI model + effort level. Instead of always using the most expensive model, it routes each task to the most appropriate one from 54+ models across 14 providers.
+L4-Smartroute is an MCP server that analyzes your task (prompt or git diff), calculates code complexity using knowledge graph analysis, and recommends the best AI model + effort level. Instead of always using the most expensive model, it routes each task to the most appropriate one from 80+ AI-models (Coding-Models) across 15 providers.
 
 ## Built on Graphify
 
