@@ -55,12 +55,13 @@ def build_analyze_result(
 
 
 class _ConfigLoader:
-    """Reloads config.yaml only when the file changes on disk."""
+    """Reloads config.yaml and models.json when either file changes on disk."""
 
     def __init__(self, config_path: Path, models_path: Path):
         self._config_path = config_path
         self._models_path = models_path
-        self._mtime: float = 0.0
+        self._config_mtime: float = 0.0
+        self._models_mtime: float = 0.0
         self._cfg: dict = {}
         self._all_models: list[dict] = load_latest_model_library(models_path)
         self._available: list[dict] = []
@@ -68,13 +69,28 @@ class _ConfigLoader:
 
     def _reload(self):
         self._cfg = load_config(self._config_path)
+
+        try:
+            models_mtime = self._models_path.stat().st_mtime
+        except OSError:
+            models_mtime = self._models_mtime
+
+        if models_mtime != self._models_mtime:
+            self._all_models = load_latest_model_library(self._models_path)
+            self._models_mtime = models_mtime
+
         self._available = get_available_models(self._all_models, self._cfg["available_models"])
-        self._mtime = self._config_path.stat().st_mtime
+        self._config_mtime = self._config_path.stat().st_mtime
 
     def get(self) -> tuple[dict, list[dict]]:
         try:
-            mtime = self._config_path.stat().st_mtime
-            if mtime != self._mtime:
+            config_mtime = self._config_path.stat().st_mtime
+            try:
+                models_mtime = self._models_path.stat().st_mtime
+            except OSError:
+                models_mtime = self._models_mtime
+
+            if config_mtime != self._config_mtime or models_mtime != self._models_mtime:
                 self._reload()
         except OSError:
             pass
