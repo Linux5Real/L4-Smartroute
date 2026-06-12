@@ -519,7 +519,9 @@
         "math_science": 92
       },
       "effort_levels": [
+        "low",
         "medium",
+        "high",
         "xhigh"
       ],
       "source": "artificialanalysis.ai",
