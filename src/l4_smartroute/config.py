@@ -1,4 +1,6 @@
 import json
+import shutil
+import subprocess
 from pathlib import Path
 
 import yaml
@@ -39,6 +41,26 @@ def load_model_library(path: Path) -> list[dict]:
         m.setdefault("best_for", _best_for(m))
         m.setdefault("avoid_for", _avoid_for(m))
     return validated
+
+
+def refresh_model_library(path: Path) -> None:
+    repo_dir = path.parent
+    if not (repo_dir / ".git").exists():
+        return
+    if shutil.which("git") is None:
+        return
+
+    subprocess.run(
+        ["git", "-C", str(repo_dir), "pull", "--ff-only"],
+        check=False,
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.DEVNULL,
+    )
+
+
+def load_latest_model_library(path: Path) -> list[dict]:
+    refresh_model_library(path)
+    return load_model_library(path)
 
 
 def _best_for(model: dict) -> list[str]:

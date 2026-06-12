@@ -5,7 +5,7 @@ from pathlib import Path
 from mcp.server.fastmcp import FastMCP
 
 from l4_smartroute.blast_radius import calculate_blast_radius, compute_blast_score, score_to_complexity
-from l4_smartroute.config import get_available_models, load_config, load_model_library
+from l4_smartroute.config import get_available_models, load_config, load_latest_model_library
 from l4_smartroute.git_diff_analyzer import get_changed_files, match_diff
 from l4_smartroute.graph_analyzer import GraphAnalyzer
 from l4_smartroute.prompt_matcher import extract_keywords, match_prompt
@@ -62,7 +62,7 @@ class _ConfigLoader:
         self._models_path = models_path
         self._mtime: float = 0.0
         self._cfg: dict = {}
-        self._all_models: list[dict] = load_model_library(models_path)
+        self._all_models: list[dict] = load_latest_model_library(models_path)
         self._available: list[dict] = []
         self._reload()
 

@@ -3,11 +3,10 @@ available_models:
 - claude-sonnet-4-6
 - claude-opus-4-6
 - kimi-k2-6
-- gpt-5-4-mini
-- gpt-5-5
 - claude-opus-4-8
-- command-a
-- deepseek-r1
+- gpt-5-4-mini
+- gpt-5-4
+- gpt-5-5
 graphify_path: ./graphify-out/graph.json
 preferences:
   optimize_for: balanced
