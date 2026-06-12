@@ -94,6 +94,8 @@
         "math_science": 94
       },
       "effort_levels": [
+        "low",
+        "medium",
         "high",
         "xhigh",
         "max"
@@ -286,6 +288,8 @@
         "math_science": 81
       },
       "effort_levels": [
+        "low",
+        "medium",
         "high",
         "max"
       ],
