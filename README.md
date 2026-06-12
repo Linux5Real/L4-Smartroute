@@ -36,7 +36,7 @@ L4-Smartroute uses [Graphify](https://github.com/safishamsi/graphify) knowledge 
 curl -fsSL https://raw.githubusercontent.com/Linux5Real/L4-Smartroute/main/install.sh | bash
 ```
 
-This auto-detects your package manager (`uv` > `pipx` > `pip`), clones the repo locally, installs it editable, and registers it with Claude Code.
+This auto-detects your package manager (`uv` > `pipx` > `pip`), clones the repo locally, installs it editable, installs the Claude Code commands, and registers it with Claude Code.
 
 ### Manual
 

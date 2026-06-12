@@ -4,6 +4,8 @@ set -euo pipefail
 PACKAGE="l4-smartroute"
 REPO="https://github.com/Linux5Real/L4-Smartroute"
 REPO_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/l4-smartroute"
+CLAUDE_DIR="$HOME/.claude"
+COMMANDS_DIR="$CLAUDE_DIR/commands"
 
 info()  { printf '\033[1;34m[info]\033[0m  %s\n' "$1"; }
 ok()    { printf '\033[1;32m[ok]\033[0m    %s\n' "$1"; }
@@ -28,6 +30,33 @@ if command -v git >/dev/null 2>&1; then
 else
   fail "git is required but not found. Install Git first."
 fi
+
+# --- install Claude Code commands ---
+info "Installing Claude Code commands to $COMMANDS_DIR"
+mkdir -p "$COMMANDS_DIR"
+cat > "$COMMANDS_DIR/smartroute.md" <<'EOF'
+# Smartroute
+
+Use the `l4-smartroute` MCP server to recommend the best model for the user's current task.
+
+Rules:
+- If the user is asking about the current task or general code changes, call `analyze_task`.
+- If the user is asking about a diff or changed files, call `analyze_diff`.
+- If the user asks for the available model catalog, call `list_models`.
+- Summarize the result clearly and include the model, effort level, and any budget alternative.
+EOF
+
+cat > "$COMMANDS_DIR/smartroute-settings.md" <<'EOF'
+# Smartroute Settings
+
+Open the `l4-smartroute` configuration UI for this project.
+
+Run `l4-smartroute-setup` and help the user adjust:
+- available models
+- optimization mode
+- router mode
+- Graphify path and budget settings
+EOF
 
 # --- detect package manager ---
 if command -v uv >/dev/null 2>&1; then
