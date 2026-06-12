@@ -701,8 +701,7 @@ init();
 
 
 class SetupHandler(BaseHTTPRequestHandler):
-    def __init__(self, models, *args, **kwargs):
-        self.all_models = models
+    def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
     def log_message(self, format, *args):
@@ -712,7 +711,7 @@ class SetupHandler(BaseHTTPRequestHandler):
         if self.path == "/api/state":
             cfg = _load_cfg()
             state = {
-                "models": self.all_models,
+                "models": _load_models(),
                 "config": cfg,
                 "mtime": _config_mtime(),
             }
@@ -748,8 +747,7 @@ class SetupHandler(BaseHTTPRequestHandler):
 
 
 def run_setup(port: int = 6639):
-    models = _load_models()
-    handler = partial(SetupHandler, models)
+    handler = SetupHandler
     server = HTTPServer(("127.0.0.1", port), handler)
     url = f"http://127.0.0.1:{port}"
     open_browser = os.environ.get("L4_SMARTROUTE_OPEN_BROWSER", "1").lower() not in {

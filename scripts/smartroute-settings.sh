@@ -17,7 +17,7 @@ Open that link in your browser to configure:
 - Graphify path and budget settings
 
 After saving, changes to the optimization mode take effect immediately.
-Changes to the model list require a Claude Code restart to apply.
+Changes to the model list are picked up on the next settings-panel refresh.
 
 To stop the settings server, run: `pkill -f l4-smartroute-setup`
 EOF
