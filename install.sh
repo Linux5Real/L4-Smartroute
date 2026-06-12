@@ -48,7 +48,18 @@ ensure_repo_checkout() {
 
   if [ -d "$REPO_DIR/.git" ]; then
     info "Updating source checkout at $REPO_DIR"
-    git -C "$REPO_DIR" pull --ff-only
+    local config_backup=""
+    if [ -f "$REPO_DIR/config.yaml" ]; then
+      config_backup="$(mktemp)"
+      cp "$REPO_DIR/config.yaml" "$config_backup"
+    fi
+
+    git -C "$REPO_DIR" fetch --depth 1 origin main
+    git -C "$REPO_DIR" reset --hard FETCH_HEAD
+
+    if [ -n "$config_backup" ]; then
+      mv "$config_backup" "$REPO_DIR/config.yaml"
+    fi
   else
     info "Cloning source checkout to $REPO_DIR"
     mkdir -p "$(dirname "$REPO_DIR")"
