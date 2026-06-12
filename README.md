@@ -36,12 +36,12 @@ L4-Smartroute uses [Graphify](https://github.com/safishamsi/graphify) knowledge 
 curl -fsSL https://raw.githubusercontent.com/Linux5Real/L4-Smartroute/main/install.sh | bash
 ```
 
-This auto-detects your package manager (`uv` > `pipx` > `pip`), installs `l4-smartroute`, and registers it with Claude Code.
+This auto-detects your package manager (`uv` > `pipx` > `pip`), installs from the Git repository, and registers it with Claude Code.
 
 ### Manual
 
 ```bash
-pip install l4-smartroute
+pip install git+https://github.com/Linux5Real/L4-Smartroute.git
 claude mcp add l4-smartroute -- l4-smartroute
 ```
 

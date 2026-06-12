@@ -48,9 +48,9 @@ curl -fsSL https://raw.githubusercontent.com/Linux5Real/L4-Smartroute/main/insta
 1. **Check prerequisites:** Verify `python3` is available, error if not.
 2. **Detect package manager:** `uv` > `pipx` > `pip` (use the best available).
 3. **Install package:**
-   - `uv tool install l4-smartroute`, OR
-   - `pipx install l4-smartroute`, OR
-   - `pip install l4-smartroute`
+   - `uv tool install git+https://github.com/Linux5Real/L4-Smartroute.git`, OR
+   - `pipx install git+https://github.com/Linux5Real/L4-Smartroute.git`, OR
+   - `pip install git+https://github.com/Linux5Real/L4-Smartroute.git`
 4. **Claude Code integration:** Run `claude mcp add l4-smartroute -- l4-smartroute` to auto-register the MCP server.
    - If `claude` CLI not found: print warning with manual instructions, don't abort.
 5. **Success message:** Confirm installation, point to `l4-smartroute-setup` for configuration.

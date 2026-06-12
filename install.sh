@@ -3,6 +3,7 @@ set -euo pipefail
 
 PACKAGE="l4-smartroute"
 REPO="https://github.com/Linux5Real/L4-Smartroute"
+SOURCE="git+${REPO}.git"
 
 info()  { printf '\033[1;34m[info]\033[0m  %s\n' "$1"; }
 ok()    { printf '\033[1;32m[ok]\033[0m    %s\n' "$1"; }
@@ -18,15 +19,15 @@ command -v python3 >/dev/null 2>&1 || fail "python3 is required but not found. I
 if command -v uv >/dev/null 2>&1; then
   PM="uv"
   info "Using uv"
-  uv tool install "$PACKAGE"
+  uv tool install "$SOURCE"
 elif command -v pipx >/dev/null 2>&1; then
   PM="pipx"
   info "Using pipx"
-  pipx install "$PACKAGE"
+  pipx install "$SOURCE"
 else
   PM="pip"
   info "Using pip"
-  pip install "$PACKAGE"
+  pip install "$SOURCE"
 fi
 
 ok "$PACKAGE installed via $PM"
